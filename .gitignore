@@ -1,9 +1,0 @@
-# Credenciais do Google
-*.json
-!manifest.json
-*.env
-.env    
-
-# Se houver chaves em arquivos de script (como o seu main.js)
-# O ideal é usar variáveis de ambiente, mas para ignorar o arquivo:
-assets/script/main.js
