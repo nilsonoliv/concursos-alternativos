@@ -1,0 +1,523 @@
+"use strict";
+
+/* ==========================================================================
+   BLOCO 1: DADOS DE ORIGEM (MOCK DATA)
+   ========================================================================== */
+const QUESTOES_PADRAO = [
+    { id:1, categoria: "Conhecimentos Específicos", materia:"Legislação Profissional", assunto:"Lei 6.530/78", banca:"Quadrix", enunciado:"O exercício da profissão de Corretor de Imóveis será permitido ao possuidor de título de Técnico em Transações Imobiliárias.", imagem:null, alternativas:["Certo","Errado"], resposta_correta:0, explicacao:"Correto. A Lei 6.530/78 estabelece que o título de TTI é requisito.", status:0, historico:0 },
+    { id:2, categoria: "Conhecimentos Específicos", materia:"Legislação Profissional", assunto:"Lei 6.530/78", banca:"Quadrix", enunciado:"Compete ao COFECI aprovar o Regimento Padrão dos Conselhos Regionais (CRECI).", imagem:null, alternativas:["Certo","Errado"], resposta_correta:0, explicacao:"Correto. O COFECI é o órgão máximo normativo.", status:0, historico:0 },
+    { id:3, categoria: "Conhecimentos Específicos", materia:"Ética Profissional", assunto:"Código de Ética", banca:"Quadrix", enunciado:"Ao Corretor de Imóveis é vedado reter em suas mãos negócio, quando não tiver probabilidade de realizá-lo.", imagem:null, alternativas:["Certo","Errado"], resposta_correta:0, explicacao:"Correto. Trata-se de uma vedação expressa no Código de Ética.", status:0, historico:0 },
+    { id:4, categoria: "Conhecimentos Básicos", materia:"Língua Portuguesa", assunto:"Interpretação", banca:"Quadrix", enunciado:"A clareza é uma virtude essencial na redação de contratos imobiliários.", imagem:null, alternativas:["Certo","Errado"], resposta_correta:0, explicacao:"Correto. Textos jurídicos e contratuais exigem clareza.", status:0, historico:0 },
+    { id:5, categoria: "Conhecimentos Complementares", materia:"Noções de Direito", assunto:"Contratos", banca:"Quadrix", enunciado:"Um contrato verbal de corretagem garante sempre o direito aos honorários em qualquer litígio.", imagem:null, alternativas:["Certo","Errado"], resposta_correta:1, explicacao:"Errado. Embora o contrato verbal exista, a ausência de provas materiais dificulta a garantia legal em litígios.", status:0, historico:0 }
+];
+
+/* ==========================================================================
+   BLOCO 2: MÓDULO DE DADOS (MODEL)
+   ========================================================================== */
+class BancoDeDados {
+    constructor() {
+        this.questoes = [];
+        this.historico = [];
+        this.carregarDadosLocais();
+    }
+
+    carregarDadosLocais() {
+        const bdGuardado = localStorage.getItem('creci_2026_data');
+        const histGuardado = localStorage.getItem('creci_2026_history');
+        this.questoes = bdGuardado ? JSON.parse(bdGuardado) : JSON.parse(JSON.stringify(QUESTOES_PADRAO));
+        this.historico = histGuardado ? JSON.parse(histGuardado) : [];
+    }
+
+    guardar() {
+        localStorage.setItem('creci_2026_data', JSON.stringify(this.questoes));
+        localStorage.setItem('creci_2026_history', JSON.stringify(this.historico));
+    }
+
+    reporDeFabrica() {
+        this.questoes = JSON.parse(JSON.stringify(QUESTOES_PADRAO));
+        this.historico = [];
+        this.guardar();
+    }
+
+    importarDeFicheiro(textoJSON) {
+        try {
+            const ficheiro = JSON.parse(textoJSON);
+            if (ficheiro.bank) this.questoes = ficheiro.bank;
+            if (ficheiro.history) this.historico = ficheiro.history;
+            this.guardar();
+            return true;
+        } catch (e) { return false; }
+    }
+
+    exportarParaFicheiro() {
+        return JSON.stringify({ bank: this.questoes, history: this.historico }, null, 2);
+    }
+
+    gerarEstatisticasGlobais() {
+        let certas = 0, erradas = 0, pendentes = 0;
+        let totalAcertosHistorico = 0, totalRespondidasHistorico = 0, totalTempo = 0;
+        let analisePorMateria = {};
+
+        this.questoes.forEach(q => {
+            let estado = q.historico !== undefined ? q.historico : q.status;
+            if (estado === 1) certas++;
+            else if (estado === 2) erradas++;
+            else pendentes++;
+            if (!analisePorMateria[q.materia]) analisePorMateria[q.materia] = { t: 0, c: 0, e: 0 };
+            analisePorMateria[q.materia].t++;
+            if (estado === 1) analisePorMateria[q.materia].c++;
+            if (estado === 2) analisePorMateria[q.materia].e++;
+        });
+
+        this.historico.forEach(simulado => {
+            totalAcertosHistorico += simulado.acertos || 0;
+            totalRespondidasHistorico += simulado.totalRespondidas || 0;
+            totalTempo += simulado.tempoGasto || 0;
+        });
+
+        const precisaoPerc = totalRespondidasHistorico > 0 ? Math.round((totalAcertosHistorico / totalRespondidasHistorico) * 100) : 0;
+        const tempoMedioSegundos = totalRespondidasHistorico > 0 ? Math.round(totalTempo / totalRespondidasHistorico) : 0;
+
+        return { certas, erradas, pendentes, precisaoPerc, tempoMedioSegundos, analisePorMateria };
+    }
+}
+
+/* ==========================================================================
+   BLOCO 3: MÓDULO DE INTERFACE (VIEW)
+   ========================================================================== */
+class InterfaceGrafica {
+    navegarPara(idEcra) {
+        document.querySelectorAll('.view').forEach(ecra => ecra.classList.add('hidden-view'));
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(idEcra).classList.remove('hidden-view');
+        const botaoMenu = document.querySelector(`[data-target="${idEcra}"]`);
+        if (botaoMenu) botaoMenu.classList.add('active');
+    }
+
+    async mostrarAviso(mensagem, titulo = "Aviso", tipo = "alert", explicacao = null) {
+        return new Promise((resolver) => {
+            document.getElementById('modal-title').innerText = titulo;
+            document.getElementById('modal-msg').innerText = mensagem;
+            const caixaExplicacao = document.getElementById('modal-exp');
+            if (explicacao) {
+                caixaExplicacao.innerHTML = `<strong>Explicação:</strong> ${explicacao}`;
+                caixaExplicacao.classList.remove('hidden-view');
+            } else {
+                caixaExplicacao.classList.add('hidden-view');
+            }
+            const modal = document.getElementById('custom-modal');
+            const btnCancelar = document.getElementById('modal-btn-cancel');
+            const btnOk = document.getElementById('modal-btn-ok');
+            modal.classList.remove('hidden-view');
+            if (tipo === "confirm") {
+                btnCancelar.classList.remove('hidden-view');
+                btnOk.className = "btn btn-danger";
+            } else {
+                btnCancelar.classList.add('hidden-view');
+                btnOk.className = "btn btn-primary";
+            }
+            const fecharModal = (resultado) => {
+                modal.classList.add('hidden-view');
+                btnOk.onclick = null;
+                btnCancelar.onclick = null;
+                resolver(resultado);
+            };
+            btnOk.onclick = () => fecharModal(true);
+            btnCancelar.onclick = () => fecharModal(false);
+        });
+    }
+
+    desenharPainelEstatisticas(metricas) {
+        document.getElementById('stat-certas').innerText = metricas.certas;
+        document.getElementById('stat-erradas').innerText = metricas.erradas;
+        document.getElementById('stat-pendentes').innerText = metricas.pendentes;
+        document.getElementById('stat-tempo').innerText = `${metricas.tempoMedioSegundos}s`;
+        document.getElementById('stat-perc').innerText = `${metricas.precisaoPerc}%`;
+        document.getElementById('main-donut').style.setProperty('--perc', `${metricas.precisaoPerc}%`);
+        this.desenharAnaliseSWOT(metricas.analisePorMateria);
+        this.desenharGraficoBarras(metricas.analisePorMateria);
+    }
+
+    desenharGraficoBarras(analisePorMateria) {
+        const container = document.getElementById('materia-bar-chart');
+        if (!container) return;
+        container.innerHTML = '';
+        for (let materia in analisePorMateria) {
+            let dados = analisePorMateria[materia];
+            let respondidas = dados.c + dados.e;
+            let percentagem = respondidas > 0 ? Math.round((dados.c / respondidas) * 100) : 0;
+            const row = document.createElement('div');
+            row.className = 'bar-chart-row';
+            row.innerHTML = `
+                <div class="bar-label"><span>${materia}</span><span>${percentagem}%</span></div>
+                <div class="bar-container"><div class="bar-fill" style="width: ${percentagem}%"></div></div>
+            `;
+            container.appendChild(row);
+        }
+    }
+
+    desenharAnaliseSWOT(analisePorMateria) {
+        let fortesHTML = '', atencaoHTML = '';
+        for (let materia in analisePorMateria) {
+            let dados = analisePorMateria[materia];
+            let respondidas = dados.c + dados.e;
+            if (respondidas > 0) {
+                let percentagem = Math.round((dados.c / respondidas) * 100);
+                let itemHtml = `<li class="swot-item"><span>${materia}</span> <span class="perc">${percentagem}%</span></li>`;
+                if (percentagem >= 80) fortesHTML += itemHtml;
+                else if (percentagem < 60) atencaoHTML += itemHtml;
+            }
+        }
+        document.getElementById('swot-fortes').innerHTML = fortesHTML || '<li class="empty-state">Sem métricas suficientes.</li>';
+        document.getElementById('swot-atencao').innerHTML = atencaoHTML || '<li class="empty-state">Sem alertas no momento.</li>';
+    }
+
+    desenharHistorico(historicoArray) {
+        const caixa = document.getElementById('historico-list');
+        caixa.innerHTML = '';
+        if (historicoArray.length === 0) {
+            caixa.innerHTML = '<div class="empty-state">Nenhum simulado realizado ainda.</div>';
+            return;
+        }
+        [...historicoArray].reverse().forEach(simulado => {
+            const dataObj = new Date(simulado.data);
+            const formatoData = `${dataObj.getDate().toString().padStart(2, '0')}/${(dataObj.getMonth()+1).toString().padStart(2, '0')}/${dataObj.getFullYear()} ${dataObj.getHours().toString().padStart(2, '0')}:${dataObj.getMinutes().toString().padStart(2, '0')}`;
+            const item = document.createElement('div');
+            item.className = 'history-card';
+            item.innerHTML = `
+                <div>
+                    <div class="h-title">Simulado ${simulado.modo}</div>
+                    <div class="h-meta">${formatoData} • Duração: ${Math.round(simulado.tempoGasto / 60)}m ${simulado.tempoGasto % 60}s</div>
+                </div>
+                <div class="h-score">${simulado.acertos}/${simulado.totalRespondidas}</div>
+            `;
+            caixa.appendChild(item);
+        });
+    }
+
+    preencherFiltros(listaQuestoes) {
+        const materiasUnicas = [...new Set(listaQuestoes.map(q => q.materia))];
+        const selectMateria = document.getElementById('sel-materia');
+        selectMateria.innerHTML = '<option value="todas">Todas as Matérias</option>';
+        materiasUnicas.forEach(m => selectMateria.innerHTML += `<option value="${m}">${m}</option>`);
+    }
+
+    atualizarAssuntos(listaQuestoes, materiaSelecionada) {
+        let assuntosValidos = [];
+        if (materiaSelecionada === 'todas') assuntosValidos = [...new Set(listaQuestoes.map(q => q.assunto))];
+        else assuntosValidos = [...new Set(listaQuestoes.filter(q => q.materia === materiaSelecionada).map(q => q.assunto))];
+        const selectAssunto = document.getElementById('sel-assunto');
+        selectAssunto.innerHTML = '<option value="todos">Todos os Assuntos</option>';
+        assuntosValidos.forEach(a => selectAssunto.innerHTML += `<option value="${a}">${a}</option>`);
+    }
+
+    exibirQuestaoAtual(questao, indiceAtual, totalQuestoes, aoSelecionarOpcao, aoConfirmar) {
+        document.getElementById('q-header-info').innerText = `#${questao.id} | ${questao.materia} > ${questao.assunto} (${questao.banca})`;
+        document.getElementById('q-counter').innerText = `Questão ${indiceAtual + 1} de ${totalQuestoes}`;
+        document.getElementById('q-enunciado').innerText = questao.enunciado;
+        const imgCont = document.getElementById('q-imagem-container');
+        if (questao.imagem) { document.getElementById('q-imagem').src = questao.imagem; imgCont.classList.remove('hidden-view'); }
+        else { imgCont.classList.add('hidden-view'); }
+        document.getElementById('q-feedback').classList.add('hidden-view');
+        const btnResp = document.getElementById('btn-responder');
+        btnResp.innerText = "Responder";
+        btnResp.disabled = true;
+        btnResp.onclick = aoConfirmar;
+        const caixaAlternativas = document.getElementById('q-alternativas');
+        caixaAlternativas.innerHTML = ''; 
+        questao.alternativas.forEach((texto, idx) => {
+            const btn = document.createElement('button');
+            btn.className = "option-btn";
+            btn.innerHTML = `<span class="option-letter">${String.fromCharCode(65 + idx)}.</span> ${texto}`;
+            btn.addEventListener('click', () => { if (btnResp.innerText === "Responder") aoSelecionarOpcao(idx); });
+            caixaAlternativas.appendChild(btn);
+        });
+    }
+
+    marcarOpcaoVisualmente(idx) {
+        const botoes = document.getElementById('q-alternativas').children;
+        Array.from(botoes).forEach(btn => btn.classList.remove('selected'));
+        botoes[idx].classList.add('selected');
+        document.getElementById('btn-responder').disabled = false;
+    }
+
+    mostrarCorrecaoLocal(acertou, explicacao, correta, selecionada, aoClicarProxima) {
+        const botoes = document.getElementById('q-alternativas').children;
+        const quadro = document.getElementById('q-feedback');
+        const btnResp = document.getElementById('btn-responder');
+        Array.from(botoes).forEach((btn, idx) => {
+            btn.classList.remove('selected'); btn.disabled = true; 
+            if (idx === correta) btn.classList.add('correct');
+            else if (idx === selecionada && !acertou) btn.classList.add('incorrect');
+        });
+        quadro.className = `feedback-box ${acertou ? 'success' : 'danger'}`;
+        quadro.innerHTML = `<strong>${acertou ? 'Correta!' : 'Incorreta.'}</strong> Gabarito: ${String.fromCharCode(65 + correta)}.<br><br><strong>Explicação:</strong> ${explicacao}`;
+        btnResp.innerText = "Próxima Questão";
+        btnResp.onclick = aoClicarProxima;
+    }
+
+    atualizarStatusCloud(usuario) {
+        const divOut = document.getElementById('cloud-logged-out');
+        const divIn = document.getElementById('cloud-logged-in');
+        if (usuario) {
+            divOut.classList.add('hidden-view');
+            divIn.classList.remove('hidden-view');
+            document.getElementById('user-name').innerText = usuario.displayName || usuario.email;
+        } else {
+            divOut.classList.remove('hidden-view');
+            divIn.classList.add('hidden-view');
+        }
+    }
+}
+
+/* ==========================================================================
+   BLOCO 4: MÓDULO MOTOR DO SIMULADO (CONTROLLER)
+   ========================================================================== */
+class MotorSimulado {
+    constructor(baseDados, interfaceGrafica) {
+        this.bd = baseDados;
+        this.ui = interfaceGrafica;
+        this.modo = 'livre';
+        this.fila = [];
+        this.indiceAtual = 0;
+        this.opcaoAguardando = null;
+        this.acertosSessao = 0;
+        this.momentoInicio = 0;
+        this.intervaloRelogio = null;
+        this.segundosRestantes = 0;
+    }
+
+    async iniciarConfigurado(modo, tempo, qtd, materia, assunto) {
+        this.modo = modo; this.acertosSessao = 0; this.momentoInicio = Math.floor(Date.now() / 1000); 
+        if (this.modo === 'prova') {
+            this.segundosRestantes = 150 * 60; document.getElementById('q-timer').classList.remove('hidden-view');
+            this.iniciarRelogio(); await this.criarFilaProvaOficial();
+        } else {
+            if (tempo > 0 && this.modo === 'cronometrado') {
+                this.segundosRestantes = tempo * 60; document.getElementById('q-timer').classList.remove('hidden-view');
+                this.iniciarRelogio();
+            } else { document.getElementById('q-timer').classList.add('hidden-view'); }
+            await this.criarFilaCustomizada(qtd, materia, assunto);
+        }
+        if (this.fila.length === 0) return;
+        document.getElementById('simulado-setup').classList.add('hidden-view');
+        document.getElementById('simulado-runner').classList.remove('hidden-view');
+        this.prepararQuestaoAtual();
+    }
+
+    async criarFilaCustomizada(qtd, materia, assunto) {
+        let cand = this.bd.questoes.filter(q => q.status !== 1);
+        if (materia !== 'todas') cand = cand.filter(q => q.materia === materia);
+        if (this.modo === 'livre' && assunto !== 'todos') cand = cand.filter(q => q.assunto === assunto);
+
+        if (cand.length === 0) {
+            const res = await this.ui.mostrarAviso("Esgotou as questões. Reiniciar banco?", "Banco Esgotado", "confirm");
+            if (res) { this.bd.questoes.forEach(q => q.status = 0); this.bd.guardar(); return this.criarFilaCustomizada(qtd, materia, assunto); }
+            this.fila = []; return;
+        }
+        cand.sort(() => Math.random() - 0.5); cand.sort((a, b) => b.status - a.status); 
+        this.fila = cand.slice(0, qtd); this.indiceAtual = 0;
+    }
+
+    async criarFilaProvaOficial() {
+        let cand = this.bd.questoes.filter(q => q.status !== 1);
+        if (cand.length === 0) {
+            const res = await this.ui.mostrarAviso("Esgotou as questões. Repor para a prova?", "Banco Esgotado", "confirm");
+            if (res) { this.bd.questoes.forEach(q => q.status = 0); this.bd.guardar(); return this.criarFilaProvaOficial(); }
+            this.fila = []; return;
+        }
+        cand.sort(() => Math.random() - 0.5); cand.sort((a, b) => b.status - a.status); 
+        let cb = cand.filter(q => q.categoria === "Conhecimentos Básicos").slice(0, 15);
+        let cc = cand.filter(q => q.categoria === "Conhecimentos Complementares").slice(0, 5);
+        let ce = cand.filter(q => q.categoria === "Conhecimentos Específicos").slice(0, 20);
+        this.fila = [...cb, ...cc, ...ce];
+        if (this.fila.length === 0) { await this.ui.mostrarAviso("Erro na geração da prova."); return; }
+        this.fila.sort(() => Math.random() - 0.5); this.indiceAtual = 0;
+    }
+
+    iniciarRelogio() {
+        if(this.intervaloRelogio) clearInterval(this.intervaloRelogio);
+        this.atualizarVisorTimer();
+        this.intervaloRelogio = setInterval(async () => {
+            this.segundosRestantes--; this.atualizarVisorTimer();
+            if (this.segundosRestantes <= 0) { clearInterval(this.intervaloRelogio); await this.ui.mostrarAviso("Tempo esgotado!"); this.encerrarSessao(); }
+        }, 1000);
+    }
+
+    atualizarVisorTimer() {
+        const h = Math.floor(this.segundosRestantes / 3600), m = Math.floor((this.segundosRestantes % 3600) / 60), s = this.segundosRestantes % 60;
+        document.getElementById('timer-text').innerText = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+
+    prepararQuestaoAtual() {
+        const q = this.fila[this.indiceAtual]; this.opcaoAguardando = null; 
+        this.ui.exibirQuestaoAtual(q, this.indiceAtual, this.fila.length, 
+            (idx) => { this.opcaoAguardando = idx; this.ui.marcarOpcaoVisualmente(idx); },
+            () => this.submeterResposta()
+        );
+    }
+
+    submeterResposta() {
+        if (this.opcaoAguardando === null) return; 
+        const qFila = this.fila[this.indiceAtual], qOrig = this.bd.questoes.find(q => q.id === qFila.id), ok = (this.opcaoAguardando === qOrig.resposta_correta);
+        if (ok) this.acertosSessao++;
+        qOrig.status = ok ? 1 : 2; qOrig.historico = ok ? 1 : 2; this.bd.guardar();
+        this.ui.mostrarCorrecaoLocal(ok, qOrig.explicacao, qOrig.resposta_correta, this.opcaoAguardando, () => this.avancarSessao());
+    }
+
+    avancarSessao() {
+        this.indiceAtual++;
+        if (this.indiceAtual < this.fila.length) this.prepararQuestaoAtual();
+        else this.encerrarSessao();
+    }
+
+    cancelarSessao() {
+        if(this.intervaloRelogio) clearInterval(this.intervaloRelogio);
+        const dur = Math.floor(Date.now() / 1000) - this.momentoInicio;
+        if (this.indiceAtual > 0) {
+            this.bd.historico.push({ data: new Date().toISOString(), modo: this.modo + ' (Canc.)', acertos: this.acertosSessao, totalRespondidas: this.indiceAtual, tempoGasto: dur });
+            this.bd.guardar();
+        }
+        document.getElementById('simulado-runner').classList.add('hidden-view');
+        document.getElementById('simulado-setup').classList.remove('hidden-view');
+    }
+
+    encerrarSessao() {
+        if(this.intervaloRelogio) clearInterval(this.intervaloRelogio);
+        const dur = Math.floor(Date.now() / 1000) - this.momentoInicio;
+        this.bd.historico.push({ data: new Date().toISOString(), modo: this.modo, acertos: this.acertosSessao, totalRespondidas: this.indiceAtual, tempoGasto: dur });
+        this.bd.guardar();
+        document.getElementById('simulado-runner').classList.add('hidden-view');
+        document.getElementById('fim-score').innerText = `${this.acertosSessao}/${this.indiceAtual}`;
+        document.getElementById('simulado-fim').classList.remove('hidden-view');
+    }
+}
+
+/* ==========================================================================
+   BLOCO 5: APLICAÇÃO PRINCIPAL (APP GESTOR)
+   ========================================================================== */
+class AppGestor {
+    constructor() {
+        this.bd = new BancoDeDados();
+        this.ui = new InterfaceGrafica();
+        this.simulador = new MotorSimulado(this.bd, this.ui);
+        this.auth = null; this.db = null; this.user = null;
+        this.appId = typeof __app_id !== 'undefined' ? __app_id : 'simulador-creci-2026';
+    }
+
+    async iniciarSistema() {
+        await this.inicializarFirebase();
+        this.configurarOuvintes();
+        this.mudarEcra('view-dashboard');
+    }
+
+    async inicializarFirebase() {
+        try {
+            const { initializeApp, getAuth, onAuthStateChanged, getFirestore, signInWithCustomToken, signInAnonymously } = window.FirebaseSDK;
+            const config = JSON.parse(__firebase_config);
+            const app = initializeApp(config);
+            this.auth = getAuth(app);
+            this.db = getFirestore(app);
+
+            // REGRA 3: Auth Antes de Consultas
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                await signInWithCustomToken(this.auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(this.auth);
+            }
+
+            onAuthStateChanged(this.auth, (user) => {
+                this.user = user;
+                this.ui.atualizarStatusCloud(user && !user.isAnonymous ? user : null);
+            });
+        } catch (e) { console.error("Firebase Init Error:", e); }
+    }
+
+    configurarOuvintes() {
+        document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', (e) => this.mudarEcra(e.target.dataset.target)));
+        
+        document.querySelectorAll('.setup-card').forEach(c => c.addEventListener('click', (e) => {
+            document.querySelectorAll('.setup-card').forEach(x => x.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            const m = e.currentTarget.dataset.mode;
+            ['field-materia', 'field-assunto', 'field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.add('hidden-view'));
+            if (m === 'livre') ['field-materia', 'field-assunto', 'field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.remove('hidden-view'));
+            else if (m === 'cronometrado') ['field-materia', 'field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.remove('hidden-view'));
+        }));
+
+        document.getElementById('sel-materia').addEventListener('change', (e) => this.ui.atualizarAssuntos(this.bd.questoes, e.target.value));
+        document.getElementById('btn-iniciar').addEventListener('click', () => {
+            const active = document.querySelector('.setup-card.active'), m = active ? active.dataset.mode : 'livre';
+            this.simulador.iniciarConfigurado(m, parseInt(document.getElementById('num-tempo').value), parseInt(document.getElementById('num-qtd').value), document.getElementById('sel-materia').value, document.getElementById('sel-assunto').value);
+        });
+        document.getElementById('btn-cancelar').addEventListener('click', async () => {
+            if (await this.ui.mostrarAviso("Cancelar simulado atual?", "Confirmar", "confirm")) this.simulador.cancelarSessao();
+        });
+        document.getElementById('btn-voltar-painel').addEventListener('click', () => this.mudarEcra('view-dashboard'));
+
+        // GOOGLE CLOUD
+        document.getElementById('btn-login-google').addEventListener('click', async () => {
+            const { signInWithPopup, GoogleAuthProvider } = window.FirebaseSDK;
+            try {
+                await signInWithPopup(this.auth, new GoogleAuthProvider());
+            } catch (err) {
+                // EXIBE O ERRO REAL PARA DEPURAÇÃO
+                await this.ui.mostrarAviso(`Erro Firebase (${err.code}): Certifique-se que o domínio está autorizado no console do Firebase e que o Google Auth está ativo.`, "Falha no Login");
+            }
+        });
+
+        document.getElementById('btn-logout').addEventListener('click', async () => {
+            await window.FirebaseSDK.signOut(this.auth); this.user = null; this.ui.atualizarStatusCloud(null);
+        });
+
+        document.getElementById('btn-cloud-upload').addEventListener('click', async () => {
+            if (!this.user || this.user.isAnonymous) return;
+            try {
+                // REGRA 1: Caminho estrito
+                const ref = window.FirebaseSDK.doc(this.db, 'artifacts', this.appId, 'users', this.user.uid, 'settings', 'simulationData');
+                await window.FirebaseSDK.setDoc(ref, { bank: this.bd.questoes, history: this.bd.historico, updatedAt: new Date().toISOString() });
+                await this.ui.mostrarAviso("Dados salvos na nuvem!");
+            } catch (e) { await this.ui.mostrarAviso("Erro ao subir dados."); }
+        });
+
+        document.getElementById('btn-cloud-download').addEventListener('click', async () => {
+            if (!this.user || this.user.isAnonymous) return;
+            try {
+                const ref = window.FirebaseSDK.doc(this.db, 'artifacts', this.appId, 'users', this.user.uid, 'settings', 'simulationData');
+                const snap = await window.FirebaseSDK.getDoc(ref);
+                if (snap.exists()) {
+                    const d = snap.data(); this.bd.questoes = d.bank; this.bd.historico = d.history; this.bd.guardar();
+                    await this.ui.mostrarAviso("Dados restaurados da nuvem!"); this.mudarEcra('view-dashboard');
+                } else { await this.ui.mostrarAviso("Sem dados na nuvem."); }
+            } catch (e) { await this.ui.mostrarAviso("Erro ao baixar dados."); }
+        });
+
+        // BACKUP LOCAL
+        document.getElementById('btn-exportar').addEventListener('click', () => {
+            const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([this.bd.exportarParaFicheiro()], { type: "application/json" }));
+            a.download = `backup_creci_${Date.now()}.json`; a.click();
+        });
+        document.getElementById('btn-importar').addEventListener('change', (ev) => {
+            const f = ev.target.files[0]; if (!f) return;
+            const r = new FileReader(); r.onload = (e) => { if(this.bd.importarDeFicheiro(e.target.result)) this.mudarEcra('view-dashboard'); };
+            r.readAsText(f);
+        });
+        document.getElementById('btn-resetar').addEventListener('click', async () => {
+            if (await this.ui.mostrarAviso("Apagar tudo?", "Alerta", "confirm")) { this.bd.reporDeFabrica(); this.mudarEcra('view-dashboard'); }
+        });
+    }
+
+    mudarEcra(dest) {
+        this.ui.navegarPara(dest);
+        if (dest === 'view-dashboard') {
+            const est = this.bd.gerarEstatisticasGlobais();
+            this.ui.desenharPainelEstatisticas(est); this.ui.desenharHistorico(this.bd.historico);
+        } else if (dest === 'view-simulado') {
+            ['simulado-setup', 'simulado-runner', 'simulado-fim'].forEach(f => document.getElementById(f).classList.add('hidden-view'));
+            document.getElementById('simulado-setup').classList.remove('hidden-view');
+            this.ui.preencherFiltros(this.bd.questoes); this.ui.atualizarAssuntos(this.bd.questoes, 'todas');
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => { (new AppGestor()).iniciarSistema(); });
