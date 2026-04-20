@@ -225,7 +225,8 @@
 
             /**
              * Faz o download do progresso em um arquivo (Backup)
-             */
+             * ANTIGA FUNÇÃO SIMPLES DE EXPORTAÇÃO, SEM PERMISSÃO DE ESCOLHER O LOCAL:
+             * Mantida temporariamente para referência, mas a nova função exportData() abaixo é a recomendada.
             const exportData = () => {
                 const dataToExport = {};
                 
@@ -250,6 +251,103 @@
                 a.click();
                 a.remove();
             };
+            */
+
+            // ==============================================================================
+            // MÓDULO DE BACKUP E EXPORTAÇÃO
+            // ==============================================================================
+
+            /**
+             * Coleta e formata os dados do LocalStorage para exportação.
+             * Responsabilidade: Apenas preparar e empacotar os dados do usuário.
+             * @returns {string} Dados formatados em string JSON.
+             */
+            const collectDataForExport = () => {
+                const dataToExport = {};
+                
+                // Coleta o status de cada item do checklist
+                state.checklistData.forEach(item => {
+                    const val = localStorage.getItem(item.id);
+                    if (val !== null) dataToExport[item.id] = val;
+                });
+                
+                // Coleta dados das fases e do sistema de ofensivas (streaks)
+                const extraKeys = ['lastStudyDate', 'currentStreak', 'bestStreak', 'phase-1-done', 'phase-2-done', 'phase-3-done', 'phase-4-done'];
+                extraKeys.forEach(key => {
+                    const val = localStorage.getItem(key);
+                    if (val !== null) dataToExport[key] = val;
+                });
+
+                return JSON.stringify(dataToExport, null, 2);
+            };
+
+            /**
+             * Salva o arquivo permitindo ao usuário escolher o diretório (File System Access API).
+             * Responsabilidade: Interagir com o sistema de arquivos do sistema operacional.
+             * @param {string} content - O conteúdo do arquivo JSON.
+             * @param {string} fileName - O nome sugerido para o arquivo.
+             */
+            const saveFileWithPicker = async (content, fileName) => {
+                try {
+                    // Abre a janela nativa do SO para o usuário escolher onde salvar
+                    const handle = await window.showSaveFilePicker({
+                        suggestedName: fileName,
+                        types: [{
+                            description: 'Arquivo JSON de Backup',
+                            accept: { 'application/json': ['.json'] },
+                        }],
+                    });
+                    
+                    // Cria um stream de escrita, salva o conteúdo e fecha o arquivo
+                    const writable = await handle.createWritable();
+                    await writable.write(content);
+                    await writable.close();
+                    
+                    alert('Backup salvo com sucesso no local escolhido!');
+                } catch (error) {
+                    // Silencia o erro caso o usuário simplesmente clique em "Cancelar" na janela
+                    if (error.name !== 'AbortError') {
+                        console.error('Erro ao salvar o arquivo:', error);
+                        alert('Não foi possível salvar o arquivo. Verifique as permissões do navegador.');
+                    }
+                }
+            };
+
+            /**
+             * Fallback tradicional para navegadores que não suportam a API moderna.
+             * Responsabilidade: Forçar o download caso window.showSaveFilePicker não exista.
+             * @param {string} content - O conteúdo do arquivo JSON.
+             * @param {string} fileName - O nome sugerido para o arquivo.
+             */
+            const saveFileFallback = (content, fileName) => {
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(content);
+                const a = document.createElement('a');
+                a.href = dataStr;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            };
+
+            /**
+             * Orquestrador principal da exportação de dados.
+             * Responsabilidade: Coordenar a coleta de dados e decidir qual método de salvamento utilizar.
+             */
+            const exportData = async () => {
+                const jsonContent = collectDataForExport();
+                const defaultFileName = 'dashboard2.json';
+
+                // Verifica se o navegador possui suporte para perguntar o local de salvamento
+                if (window.showSaveFilePicker) {
+                    await saveFileWithPicker(jsonContent, defaultFileName);
+                } else {
+                    // Método clássico caso o navegador seja incompatível com a nova API
+                    saveFileFallback(jsonContent, defaultFileName);
+                }
+            };
+
+
+
 
             /**
              * Lê o arquivo de backup e restaura o progresso
