@@ -352,6 +352,7 @@
             /**
              * Lê o arquivo de backup e restaura o progresso
              */
+
             const handleImportFile = (e) => {
                 const file = e.target.files[0];
                 if (!file) return;
@@ -362,18 +363,27 @@
                         const importedData = JSON.parse(event.target.result);
                         const validKeys = [...state.checklistData.map(item => item.id), 'lastStudyDate', 'currentStreak', 'bestStreak', 'phase-1-done', 'phase-2-done', 'phase-3-done', 'phase-4-done'];
                         
-                        // Salva os dados de volta no navegador
-                        Object.keys(importedData).forEach(key => {
-                            if (validKeys.includes(key)) localStorage.setItem(key, importedData[key]);
+                        // SOLUÇÃO: Varrer todas as chaves mapeadas pela aplicação
+                        validKeys.forEach(key => {
+                            if (importedData[key] !== undefined) {
+                                // Se o dado existe no backup, restaura
+                                localStorage.setItem(key, importedData[key]);
+                            } else {
+                                // Se não existe no backup, significa que a ação não havia sido feita na época.
+                                // Limpamos do navegador para evitar acumulo de progresso irreal!
+                                localStorage.removeItem(key);
+                            }
                         });
                         
                         alert('Eba! Seu backup foi restaurado com sucesso!');
                         
-                        // Atualiza as partes visuais
+                        // Atualiza todas as partes visuais garantindo sincronia total
                         renderChecklist();
                         initStreak();
                         initPhases();
-                        switchTab('check'); // Muda para a aba de checklist pra pessoa ver
+                        initCountdown(); // Inserido para forçar o recálculo e renderização do Header
+                        switchTab('check'); 
+                        
                     } catch (err) {
                         alert('Ops! O arquivo parece inválido ou corrompido.');
                     }
@@ -381,6 +391,7 @@
                 };
                 reader.readAsText(file);
             };
+
 
             // Funções de utilidade para lidar com as datas
             const getTodayStr = () => {

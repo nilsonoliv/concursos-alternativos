@@ -1,15 +1,6 @@
 "use strict";
 
-/* ==========================================================================
-   BLOCO 1: DADOS DE ORIGEM (MOCK DATA)
-   ========================================================================== */
-const QUESTOES_PADRAO = [
-    { id:1, categoria: "Conhecimentos Específicos", materia:"Legislação Profissional", assunto:"Lei 6.530/78", banca:"Quadrix", enunciado:"O exercício da profissão de Corretor de Imóveis será permitido ao possuidor de título de Técnico em Transações Imobiliárias.", imagem:null, alternativas:["Certo","Errado"], resposta_correta:0, explicacao:"Correto. A Lei 6.530/78 estabelece que o título de TTI é requisito.", status:0, historico:0 },
-    { id:2, categoria: "Conhecimentos Específicos", materia:"Legislação Profissional", assunto:"Lei 6.530/78", banca:"Quadrix", enunciado:"Compete ao COFECI aprovar o Regimento Padrão dos Conselhos Regionais (CRECI).", imagem:null, alternativas:["Certo","Errado"], resposta_correta:0, explicacao:"Correto. O COFECI é o órgão máximo normativo.", status:0, historico:0 },
-    { id:3, categoria: "Conhecimentos Específicos", materia:"Ética Profissional", assunto:"Código de Ética", banca:"Quadrix", enunciado:"Ao Corretor de Imóveis é vedado reter em suas mãos negócio, quando não tiver probabilidade de realizá-lo.", imagem:null, alternativas:["Certo","Errado"], resposta_correta:0, explicacao:"Correto. Trata-se de uma vedação expressa no Código de Ética.", status:0, historico:0 },
-    { id:4, categoria: "Conhecimentos Básicos", materia:"Língua Portuguesa", assunto:"Interpretação", banca:"Quadrix", enunciado:"A clareza é uma virtude essencial na redação de contratos imobiliários.", imagem:null, alternativas:["Certo","Errado"], resposta_correta:0, explicacao:"Correto. Textos jurídicos e contratuais exigem clareza.", status:0, historico:0 },
-    { id:5, categoria: "Conhecimentos Complementares", materia:"Noções de Direito", assunto:"Contratos", banca:"Quadrix", enunciado:"Um contrato verbal de corretagem garante sempre o direito aos honorários em qualquer litígio.", imagem:null, alternativas:["Certo","Errado"], resposta_correta:1, explicacao:"Errado. Embora o contrato verbal exista, a ausência de provas materiais dificulta a garantia legal em litígios.", status:0, historico:0 }
-];
+import { QUESTOES_PADRAO } from './modules/questions.js';
 
 /* ==========================================================================
    BLOCO 2: MÓDULO DE DADOS (MODEL)
@@ -21,11 +12,53 @@ class BancoDeDados {
         this.carregarDadosLocais();
     }
 
+    /**
+     * [ARQUITETURA SÊNIOR] Sincronização Inteligente
+     * Este método agora compara o banco local (navegador) com o banco estático (código).
+     * Se houver IDs novos no código, eles são mesclados sem apagar o progresso existente.
+     */
     carregarDadosLocais() {
         const bdGuardado = localStorage.getItem('creci_2026_data');
         const histGuardado = localStorage.getItem('creci_2026_history');
-        this.questoes = bdGuardado ? JSON.parse(bdGuardado) : JSON.parse(JSON.stringify(QUESTOES_PADRAO));
+        
         this.historico = histGuardado ? JSON.parse(histGuardado) : [];
+        let questoesEmMemoria = bdGuardado ? JSON.parse(bdGuardado) : [];
+
+        if (questoesEmMemoria.length > 0) {
+            let houveMudanca = false;
+            
+            // Loop pelas questões definidas no código
+            QUESTOES_PADRAO.forEach(qPadrao => {
+                // Tenta encontrar a questão equivalente na memória do navegador pelo ID
+                const index = questoesEmMemoria.findIndex(qMem => qMem.id === qPadrao.id);
+                
+                if (index === -1) {
+                    // Caso 1: A questão é nova (ID inédito). Adicionamos ao banco.
+                    questoesEmMemoria.push(JSON.parse(JSON.stringify(qPadrao)));
+                    houveMudanca = true;
+                } else {
+                    // Caso 2: A questão já existe. 
+                    // Opcional: Podemos atualizar o enunciado/explicação se mudarem no código, 
+                    // preservando o 'status' e 'historico' (progresso do aluno).
+                    if (questoesEmMemoria[index].enunciado !== qPadrao.enunciado) {
+                        questoesEmMemoria[index].enunciado = qPadrao.enunciado;
+                        questoesEmMemoria[index].explicacao = qPadrao.explicacao;
+                        questoesEmMemoria[index].alternativas = qPadrao.alternativas;
+                        questoesEmMemoria[index].resposta_correta = qPadrao.resposta_correta;
+                        houveMudanca = true;
+                    }
+                }
+            });
+
+            this.questoes = questoesEmMemoria;
+            if (houveMudanca) {
+                this.guardar(); // Persiste a mesclagem
+            }
+        } else {
+            // Primeira execução: carrega tudo do zero
+            this.questoes = JSON.parse(JSON.stringify(QUESTOES_PADRAO));
+            this.guardar();
+        }
     }
 
     guardar() {
@@ -34,19 +67,26 @@ class BancoDeDados {
     }
 
     reporDeFabrica() {
-        this.questoes = JSON.parse(JSON.stringify(QUESTOES_PADRAO));
-        this.historico = [];
-        this.guardar();
+        if (confirm("Isso apagará todo seu histórico de acertos e erros. Continuar?")) {
+            this.questoes = JSON.parse(JSON.stringify(QUESTOES_PADRAO));
+            this.historico = [];
+            this.guardar();
+            location.reload(); // Recarrega para limpar estados de memória
+        }
     }
 
     importarDeFicheiro(textoJSON) {
         try {
             const ficheiro = JSON.parse(textoJSON);
-            if (ficheiro.bank) this.questoes = ficheiro.bank;
-            if (ficheiro.history) this.historico = ficheiro.history;
+            if (!ficheiro || typeof ficheiro !== 'object') return false;
+            this.questoes = ficheiro.bank || JSON.parse(JSON.stringify(QUESTOES_PADRAO));
+            this.historico = ficheiro.history || [];
             this.guardar();
             return true;
-        } catch (e) { return false; }
+        } catch (e) {
+            console.error("Erro ao importar o JSON de backup:", e);
+            return false;
+        }
     }
 
     exportarParaFicheiro() {
@@ -82,9 +122,10 @@ class BancoDeDados {
     }
 }
 
-/* ==========================================================================
-   BLOCO 3: MÓDULO DE INTERFACE (VIEW)
-   ========================================================================== */
+/* BLOCOS 3, 4 e 5 permanecem iguais ao padrão anterior... */
+/* Para brevidade, assumimos que InterfaceGrafica, MotorSimulado e AppGestor 
+   estão carregados conforme o arquivo original. */
+
 class InterfaceGrafica {
     navegarPara(idEcra) {
         document.querySelectorAll('.view').forEach(ecra => ecra.classList.add('hidden-view'));
@@ -270,9 +311,6 @@ class InterfaceGrafica {
     }
 }
 
-/* ==========================================================================
-   BLOCO 4: MÓDULO MOTOR DO SIMULADO (CONTROLLER)
-   ========================================================================== */
 class MotorSimulado {
     constructor(baseDados, interfaceGrafica) {
         this.bd = baseDados;
@@ -393,9 +431,6 @@ class MotorSimulado {
     }
 }
 
-/* ==========================================================================
-   BLOCO 5: APLICAÇÃO PRINCIPAL (APP GESTOR)
-   ========================================================================== */
 class AppGestor {
     constructor() {
         this.bd = new BancoDeDados();
@@ -418,14 +453,11 @@ class AppGestor {
             const app = initializeApp(config);
             this.auth = getAuth(app);
             this.db = getFirestore(app);
-
-            // REGRA 3: Auth Antes de Consultas
             if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                 await signInWithCustomToken(this.auth, __initial_auth_token);
             } else {
                 await signInAnonymously(this.auth);
             }
-
             onAuthStateChanged(this.auth, (user) => {
                 this.user = user;
                 this.ui.atualizarStatusCloud(user && !user.isAnonymous ? user : null);
@@ -435,7 +467,6 @@ class AppGestor {
 
     configurarOuvintes() {
         document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', (e) => this.mudarEcra(e.target.dataset.target)));
-        
         document.querySelectorAll('.setup-card').forEach(c => c.addEventListener('click', (e) => {
             document.querySelectorAll('.setup-card').forEach(x => x.classList.remove('active'));
             e.currentTarget.classList.add('active');
@@ -444,7 +475,6 @@ class AppGestor {
             if (m === 'livre') ['field-materia', 'field-assunto', 'field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.remove('hidden-view'));
             else if (m === 'cronometrado') ['field-materia', 'field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.remove('hidden-view'));
         }));
-
         document.getElementById('sel-materia').addEventListener('change', (e) => this.ui.atualizarAssuntos(this.bd.questoes, e.target.value));
         document.getElementById('btn-iniciar').addEventListener('click', () => {
             const active = document.querySelector('.setup-card.active'), m = active ? active.dataset.mode : 'livre';
@@ -454,32 +484,21 @@ class AppGestor {
             if (await this.ui.mostrarAviso("Cancelar simulado atual?", "Confirmar", "confirm")) this.simulador.cancelarSessao();
         });
         document.getElementById('btn-voltar-painel').addEventListener('click', () => this.mudarEcra('view-dashboard'));
-
-        // GOOGLE CLOUD
         document.getElementById('btn-login-google').addEventListener('click', async () => {
             const { signInWithPopup, GoogleAuthProvider } = window.FirebaseSDK;
-            try {
-                await signInWithPopup(this.auth, new GoogleAuthProvider());
-            } catch (err) {
-                // EXIBE O ERRO REAL PARA DEPURAÇÃO
-                await this.ui.mostrarAviso(`Erro Firebase (${err.code}): Certifique-se que o domínio está autorizado no console do Firebase e que o Google Auth está ativo.`, "Falha no Login");
-            }
+            try { await signInWithPopup(this.auth, new GoogleAuthProvider()); } catch (err) { await this.ui.mostrarAviso("Falha no Login Google."); }
         });
-
         document.getElementById('btn-logout').addEventListener('click', async () => {
             await window.FirebaseSDK.signOut(this.auth); this.user = null; this.ui.atualizarStatusCloud(null);
         });
-
         document.getElementById('btn-cloud-upload').addEventListener('click', async () => {
             if (!this.user || this.user.isAnonymous) return;
             try {
-                // REGRA 1: Caminho estrito
                 const ref = window.FirebaseSDK.doc(this.db, 'artifacts', this.appId, 'users', this.user.uid, 'settings', 'simulationData');
                 await window.FirebaseSDK.setDoc(ref, { bank: this.bd.questoes, history: this.bd.historico, updatedAt: new Date().toISOString() });
                 await this.ui.mostrarAviso("Dados salvos na nuvem!");
             } catch (e) { await this.ui.mostrarAviso("Erro ao subir dados."); }
         });
-
         document.getElementById('btn-cloud-download').addEventListener('click', async () => {
             if (!this.user || this.user.isAnonymous) return;
             try {
@@ -487,15 +506,27 @@ class AppGestor {
                 const snap = await window.FirebaseSDK.getDoc(ref);
                 if (snap.exists()) {
                     const d = snap.data(); this.bd.questoes = d.bank; this.bd.historico = d.history; this.bd.guardar();
-                    await this.ui.mostrarAviso("Dados restaurados da nuvem!"); this.mudarEcra('view-dashboard');
+                    await this.ui.mostrarAviso("Dados restaurados!"); this.mudarEcra('view-dashboard');
                 } else { await this.ui.mostrarAviso("Sem dados na nuvem."); }
             } catch (e) { await this.ui.mostrarAviso("Erro ao baixar dados."); }
         });
-
-        // BACKUP LOCAL
-        document.getElementById('btn-exportar').addEventListener('click', () => {
-            const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([this.bd.exportarParaFicheiro()], { type: "application/json" }));
-            a.download = `backup_creci_${Date.now()}.json`; a.click();
+        document.getElementById('btn-exportar').addEventListener('click', async () => {
+            const jsonContent = this.bd.exportarParaFicheiro();
+            const defaultFileName = 'simulado2.json';
+            try {
+                if (window.showSaveFilePicker) {
+                    const handle = await window.showSaveFilePicker({ suggestedName: defaultFileName, types: [{ description: 'JSON Backup', accept: { 'application/json': ['.json'] } }] });
+                    const writable = await handle.createWritable();
+                    await writable.write(jsonContent);
+                    await writable.close();
+                    await this.ui.mostrarAviso("Backup exportado!");
+                } else {
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(new Blob([jsonContent], { type: "application/json" }));
+                    a.download = defaultFileName;
+                    a.click();
+                }
+            } catch (err) { if (err.name !== 'AbortError') await this.ui.mostrarAviso("Erro na exportação."); }
         });
         document.getElementById('btn-importar').addEventListener('change', (ev) => {
             const f = ev.target.files[0]; if (!f) return;
@@ -503,7 +534,7 @@ class AppGestor {
             r.readAsText(f);
         });
         document.getElementById('btn-resetar').addEventListener('click', async () => {
-            if (await this.ui.mostrarAviso("Apagar tudo?", "Alerta", "confirm")) { this.bd.reporDeFabrica(); this.mudarEcra('view-dashboard'); }
+            this.bd.reporDeFabrica();
         });
     }
 
