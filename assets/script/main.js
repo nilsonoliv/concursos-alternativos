@@ -14,6 +14,12 @@
                 // Dados do nosso checklist. Você pode adicionar mais matérias aqui.
                 checklistData: [
                     // 1. LÍNGUA PORTUGUESA
+                    { id: 'di1', category: 'Dias', text: 'Dia 1' },
+                    { id: 'di2', category: 'Dias', text: 'Dia 2' },
+                    { id: 'di3', category: 'Dias', text: 'Dia 3' },
+                    { id: 'di4', category: 'Dias', text: 'Dia 4' },
+                    { id: 'di5', category: 'Dias', text: 'Dia 5' },
+
                     { id: 'lp1', category: 'Língua Portuguesa', text: '🔥 QUENTE - Compreensão e Interpretação de Textos: Análise de textos variados, digitais (e-mails, redes sociais) e multimodais (gráficos, tabelas).' },
                     { id: 'lp2', category: 'Língua Portuguesa', text: '🔥 QUENTE - Coesão, coerência e uso de conectores.' },
                     { id: 'lp3', category: 'Língua Portuguesa', text: '🔥 QUENTE - Pontuação: Uso correto dos sinais de pontuação.' },
