@@ -465,8 +465,8 @@ class AppGestor {
         } catch (e) { console.error("Firebase Init Error:", e); }
     }
 
-    configurarOuvintes() {
-        document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', (e) => this.mudarEcra(e.target.dataset.target)));
+    configurarOuvintes() { // Configura os ouvintes de eventos para os botões e interações da interface
+        document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', (e) => this.mudarEcra(e.target.dataset.target)));// Navegação entre telas
         document.querySelectorAll('.setup-card').forEach(c => c.addEventListener('click', (e) => {
             document.querySelectorAll('.setup-card').forEach(x => x.classList.remove('active'));
             e.currentTarget.classList.add('active');
