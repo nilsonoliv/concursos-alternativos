@@ -20,21 +20,23 @@
     { id: 'lp14', category: 'Língua Portuguesa', text: '❄️ FRIO - Figuras de linguagem, denotação e conotação.' },
     { id: 'lp15', category: 'Língua Portuguesa', text: '❄️ FRIO - Adequação da linguagem a diferentes contextos.' },
 
-    // 2. RACIOCÍNIO LÓGICO E MATEMÁTICA
-    { id: 'rlm1', category: 'Raciocínio Lógico e Matemática', text: '🔥 QUENTE - Proposições e conectivos.' },
-    { id: 'rlm2', category: 'Raciocínio Lógico e Matemática', text: '🔥 QUENTE - Estruturas lógicas e argumentação (dedução, indução).' },
-    { id: 'rlm3', category: 'Raciocínio Lógico e Matemática', text: '🔥 QUENTE - Razão, proporção, porcentagem e regra de três (simples e composta).' },
-    { id: 'rlm4', category: 'Raciocínio Lógico e Matemática', text: '🔥 QUENTE - Análise de Dados: Estatística básica (média, moda, mediana) e Interpretação de gráficos e tabelas.' },
-    { id: 'rlm5', category: 'Raciocínio Lógico e Matemática', text: '🟡 MORNO - Princípios de contagem (arranjos, combinações, permutações).' },
-    { id: 'rlm6', category: 'Raciocínio Lógico e Matemática', text: '🟡 MORNO - Noções de probabilidade.' },
-    { id: 'rlm7', category: 'Raciocínio Lógico e Matemática', text: '🟡 MORNO - Juros simples e compostos.' },
-    { id: 'rlm8', category: 'Raciocínio Lógico e Matemática', text: '🟡 MORNO - Diagramas lógicos.' },
-    { id: 'rlm9', category: 'Raciocínio Lógico e Matemática', text: '❄️ FRIO - Operações com conjuntos numéricos.' },
-    { id: 'rlm10', category: 'Raciocínio Lógico e Matemática', text: '❄️ FRIO - Descontos e taxas (Mat. Financeira).' },
-    { id: 'rlm11', category: 'Raciocínio Lógico e Matemática', text: '❄️ FRIO - Funções e equações (1º e 2º graus).' },
-    { id: 'rlm12', category: 'Raciocínio Lógico e Matemática', text: '❄️ FRIO - Progressões (aritmética e geométrica).' },
-    { id: 'rlm13', category: 'Raciocínio Lógico e Matemática', text: '❄️ FRIO - Raciocínio verbal, matemático e sequencial.' },
-    { id: 'rlm14', category: 'Raciocínio Lógico e Matemática', text: '❄️ FRIO - Orientação no espaço e no tempo.' },
+    // 2. RACIOCÍNIO LÓGICO
+    { id: 'rlm1', category: 'Raciocínio Lógico', text: '🔥 QUENTE - Proposições e conectivos.' },
+    { id: 'rlm2', category: 'Raciocínio Lógico', text: '🔥 QUENTE - Estruturas lógicas e argumentação (dedução, indução).' },
+    { id: 'rlm3', category: 'Raciocínio Lógico', text: '❄️ FRIO - Progressões (aritmética e geométrica).' },
+    { id: 'rlm4', category: 'Raciocínio Lógico', text: '❄️ FRIO - Raciocínio verbal, matemático e sequencial.' },
+    { id: 'rlm5', category: 'Raciocínio Lógico', text: '❄️ FRIO - Orientação no espaço e no tempo.' },
+    
+    // MATEMÁTICA BÁSICA
+    { id: 'mB1', category: 'Matemática Básica', text: '🔥 QUENTE - Razão, proporção, porcentagem e regra de três (simples e composta).' },
+    { id: 'mB2', category: 'Matemática Básica', text: '🔥 QUENTE - Análise de Dados: Estatística básica (média, moda, mediana) e Interpretação de gráficos e tabelas.' },
+    { id: 'mB3', category: 'Matemática Básica', text: '🟡 MORNO - Princípios de contagem (arranjos, combinações, permutações).' },
+    { id: 'mB4', category: 'Matemática Básica', text: '🟡 MORNO - Noções de probabilidade.' },
+    { id: 'mB5', category: 'Matemática Básica', text: '🟡 MORNO - Juros simples e compostos.' },
+    { id: 'mB6', category: 'Matemática Básica', text: '🟡 MORNO - Diagramas lógicos.' },
+    { id: 'mB7', category: 'Matemática Básica', text: '❄️ FRIO - Operações com conjuntos numéricos.' },
+    { id: 'mB8', category: 'Matemática Básica', text: '❄️ FRIO - Descontos e taxas (Mat. Financeira).' },
+    { id: 'mB9', category: 'Matemática Básica', text: '❄️ FRIO - Funções e equações (1º e 2º graus).' },
 
     // 3. NOÇÕES DE INFORMÁTICA
     { id: 'inf1', category: 'Noções de Informática', text: '🔥 QUENTE - Segurança da Informação: vírus, antivírus, firewall e procedimentos de backup.' },
