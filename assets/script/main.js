@@ -4,7 +4,7 @@
          * isolado e seguro, evitando misturar com outros scripts da página.
          */
 
-import { state } from './checklistData.js';
+import { state } from './modules/checklistData.js';
 
         const DashboardApp = (function() {
             'use strict';
