@@ -27,7 +27,7 @@
     { id: 'rlm4', category: 'Raciocínio Lógico', text: '❄️ FRIO - Raciocínio verbal, matemático e sequencial.' },
     { id: 'rlm5', category: 'Raciocínio Lógico', text: '❄️ FRIO - Orientação no espaço e no tempo.' },
     
-    // MATEMÁTICA BÁSICA
+    // 3. MATEMÁTICA BÁSICA
     { id: 'mB1', category: 'Matemática Básica', text: '🔥 QUENTE - Razão, proporção, porcentagem e regra de três (simples e composta).' },
     { id: 'mB2', category: 'Matemática Básica', text: '🔥 QUENTE - Análise de Dados: Estatística básica (média, moda, mediana) e Interpretação de gráficos e tabelas.' },
     { id: 'mB3', category: 'Matemática Básica', text: '🟡 MORNO - Princípios de contagem (arranjos, combinações, permutações).' },
@@ -38,7 +38,7 @@
     { id: 'mB8', category: 'Matemática Básica', text: '❄️ FRIO - Descontos e taxas (Mat. Financeira).' },
     { id: 'mB9', category: 'Matemática Básica', text: '❄️ FRIO - Funções e equações (1º e 2º graus).' },
 
-    // 3. NOÇÕES DE INFORMÁTICA
+    // 4. NOÇÕES DE INFORMÁTICA
     { id: 'inf1', category: 'Noções de Informática', text: '🔥 QUENTE - Segurança da Informação: vírus, antivírus, firewall e procedimentos de backup.' },
     { id: 'inf2', category: 'Noções de Informática', text: '🔥 QUENTE - Editores de texto, planilhas e apresentações (Microsoft 365, Google Workspace).' },
     { id: 'inf3', category: 'Noções de Informática', text: '🔥 QUENTE - Navegadores (Chrome, Firefox, Edge) e sites de busca.' },
@@ -52,7 +52,7 @@
     { id: 'inf11', category: 'Noções de Informática', text: '❄️ FRIO - Sistemas móveis (Android e iOS).' },
     { id: 'inf12', category: 'Noções de Informática', text: '❄️ FRIO - Ferramentas de comunicação (Teams, Meet).' },
 
-    // 4. LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA
+    // 5. LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA
     { id: 'leg1', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei nº 8.429/1992 (Improbidade Administrativa).' },
     { id: 'leg2', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei nº 9.784/1999 (Processo Administrativo), direitos e deveres.' },
     { id: 'leg3', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Princípios fundamentais da Administração Pública.' },
@@ -60,7 +60,7 @@
     { id: 'leg5', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei nº 12.527/2011 (Transparência e Acesso à Informação) e seus decretos.' },
     { id: 'leg6', category: 'Legislação e Ética na Adm. Pública', text: '❄️ FRIO - Conceito de ética na função pública.' },
 
-    // 5. ADMINISTRAÇÃO, ATENDIMENTO E ARQUIVO
+    // 6. ADMINISTRAÇÃO, ATENDIMENTO E ARQUIVO
     { id: 'adm1', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Atendimento ao Público: Qualidade, postura profissional, atendimento telefônico e presencial.' },
     { id: 'adm2', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Comunicação Organizacional: Redação oficial de documentos e tipos de documentos administrativos.' },
     { id: 'adm3', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de arquivologia: Tipos de arquivos, métodos de arquivamento e gestão eletrônica/digitalização.' },
@@ -75,7 +75,7 @@
     { id: 'adm12', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Estrutura Organizacional: Conceito e tipos.' },
     { id: 'adm13', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Noções de cidadania e relações públicas.' },
 
-    // 6. LEGISLAÇÃO ESPECÍFICA
+    // 7. LEGISLAÇÃO ESPECÍFICA
     { id: 'esp1', category: 'Legislação Específica', text: '🔥 QUENTE - Lei nº 6.530/1978 (Regulamentação da profissão e órgãos de fiscalização).' },
     { id: 'esp2', category: 'Legislação Específica', text: '🔥 QUENTE - Decreto nº 81.871/1978 (Regulamenta a Lei nº 6.530/1978).' },
     { id: 'esp3', category: 'Legislação Específica', text: '🔥 QUENTE - Resolução COFECI nº 326/1992 (Código de Ética Profissional).' },
@@ -90,6 +90,15 @@
     { id: 'esp12', category: 'Legislação Específica', text: '❄️ FRIO - Decreto-Lei nº 3.688/1941 (LCP - Art. 47).' },
     { id: 'esp13', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 315/1991 (Pena pecuniária).' },
     { id: 'esp14', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 325/1992 (Comissão de Atendimento ao Consumidor).' },
-    { id: 'esp15', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 1.452/2021 (Emenda Regimental).' }
-]
-            };
+    { id: 'esp15', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 1.452/2021 (Emenda Regimental).' },
+
+    // 8. TECNOLOGIA DA INFORMAÇÃO
+    { id: 'ti1', category: 'Tecnologia da Informação', text: '🔥 QUENTE - ???.' },
+    { id: 'ti2', category: 'Tecnologia da Informação', text: '🔥 QUENTE - ???.' },
+    { id: 'ti3', category: 'Tecnologia da Informação', text: '🟡 MORNO - ???.' },
+    { id: 'ti4', category: 'Tecnologia da Informação', text: '🟡 MORNO - ???.' },
+    { id: 'ti5', category: 'Tecnologia da Informação', text: '❄️ FRIO - ???.' }
+    { id: 'ti5', category: 'Tecnologia da Informação', text: '❄️ FRIO - ???.' }
+
+ ]
+};
