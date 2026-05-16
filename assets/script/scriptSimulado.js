@@ -236,6 +236,7 @@ class InterfaceGrafica {
         });
     }
 
+    // Preenche o dropdown de matérias com base nas questões disponíveis, garantindo que apenas matérias relevantes sejam listadas.
     preencherFiltros(listaQuestoes) {
         const materiasUnicas = [...new Set(listaQuestoes.map(q => q.materia))];
         const selectMateria = document.getElementById('sel-materia');
@@ -243,6 +244,7 @@ class InterfaceGrafica {
         materiasUnicas.forEach(m => selectMateria.innerHTML += `<option value="${m}">${m}</option>`);
     }
 
+// Atualiza o dropdown de assuntos com base na matéria selecionada, garantindo que apenas assuntos relevantes sejam listados.
     atualizarAssuntos(listaQuestoes, materiaSelecionada) {
         let assuntosValidos = [];
         if (materiaSelecionada === 'todas') assuntosValidos = [...new Set(listaQuestoes.map(q => q.assunto))];
@@ -252,6 +254,7 @@ class InterfaceGrafica {
         assuntosValidos.forEach(a => selectAssunto.innerHTML += `<option value="${a}">${a}</option>`);
     }
 
+    // Exibe a questão atual no formato de enunciado, alternativas e informações adicionais, preparando os botões para interação.
     exibirQuestaoAtual(questao, indiceAtual, totalQuestoes, aoSelecionarOpcao, aoConfirmar) {
         document.getElementById('q-header-info').innerText = `#${questao.id} | ${questao.materia} > ${questao.assunto} (${questao.banca})`;
         document.getElementById('q-counter').innerText = `Questão ${indiceAtual + 1} de ${totalQuestoes}`;
@@ -274,7 +277,7 @@ class InterfaceGrafica {
             caixaAlternativas.appendChild(btn);
         });
     }
-
+// Marca a opção selecionada visualmente, garantindo que apenas uma opção esteja destacada e habilitando o botão de resposta.
     marcarOpcaoVisualmente(idx) {
         const botoes = document.getElementById('q-alternativas').children;
         Array.from(botoes).forEach(btn => btn.classList.remove('selected'));
@@ -296,7 +299,7 @@ class InterfaceGrafica {
         btnResp.innerText = "Próxima Questão";
         btnResp.onclick = aoClicarProxima;
     }
-
+    
     atualizarStatusCloud(usuario) {
         const divOut = document.getElementById('cloud-logged-out');
         const divIn = document.getElementById('cloud-logged-in');
@@ -310,7 +313,7 @@ class InterfaceGrafica {
         }
     }
 }
-
+// O MotorSimulado é responsável por toda a lógica de execução do simulado, desde a criação da fila de questões até o controle do tempo e registro de resultados.
 class MotorSimulado {
     constructor(baseDados, interfaceGrafica) {
         this.bd = baseDados;
@@ -324,7 +327,7 @@ class MotorSimulado {
         this.intervaloRelogio = null;
         this.segundosRestantes = 0;
     }
-
+    // Inicia o simulado com as configurações escolhidas, preparando a fila de questões e o timer conforme o modo selecionado.
     async iniciarConfigurado(modo, tempo, qtd, materia, assunto) {
         this.modo = modo; this.acertosSessao = 0; this.momentoInicio = Math.floor(Date.now() / 1000); 
         if (this.modo === 'prova') {
@@ -356,7 +359,7 @@ class MotorSimulado {
         cand.sort(() => Math.random() - 0.5); cand.sort((a, b) => b.status - a.status); 
         this.fila = cand.slice(0, qtd); this.indiceAtual = 0;
     }
-
+    // Para o modo "prova oficial", a fila é gerada seguindo a estrutura tradicional de 40 questões, respeitando as categorias e garantindo uma seleção aleatória dentro de cada categoria.
     async criarFilaProvaOficial() {
         let cand = this.bd.questoes.filter(q => q.status !== 1);
         if (cand.length === 0) {
