@@ -164,10 +164,6 @@
                 <form id="config-form" style="margin-top: 32px; max-width: 400px; margin-left: auto; margin-right: auto; padding-top: 24px; border-top: 1px solid var(--color-border);" onsubmit="event.preventDefault();">
                     <fieldset style="border: none;">
 
-                        <div id="field-conhecimento" class="form-group">
-                            <label for="sel-conhecimento">Tipo de Conhecimento:</label>
-                            <select id="sel-conhecimento" class="form-control"></select>
-                        </div>
 
                         <div id="field-materia" class="form-group">
                             <label for="sel-materia">Matéria:</label>
@@ -175,7 +171,8 @@
                         </div>
                         <div id="field-assunto" class="form-group">
                             <label for="sel-assunto">Assunto:</label>
-                            <select id="sel-assunto" class="form-control"></select>
+                            <div id="caixa-assuntos" class="checkbox-container"> </div>
+                            <select id="sel-assunto"  class="form-control"></select>
                         </div>
                         <div id="field-tempo" class="form-group">
                             <label for="num-tempo">Tempo limite (em minutos):</label>

@@ -373,7 +373,11 @@ img {
 /* ==========================================================================
    ESTILOS ESPECÍFICOS: TELA DE SIMULADO E QUESTÕES
    ========================================================================== */
-.runner-header { 
+
+checkbox-container {
+    max-height: 150px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px; background: #fff;
+}
+   .runner-header { 
     background-color: var(--bg-body); 
     border-bottom: 1px solid var(--color-border); 
     padding: 16px 24px; 

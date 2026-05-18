@@ -247,12 +247,51 @@ class InterfaceGrafica {
 // Atualiza o dropdown de assuntos com base na matéria selecionada, garantindo que apenas assuntos relevantes sejam listados.
     atualizarAssuntos(listaQuestoes, materiaSelecionada) {
         let assuntosValidos = [];
-        if (materiaSelecionada === 'todas') assuntosValidos = [...new Set(listaQuestoes.map(q => q.assunto))];
-        else assuntosValidos = [...new Set(listaQuestoes.filter(q => q.materia === materiaSelecionada).map(q => q.assunto))];
-        const selectAssunto = document.getElementById('sel-assunto');
-        selectAssunto.innerHTML = '<option value="todos">Todos os Assuntos</option>';
-        assuntosValidos.forEach(a => selectAssunto.innerHTML += `<option value="${a}">${a}</option>`);
+        if (materiaSelecionada === 'todas') {
+            assuntosValidos = [...new Set(listaQuestoes.map(q => q.assunto))];
+        } else {
+            assuntosValidos = [...new Set(listaQuestoes.filter(q => q.materia === materiaSelecionada).map(q => q.assunto))];
+        };
+            
+    //Pega a nova div que foi adicionada para adicionar checkboxes e selecionar mais de um assunto 
+        const containerAssuntos = document.getElementById('caixa-assuntos');    
+        if (!containerAssuntos) return;
+
+    //Adiciona a opção de selecionar todos os assuntos
+        containerAssuntos.innerHTML = `<label style="display: block; font-weight: bold; margin-bottom: 8px; cursor: pointer;">
+                <input type="checkbox" id="chk-todos-assuntos" value="todos" checked>
+                Selecionar Todos
+            </label>
+            <hr style="margin-bottom: 8px;">`;
+    //Adiciona os assuntos individuais
+    assuntosValidos.forEach(a => {
+        containerAssuntos.innerHTML += `
+        <label style="display: block; margin-bottom: 5px; margin-left: 10px; cursor: pointer;">
+                    <input type="checkbox" class="chk-assunto" value="${a}" checked>
+                    ${a}
+                </label>
+        `;
+    });
+    // --- UX Sênior: Comportamento inteligente dos checkboxes ---
+        const chkTodos = document.getElementById('chk-todos-assuntos');
+        const chksIndividuais = document.querySelectorAll('.chk-assunto');
+
+        // Se clicar em "Todos", marca/desmarca todos os de baixo
+        chkTodos.addEventListener('change', (e) => {
+            chksIndividuais.forEach(chk => chk.checked = e.target.checked);
+        });
+
+        // Se desmarcar um de baixo, remove o "checked" do "Todos"
+        chksIndividuais.forEach(chk => {
+            chk.addEventListener('change', () => {
+                if (!chk.checked) chkTodos.checked = false;
+                // Se o usuário marcar todos manualmente, um por um, o "Todos" acende sozinho
+                const todosMarcados = Array.from(chksIndividuais).every(c => c.checked);
+                if (todosMarcados) chkTodos.checked = true;
+            });
+        });
     }
+
 
     // Exibe a questão atual no formato de enunciado, alternativas e informações adicionais, preparando os botões para interação.
     exibirQuestaoAtual(questao, indiceAtual, totalQuestoes, aoSelecionarOpcao, aoConfirmar) {
@@ -349,7 +388,11 @@ class MotorSimulado {
     async criarFilaCustomizada(qtd, materia, assunto) {
         let cand = this.bd.questoes.filter(q => q.status !== 1);
         if (materia !== 'todas') cand = cand.filter(q => q.materia === materia);
-        if (this.modo === 'livre' && assunto !== 'todos') cand = cand.filter(q => q.assunto === assunto);
+        // Aplica o filtro tanto para modo livre quanto cronometrado
+        if ((this.modo === 'livre' || this.modo === 'cronometrado') && !assunto.includes('todos')) {
+            // Retorna a questão APENAS se o assunto dela existir dentro da lista (Array) de escolhidos
+            cand = cand.filter(q => assunto.includes(q.assunto));
+        }
 
         if (cand.length === 0) {
             const res = await this.ui.mostrarAviso("Esgotou as questões. Reiniciar banco?", "Banco Esgotado", "confirm");
@@ -476,12 +519,38 @@ class AppGestor {
             const m = e.currentTarget.dataset.mode;
             ['field-materia', 'field-assunto', 'field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.add('hidden-view'));
             if (m === 'livre') ['field-materia', 'field-assunto', 'field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.remove('hidden-view'));
-            else if (m === 'cronometrado') ['field-materia', 'field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.remove('hidden-view'));
+            else if (m === 'cronometrado') ['field-materia', 'field-assunto','field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.remove('hidden-view'));
         }));
         document.getElementById('sel-materia').addEventListener('change', (e) => this.ui.atualizarAssuntos(this.bd.questoes, e.target.value));
         document.getElementById('btn-iniciar').addEventListener('click', () => {
-            const active = document.querySelector('.setup-card.active'), m = active ? active.dataset.mode : 'livre';
-            this.simulador.iniciarConfigurado(m, parseInt(document.getElementById('num-tempo').value), parseInt(document.getElementById('num-qtd').value), document.getElementById('sel-materia').value, document.getElementById('sel-assunto').value);
+            const active = document.querySelector('.setup-card.active');
+            const m = active ? active.dataset.mode : 'livre';
+            
+            // Lógica para pegar múltiplos assuntos
+            const chkTodos = document.getElementById('chk-todos-assuntos');
+            let assuntosParaEnviar = [];
+            
+            if (chkTodos && chkTodos.checked) {
+                assuntosParaEnviar = ['todos'];
+            } else {
+                const checkboxesMarcados = document.querySelectorAll('.chk-assunto:checked');
+                // Transforma a lista HTML em um Array de textos (Ex: ["Matemática", "Português"])
+                assuntosParaEnviar = Array.from(checkboxesMarcados).map(chk => chk.value);
+            }
+            
+            // Trava de segurança: Se o cara não marcou NENHUM assunto, não deixa iniciar
+            if (assuntosParaEnviar.length === 0) {
+                this.ui.mostrarAviso("Selecione pelo menos um assunto para gerar o simulado.");
+                return;
+            }
+
+            this.simulador.iniciarConfigurado(
+                m, 
+                parseInt(document.getElementById('num-tempo').value), 
+                parseInt(document.getElementById('num-qtd').value), 
+                document.getElementById('sel-materia').value, 
+                assuntosParaEnviar // Agora estamos enviando um Array para o Motor, e não mais uma String!
+            );
         });
         document.getElementById('btn-cancelar').addEventListener('click', async () => {
             if (await this.ui.mostrarAviso("Cancelar simulado atual?", "Confirmar", "confirm")) this.simulador.cancelarSessao();
