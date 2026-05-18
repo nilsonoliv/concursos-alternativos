@@ -93,28 +93,38 @@ class BancoDeDados {
         return JSON.stringify({ bank: this.questoes, history: this.historico }, null, 2);
     }
 
-    gerarEstatisticasGlobais() {
-        let certas = 0, erradas = 0, pendentes = 0;
+gerarEstatisticasGlobais() {
+        let pendentes = 0;
         let totalAcertosHistorico = 0, totalRespondidasHistorico = 0, totalTempo = 0;
         let analisePorMateria = {};
 
+        // 1. As questões "Pendentes" são a única métrica que ainda depende do estado do banco
+        // (Representa quantas questões INÉDITAS sobraram para resolver)
         this.questoes.forEach(q => {
-            let estado = q.historico !== undefined ? q.historico : q.status;
-            if (estado === 1) certas++;
-            else if (estado === 2) erradas++;
-            else pendentes++;
-            if (!analisePorMateria[q.materia]) analisePorMateria[q.materia] = { t: 0, c: 0, e: 0 };
-            analisePorMateria[q.materia].t++;
-            if (estado === 1) analisePorMateria[q.materia].c++;
-            if (estado === 2) analisePorMateria[q.materia].e++;
+            if (q.status === 0) pendentes++;
         });
 
+        // 2. Acertos, Erros, SWOT e Gráficos agora vêm EXCLUSIVAMENTE da soma dos históricos
         this.historico.forEach(simulado => {
             totalAcertosHistorico += simulado.acertos || 0;
             totalRespondidasHistorico += simulado.totalRespondidas || 0;
             totalTempo += simulado.tempoGasto || 0;
+
+            // Agrega a performance fragmentada de matéria no escopo global
+            if (simulado.desempenhoSessao) {
+                for (let materia in simulado.desempenhoSessao) {
+                    if (!analisePorMateria[materia]) {
+                        analisePorMateria[materia] = { c: 0, e: 0 };
+                    }
+                    analisePorMateria[materia].c += simulado.desempenhoSessao[materia].certas;
+                    analisePorMateria[materia].e += simulado.desempenhoSessao[materia].erradas;
+                }
+            }
         });
 
+        const certas = totalAcertosHistorico;
+        const erradas = totalRespondidasHistorico - totalAcertosHistorico;
+        
         const precisaoPerc = totalRespondidasHistorico > 0 ? Math.round((totalAcertosHistorico / totalRespondidasHistorico) * 100) : 0;
         const tempoMedioSegundos = totalRespondidasHistorico > 0 ? Math.round(totalTempo / totalRespondidasHistorico) : 0;
 
@@ -404,10 +414,12 @@ class MotorSimulado {
         this.momentoInicio = 0;
         this.intervaloRelogio = null;
         this.segundosRestantes = 0;
+        this.desempenhoSessao = {}; // NOVO: Registo fragmentado por matéria
     }
     // Inicia o simulado com as configurações escolhidas, preparando a fila de questões e o timer conforme o modo selecionado.
     async iniciarConfigurado(modo, tempo, qtd, materia, assunto) {
         this.modo = modo; this.acertosSessao = 0; this.momentoInicio = Math.floor(Date.now() / 1000); 
+        this.desempenhoSessao = {}; // NOVO: Zera o registo no início de cada simulado
         if (this.modo === 'prova') {
             this.segundosRestantes = 150 * 60; document.getElementById('q-timer').classList.remove('hidden-view');
             this.iniciarRelogio(); await this.criarFilaProvaOficial();
@@ -480,11 +492,27 @@ class MotorSimulado {
         );
     }
 
-    submeterResposta() {
+submeterResposta() {
         if (this.opcaoAguardando === null) return; 
-        const qFila = this.fila[this.indiceAtual], qOrig = this.bd.questoes.find(q => q.id === qFila.id), ok = (this.opcaoAguardando === qOrig.resposta_correta);
+        
+        const qFila = this.fila[this.indiceAtual];
+        const qOrig = this.bd.questoes.find(q => q.id === qFila.id);
+        const ok = (this.opcaoAguardando === qOrig.resposta_correta);
+        
         if (ok) this.acertosSessao++;
-        qOrig.status = ok ? 1 : 2; qOrig.historico = ok ? 1 : 2; this.bd.guardar();
+
+        // --- ARQUITETURA NOVA: Alimenta o relatório da sessão atual ---
+        if (!this.desempenhoSessao[qOrig.materia]) {
+            this.desempenhoSessao[qOrig.materia] = { certas: 0, erradas: 0 };
+        }
+        if (ok) this.desempenhoSessao[qOrig.materia].certas++;
+        else this.desempenhoSessao[qOrig.materia].erradas++;
+        // --------------------------------------------------------------
+
+        qOrig.status = ok ? 1 : 2; 
+        qOrig.historico = ok ? 1 : 2; 
+        this.bd.guardar();
+        
         this.ui.mostrarCorrecaoLocal(ok, qOrig.explicacao, qOrig.resposta_correta, this.opcaoAguardando, () => this.avancarSessao());
     }
 
@@ -495,24 +523,29 @@ class MotorSimulado {
     }
 
     cancelarSessao() {
-        if(this.intervaloRelogio) clearInterval(this.intervaloRelogio);
-        const dur = Math.floor(Date.now() / 1000) - this.momentoInicio;
-        if (this.indiceAtual > 0) {
-            this.bd.historico.push({ data: new Date().toISOString(), modo: this.modo + ' (Canc.)', acertos: this.acertosSessao, totalRespondidas: this.indiceAtual, tempoGasto: dur });
+       if (this.indiceAtual > 0) {
+            this.bd.historico.push({ 
+                data: new Date().toISOString(), 
+                modo: this.modo + ' (Canc.)', 
+                acertos: this.acertosSessao, 
+                totalRespondidas: this.indiceAtual, 
+                tempoGasto: dur,
+                desempenhoSessao: this.desempenhoSessao // INJETA AQUI
+            });
             this.bd.guardar();
         }
-        document.getElementById('simulado-runner').classList.add('hidden-view');
-        document.getElementById('simulado-setup').classList.remove('hidden-view');
     }
 
     encerrarSessao() {
-        if(this.intervaloRelogio) clearInterval(this.intervaloRelogio);
-        const dur = Math.floor(Date.now() / 1000) - this.momentoInicio;
-        this.bd.historico.push({ data: new Date().toISOString(), modo: this.modo, acertos: this.acertosSessao, totalRespondidas: this.indiceAtual, tempoGasto: dur });
+        this.bd.historico.push({ 
+            data: new Date().toISOString(), 
+            modo: this.modo, 
+            acertos: this.acertosSessao, 
+            totalRespondidas: this.indiceAtual, 
+            tempoGasto: dur,
+            desempenhoSessao: this.desempenhoSessao // INJETA AQUI
+        });
         this.bd.guardar();
-        document.getElementById('simulado-runner').classList.add('hidden-view');
-        document.getElementById('fim-score').innerText = `${this.acertosSessao}/${this.indiceAtual}`;
-        document.getElementById('simulado-fim').classList.remove('hidden-view');
     }
 }
 
