@@ -522,30 +522,53 @@ submeterResposta() {
         else this.encerrarSessao();
     }
 
-    cancelarSessao() {
-       if (this.indiceAtual > 0) {
+cancelarSessao() {
+        // 1. Para o cronômetro
+        if(this.intervaloRelogio) clearInterval(this.intervaloRelogio);
+        
+        // 2. Calcula o tempo gasto (variável 'dur' que estava a faltar)
+        const dur = Math.floor(Date.now() / 1000) - this.momentoInicio;
+        
+        // 3. Salva no histórico (com a nova arquitetura)
+        if (this.indiceAtual > 0) {
             this.bd.historico.push({ 
                 data: new Date().toISOString(), 
                 modo: this.modo + ' (Canc.)', 
                 acertos: this.acertosSessao, 
                 totalRespondidas: this.indiceAtual, 
                 tempoGasto: dur,
-                desempenhoSessao: this.desempenhoSessao // INJETA AQUI
+                desempenhoSessao: this.desempenhoSessao // Injetado com sucesso!
             });
             this.bd.guardar();
         }
+        
+        // 4. Muda a interface gráfica de volta para o Setup
+        document.getElementById('simulado-runner').classList.add('hidden-view');
+        document.getElementById('simulado-setup').classList.remove('hidden-view');
     }
 
     encerrarSessao() {
+        // 1. Para o cronômetro
+        if(this.intervaloRelogio) clearInterval(this.intervaloRelogio);
+        
+        // 2. Calcula o tempo gasto (variável 'dur' que estava a faltar)
+        const dur = Math.floor(Date.now() / 1000) - this.momentoInicio;
+        
+        // 3. Salva no histórico (com a nova arquitetura)
         this.bd.historico.push({ 
             data: new Date().toISOString(), 
             modo: this.modo, 
             acertos: this.acertosSessao, 
             totalRespondidas: this.indiceAtual, 
             tempoGasto: dur,
-            desempenhoSessao: this.desempenhoSessao // INJETA AQUI
+            desempenhoSessao: this.desempenhoSessao // Injetado com sucesso!
         });
         this.bd.guardar();
+        
+        // 4. Atualiza a pontuação na tela final e mostra a visão de conclusão
+        document.getElementById('simulado-runner').classList.add('hidden-view');
+        document.getElementById('fim-score').innerText = `${this.acertosSessao}/${this.indiceAtual}`;
+        document.getElementById('simulado-fim').classList.remove('hidden-view');
     }
 }
 
