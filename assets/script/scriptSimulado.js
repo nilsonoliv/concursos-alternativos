@@ -272,24 +272,63 @@ class InterfaceGrafica {
                 </label>
         `;
     });
-    // --- UX Sênior: Comportamento inteligente dos checkboxes ---
+    // --- UX Sênior: Comportamento do Dropdown e Checkboxes ---
         const chkTodos = document.getElementById('chk-todos-assuntos');
         const chksIndividuais = document.querySelectorAll('.chk-assunto');
+        const dropdownTitle = document.getElementById('dropdown-title');
+        const dropdownHeader = document.getElementById('dropdown-header');
+        const caixaAssuntos = document.getElementById('caixa-assuntos');
 
-        // Se clicar em "Todos", marca/desmarca todos os de baixo
+        // 1. Função para atualizar o texto do falso select
+        const atualizarTitulo = () => {
+            if (chkTodos.checked) {
+                dropdownTitle.innerText = "Todos os assuntos";
+            } else {
+                const marcados = document.querySelectorAll('.chk-assunto:checked').length;
+                if (marcados === 0) dropdownTitle.innerText = "Nenhum selecionado";
+                else if (marcados === 1) dropdownTitle.innerText = "1 assunto selecionado";
+                else dropdownTitle.innerText = `${marcados} assuntos selecionados`;
+            }
+        };
+
+        // 2. Lógica de marcar/desmarcar checkboxes
         chkTodos.addEventListener('change', (e) => {
             chksIndividuais.forEach(chk => chk.checked = e.target.checked);
+            atualizarTitulo();
         });
 
-        // Se desmarcar um de baixo, remove o "checked" do "Todos"
         chksIndividuais.forEach(chk => {
             chk.addEventListener('change', () => {
                 if (!chk.checked) chkTodos.checked = false;
-                // Se o usuário marcar todos manualmente, um por um, o "Todos" acende sozinho
                 const todosMarcados = Array.from(chksIndividuais).every(c => c.checked);
                 if (todosMarcados) chkTodos.checked = true;
+                atualizarTitulo();
             });
         });
+
+        atualizarTitulo(); // Configura o texto inicial
+
+        // 3. Lógica de abrir e fechar a caixa suspensa (Dropdown)
+        dropdownHeader.onclick = (e) => {
+            e.stopPropagation(); // Impede que o clique seja detetado pelo fecho global abaixo
+            if(caixaAssuntos.style.display === 'none' || caixaAssuntos.style.display === '') {
+                caixaAssuntos.style.display = 'block';
+            } else {
+                caixaAssuntos.style.display = 'none';
+            }
+        };
+
+        // 4. Fechar o dropdown automaticamente ao clicar noutro lugar do ecrã
+        if (!window.dropdownListenerAdicionado) {
+            window.addEventListener('click', (e) => {
+                const caixa = document.getElementById('caixa-assuntos');
+                const header = document.getElementById('dropdown-header');
+                if (caixa && header && !header.contains(e.target) && !caixa.contains(e.target)) {
+                    caixa.style.display = 'none';
+                }
+            });
+            window.dropdownListenerAdicionado = true; // Garante que não adicionamos o listener duplicado
+        }
     }
 
 

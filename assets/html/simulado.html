@@ -169,11 +169,26 @@
                             <label for="sel-materia">Matéria:</label>
                             <select id="sel-materia" class="form-control"></select>
                         </div>
-                        <div id="field-assunto" class="form-group">
+
+                       <!-- <div id="field-assunto" class="form-group">
                             <label for="sel-assunto">Assunto:</label>
                             <div id="caixa-assuntos" class="checkbox-container"> </div>
                             <select id="sel-assunto"  class="form-control"></select>
+                        </div>-->
+
+                        <div id="field-assunto" class="form-group">
+                            <label>Assuntos:</label>
+                            <div class="form-assunto-container" >
+                                <div id="dropdown-header" class="form-control" >
+                                    <span id="dropdown-title">Todos os assuntos</span>
+                                    <span><img class="form-img-assunto" src="/assets/img/seta-para-baixo-form-simulado.png" alt="Seta para baixo" class="icon"></span>
+                                </div>
+                                
+                                <div id="caixa-assuntos" class="checkbox-container" >
+                                    </div>
+                            </div>
                         </div>
+
                         <div id="field-tempo" class="form-group">
                             <label for="num-tempo">Tempo limite (em minutos):</label>
                             <input type="number" id="num-tempo" class="form-control" value="30" min="1">
