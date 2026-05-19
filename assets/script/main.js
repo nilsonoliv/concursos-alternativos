@@ -131,35 +131,7 @@ import { state } from './modules/checklistData.js';
                 }
             };
 
-            /**
-             * Faz o download do progresso em um arquivo (Backup)
-             * ANTIGA FUNÇÃO SIMPLES DE EXPORTAÇÃO, SEM PERMISSÃO DE ESCOLHER O LOCAL:
-             * Mantida temporariamente para referência, mas a nova função exportData() abaixo é a recomendada.
-            const exportData = () => {
-                const dataToExport = {};
-                
-                // Coleta dados do checklist
-                state.checklistData.forEach(item => {
-                    const val = localStorage.getItem(item.id);
-                    if (val !== null) dataToExport[item.id] = val;
-                });
-                
-                // Coleta dados das fases e ofensivas (streaks)
-                ['lastStudyDate', 'currentStreak', 'bestStreak', 'phase-1-done', 'phase-2-done', 'phase-3-done', 'phase-4-done'].forEach(key => {
-                    const val = localStorage.getItem(key);
-                    if (val !== null) dataToExport[key] = val;
-                });
-                
-                // Cria o arquivo virtual e força o download
-                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dataToExport));
-                const a = document.createElement('a');
-                a.href = dataStr;
-                a.download = `backup_estudos_${new Date().toISOString().split('T')[0]}.json`;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-            };
-            */
+       
 
             // ==============================================================================
             // MÓDULO DE BACKUP E EXPORTAÇÃO
@@ -318,7 +290,7 @@ import { state } from './modules/checklistData.js';
              */
             const initCountdown = () => {
                 // Substitua esta data pela data real da prova
-                const targetDate = new Date('2026-06-27T00:00:00'); 
+                const targetDate = new Date('2026-06-11T00:00:00'); 
                 const today = new Date();
                 today.setHours(0,0,0,0);
                 

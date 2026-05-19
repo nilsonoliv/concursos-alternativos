@@ -101,21 +101,21 @@ export const state = {
                     { id: 'adm13', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Noções de cidadania e relações públicas.' },
 
                     // 7. LEGISLAÇÃO ESPECÍFICA
-                    { id: 'esp1', category: 'Legislação Específica', text: '🔥 QUENTE - Lei nº 6.530/1978 (Regulamentação da profissão e órgãos de fiscalização).' },
-                    { id: 'esp2', category: 'Legislação Específica', text: '🔥 QUENTE - Decreto nº 81.871/1978 (Regulamenta a Lei nº 6.530/1978).' },
-                    { id: 'esp3', category: 'Legislação Específica', text: '🔥 QUENTE - Resolução COFECI nº 326/1992 (Código de Ética Profissional).' },
-                    { id: 'esp4', category: 'Legislação Específica', text: '🔥 QUENTE - Resolução COFECI nº 146/1982 (Código de Processo Disciplinar).' },
-                    { id: 'esp5', category: 'Legislação Específica', text: '🔥 QUENTE - Lei nº 10.406/2002 (Código Civil - Cap. XIII: Da Corretagem).' },
-                    { id: 'esp6', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.126/2009 (Regimento COFECI e Padrão para Regionais).' },
-                    { id: 'esp7', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 327/1992 (Normas para inscrição PF e PJ).' },
-                    { id: 'esp8', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.065/2007 (Nome abreviado, fantasia e publicidade).' },
-                    { id: 'esp9', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 458/1995 (Destaque do registro em anúncios).' },
-                    { id: 'esp10', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.484/2022 (Isenção e remissão de débitos).' },
+                    //{ id: 'esp1', category: 'Legislação Específica', text: '🔥 QUENTE - Lei nº 6.530/1978 (Regulamentação da profissão e órgãos de fiscalização).' },
+                    //{ id: 'esp2', category: 'Legislação Específica', text: '🔥 QUENTE - Decreto nº 81.871/1978 (Regulamenta a Lei nº 6.530/1978).' },
+                    //{ id: 'esp3', category: 'Legislação Específica', text: '🔥 QUENTE - Resolução COFECI nº 326/1992 (Código de Ética Profissional).' },
+                    //{ id: 'esp4', category: 'Legislação Específica', text: '🔥 QUENTE - Resolução COFECI nº 146/1982 (Código de Processo Disciplinar).' },
+                    //{ id: 'esp5', category: 'Legislação Específica', text: '🔥 QUENTE - Lei nº 10.406/2002 (Código Civil - Cap. XIII: Da Corretagem).' },
+                    //{ id: 'esp6', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.126/2009 (Regimento COFECI e Padrão para Regionais).' },
+                    //{ id: 'esp7', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 327/1992 (Normas para inscrição PF e PJ).' },
+                    //{ id: 'esp8', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.065/2007 (Nome abreviado, fantasia e publicidade).' },
+                    //{ id: 'esp9', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 458/1995 (Destaque do registro em anúncios).' },
+                    //{ id: 'esp10', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.484/2022 (Isenção e remissão de débitos).' },
                     { id: 'esp11', category: 'Legislação Específica', text: '❄️ FRIO - Decreto-Lei nº 2.848/1940 (Código Penal - Art. 205).' },
                     { id: 'esp12', category: 'Legislação Específica', text: '❄️ FRIO - Decreto-Lei nº 3.688/1941 (LCP - Art. 47).' },
-                    { id: 'esp13', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 315/1991 (Pena pecuniária).' },
+                  /*  { id: 'esp13', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 315/1991 (Pena pecuniária).' },
                     { id: 'esp14', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 325/1992 (Comissão de Atendimento ao Consumidor).' },
-                    { id: 'esp15', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 1.452/2021 (Emenda Regimental).' },
+                    { id: 'esp15', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 1.452/2021 (Emenda Regimental).' },*/
 
                     // 8. TECNOLOGIA DA INFORMAÇÃO
                     { id: 'ti1', category: 'Tecnologia da Informação', text: '🔥 QUENTE - DI Papel estratégico da TI no setor público: Função da TI no Poder Legislativo, TI como suporte à gestão pública.' },
