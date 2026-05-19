@@ -62,6 +62,7 @@ export const state = {
                     { id: 'mB7', category: 'Matemática Básica', text: '❄️ FRIO - Operações com conjuntos numéricos.' },
                     { id: 'mB8', category: 'Matemática Básica', text: '❄️ FRIO - Descontos e taxas (Mat. Financeira).' },
                     { id: 'mB9', category: 'Matemática Básica', text: '❄️ FRIO - DI Funções e equações (1º e 2º graus).' },
+                    { id: 'mB9', category: 'Matemática Básica', text: '❄️ FRIO - Conjuntos Numéricos: Números Naturais .' },
 
                     // 4. NOÇÕES DE INFORMÁTICA
                     { id: 'inf1', category: 'Noções de Informática', text: '🔥 QUENTE - Segurança da Informação: vírus, antivírus, firewall e procedimentos de backup.' },
