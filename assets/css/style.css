@@ -161,6 +161,20 @@ body {
         .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.2); }
         .cta-desc { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.5rem; }
 
+
+
+        .tab-content2 { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .checklist-wrapper2 { background: var(--color-surface); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-md); }
+        .checklist-header2 { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .card-title2 { font-size: 1.25rem; font-weight: 700; }
+        .btn-reset2 { background-color: #e5e7eb; color: var(--color-text-main); padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem; transition: var(--transition-default); }
+        .btn-reset2:hover { background-color: #d1d5db; }
+        .checklist-grid2 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+
+
+
+
+
         @media (min-width: 768px) {
             .header-content { flex-direction: row; text-align: left; }
             .fases-grid { grid-template-columns: repeat(2, 1fr); }

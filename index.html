@@ -42,6 +42,7 @@
             <button class="tab-btn active" data-target="fases"><i class="fas fa-calendar-alt"></i> Fases</button>
             <button class="tab-btn" data-target="escada"><i class="fas fa-sort-amount-up"></i> Evolução</button>
             <button class="tab-btn" data-target="check"><i class="fas fa-fire"></i> Checklist</button>
+            <button class="tab-btn" data-target="checklist2"><i class="fas fa-fire"></i> Lista Pedagógica</button>
             <button class="tab-btn" data-target="backup"><i class="fas fa-save"></i> Backup</button>
         </nav>
 
@@ -177,6 +178,22 @@
                 <div class="checklist-grid" id="checklist-container"></div>
             </div>
         </section>
+
+        <!--Novo Checklist-->
+            <section id="content-check2" class="tab-content2">
+            <div class="checklist-wrapper2">
+                <div class="checklist-header2">
+                    <h2 class="card-title2">Lista Pedagógica</h2>
+                    <button id="btn-reset-checklist2" class="btn-reset2"><i class="fas2 fa-undo2"></i> Limpar</button>
+                </div>
+                <!-- O conteúdo do checklist será gerado aqui via JavaScript -->
+                <div class="checklist-grid2" id="checklist-container2"></div>
+            </div>
+        </section>
+        
+
+        <!-- Aba de Backup - Permite ao usuário exportar e importar seus dados de progresso em formato JSON. -->
+
 
         <section id="content-backup" class="tab-content">
             
