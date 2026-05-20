@@ -453,7 +453,7 @@ class MotorSimulado {
         cand.sort(() => Math.random() - 0.5); //cand.sort((a, b) => b.status - a.status); Essa parte coloca as questões com tatus 2 no início 
         this.fila = cand.slice(0, qtd); this.indiceAtual = 0;
     }
-    // Para o modo "prova oficial", a fila é gerada seguindo a estrutura tradicional de 40 questões, respeitando as categorias e garantindo uma seleção aleatória dentro de cada categoria.
+    // Para o modo "prova oficial", a fila é gerada seguindo a estrutura tradicional de 30 questões, respeitando as categorias e garantindo uma seleção aleatória dentro de cada categoria.
     async criarFilaProvaOficial() {
         let cand = this.bd.questoes.filter(q => q.status !== 1);
         if (cand.length === 0) {
@@ -462,10 +462,12 @@ class MotorSimulado {
             this.fila = []; return;
         }
         cand.sort(() => Math.random() - 0.5);// cand.sort((a, b) => b.status - a.status); Essa parte coloca as questões com tatus 2 no início 
-        let cb = cand.filter(q => q.categoria === "Conhecimentos Básicos").slice(0, 15);
-        let cc = cand.filter(q => q.categoria === "Conhecimentos Complementares").slice(0, 5);
-        let ce = cand.filter(q => q.categoria === "Conhecimentos Específicos").slice(0, 20);
-        this.fila = [...cb, ...cc, ...ce];
+        let pt = cand.filter(q => q.materia === "Língua Portuguesa").slice(0, 10);
+        let inf = cand.filter(q => q.materia === "Informática").slice(0, 5);
+        let mt = cand.filter(q => q.materia === "Matemática").slice(0, 2);
+        let rlm = cand.filter(q => q.materia === "Raciocínio Lógico").slice(0, 3);
+        let cg = cand.filter(q => q.categoria === "Conhecimentos Gerais").slice(0, 10);
+        this.fila = [...pt, ...inf, ...mt, ...rlm, ...cg];
         if (this.fila.length === 0) { await this.ui.mostrarAviso("Erro na geração da prova."); return; }
         this.fila.sort(() => Math.random() - 0.5); this.indiceAtual = 0;
     }
