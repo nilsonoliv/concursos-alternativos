@@ -17,6 +17,7 @@ export const state = {
                     { id: 'di5', category: 'Dias', text: 'Dia 5' },
 
                     // 1. LÍNGUA PORTUGUESA
+        /*     ATENÇÃO O ULTIMO ID DO PT É ESS ---> */     { id: 'lp16', category: 'Língua Portuguesa', text: '🔥 QUENTE - Correspondência oficial (conforme Manual de Redação da Presidência da República).' },
                     { id: 'lp1', category: 'Língua Portuguesa', text: '🔥 QUENTE - Compreensão e Interpretação de Textos: Análise de textos variados, digitais (e-mails, redes sociais) e multimodais (gráficos, tabelas).' },
                     { id: 'lp2', category: 'Língua Portuguesa', text: '🔥 QUENTE - Coesão, coerência e uso de conectores.' },
                     { id: 'lp3', category: 'Língua Portuguesa', text: '🔥 QUENTE - Pontuação: Uso correto dos sinais de pontuação.' },
