@@ -11,7 +11,6 @@ import { pack3 } from './modules-questions/pack3.js';
 ...pack1,
 ...pack2,
 ...pack3,
-
 ];
 
 
