@@ -262,19 +262,20 @@ class InterfaceGrafica {
         } else {
             assuntosValidos = [...new Set(listaQuestoes.filter(q => q.materia === materiaSelecionada).map(q => q.assunto))];
         };
-            
-    //Pega a nova div que foi adicionada para adicionar checkboxes e selecionar mais de um assunto 
+
+        
+        //Pega a nova div que foi adicionada para adicionar checkboxes e selecionar mais de um assunto 
         const containerAssuntos = document.getElementById('caixa-assuntos');    
         if (!containerAssuntos) return;
-
-    //Adiciona a opção de selecionar todos os assuntos
+        
+        //Adiciona a opção de selecionar todos os assuntos
         containerAssuntos.innerHTML = `<label style="display: block; font-weight: bold; margin-bottom: 8px; cursor: pointer;">
-                <input type="checkbox" id="chk-todos-assuntos" value="todos" checked>
-                Selecionar Todos
-            </label>
-            <hr style="margin-bottom: 8px;">`;
-    //Adiciona os assuntos individuais
-    assuntosValidos.forEach(a => {
+        <input type="checkbox" id="chk-todos-assuntos" value="todos" checked>
+        Selecionar Todos
+        </label>
+        <hr style="margin-bottom: 8px;">`;
+        //Adiciona os assuntos individuais
+        assuntosValidos.forEach(a => {
         containerAssuntos.innerHTML += `
         <label style="display: block; margin-bottom: 5px; margin-left: 10px; cursor: pointer;">
                     <input type="checkbox" class="chk-assunto" value="${a}" checked>
@@ -283,8 +284,8 @@ class InterfaceGrafica {
         `;
     });
     // --- UX Sênior: Comportamento do Dropdown e Checkboxes ---
-        const chkTodos = document.getElementById('chk-todos-assuntos');
-        const chksIndividuais = document.querySelectorAll('.chk-assunto');
+    const chkTodos = document.getElementById('chk-todos-assuntos');
+    const chksIndividuais = document.querySelectorAll('.chk-assunto');
         const dropdownTitle = document.getElementById('dropdown-title');
         const dropdownHeader = document.getElementById('dropdown-header');
         const caixaAssuntos = document.getElementById('caixa-assuntos');
@@ -340,8 +341,8 @@ class InterfaceGrafica {
             window.dropdownListenerAdicionado = true; // Garante que não adicionamos o listener duplicado
         }
     }
-
-
+  
+    
     // Exibe a questão atual no formato de enunciado, alternativas e informações adicionais, preparando os botões para interação.
     exibirQuestaoAtual(questao, indiceAtual, totalQuestoes, aoSelecionarOpcao, aoConfirmar) {
         document.getElementById('q-header-info').innerText = `#${questao.id} | ${questao.materia} > ${questao.assunto} (${questao.banca})`;
@@ -717,6 +718,8 @@ class AppGestor {
             document.getElementById('simulado-setup').classList.remove('hidden-view');
             this.ui.preencherFiltros(this.bd.questoes); this.ui.atualizarAssuntos(this.bd.questoes, 'todas');
         }
+
+    
     }
 }
 
