@@ -22,6 +22,7 @@
 <!-- LIGAÇÃO PARA O FICHEIRO CSS (Design e Estilos) -->
 <!-- Todo o design visual deve ser colocado num ficheiro chamado "style.css" -->
 <link rel="stylesheet" href="/assets/css/styleSimulado.css">
+<link rel="stylesheet" href="/assets/css/simuladoGraficos.css">
 <!-- Firebase SDK -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -94,21 +95,29 @@
                 </div>
             </div>
         </article>
-        <article class="card mb-6">
-            <h3 class="card-title">Desempenho por Matéria</h3>
-            <p class="card-subtitle">Taxa de acerto acumulada em cada disciplina.</p>
-            <div id="materia-bar-chart">
-                <!-- O JavaScript preencherá este espaço -->
-            </div>
-        </article>
-        <!--Gráficos de barras de desempenho por assunto-->
-                <article class="card mb-6">
-            <h3 class="card-title">Desempenho por Assunto</h3>
-            <p class="card-subtitle">Taxa de acerto acumulada em cada assunto.</p>
-            <div id="assunto-bar-chart">
-                <!-- O JavaScript preencherá este espaço -->
-            </div>
-        </article>
+        <section class="cards-graficos">
+            <!-- Gráficos de barras de desempenho por matéria-->
+            <article class="card mb-6 graph-card">
+                <div class="container-title-graph">
+                    <h3 class="card-title">Desempenho por Matéria</h3>
+                    <p class="card-subtitle">Taxa de acerto acumulada em cada disciplina.</p>
+                </div>
+
+                <div class="bar-chart row-graph" id="materia-bar-chart">
+                    <!-- O JavaScript preencherá este espaço -->
+                </div>
+            </article>
+            <!--Gráficos de barras de desempenho por assunto-->
+            <article class="card mb-6 graph-card">
+                <div class="container-title-graph">
+                    <h3 class="card-title">Desempenho por Assunto</h3>
+                    <p class="card-subtitle">Taxa de acerto acumulada em cada assunto.</p>
+                </div>
+                <div class="bar-chart row-graph" id="assunto-bar-chart">
+                    <!-- O JavaScript preencherá este espaço -->
+                </div>
+            </article>
+        </section>
 
         <!-- Matriz SWOT (Pontos Fortes vs Pontos de Atenção) -->
         <div class="dashboard-grid mb-6">
