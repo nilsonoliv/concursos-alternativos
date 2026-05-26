@@ -97,6 +97,8 @@ gerarEstatisticasGlobais() {
         let pendentes = 0;
         let totalAcertosHistorico = 0, totalRespondidasHistorico = 0, totalTempo = 0;
         let analisePorMateria = {};
+        //**********************************
+        let analisePorAssunto = {};
 
         // 1. As questões "Pendentes" são a única métrica que ainda depende do estado do banco
         // (Representa quantas questões INÉDITAS sobraram para resolver)
@@ -110,7 +112,7 @@ gerarEstatisticasGlobais() {
             totalRespondidasHistorico += simulado.totalRespondidas || 0;
             totalTempo += simulado.tempoGasto || 0;
 
-            // Agrega a performance fragmentada de matéria no escopo global
+            // Agrega a performance fragmentada de matéria e assunto no escopo global
             if (simulado.desempenhoSessao) {
                 for (let materia in simulado.desempenhoSessao) {
                     if (!analisePorMateria[materia]) {
@@ -120,6 +122,17 @@ gerarEstatisticasGlobais() {
                     analisePorMateria[materia].e += simulado.desempenhoSessao[materia].erradas;
                 }
             }
+            /***************************************************** */
+            if (simulado.desempenhoAssunto) {
+                for (let assunto in simulado.desempenhoAssunto) {
+                    if (!analisePorAssunto[assunto]) {
+                        analisePorAssunto[assunto] = { c: 0, e: 0 };
+                    };
+                    analisePorAssunto[assunto].c += simulado.desempenhoAssunto[assunto].certas;
+                    analisePorAssunto[assunto].e += simulado.desempenhoAssunto[assunto].erradas;
+                };
+            }
+            
         });
 
         const certas = totalAcertosHistorico;
@@ -128,7 +141,7 @@ gerarEstatisticasGlobais() {
         const precisaoPerc = totalRespondidasHistorico > 0 ? Math.round((totalAcertosHistorico / totalRespondidasHistorico) * 100) : 0;
         const tempoMedioSegundos = totalRespondidasHistorico > 0 ? Math.round(totalTempo / totalRespondidasHistorico) : 0;
 
-        return { certas, erradas, pendentes, precisaoPerc, tempoMedioSegundos, analisePorMateria };
+        return { certas, erradas, pendentes, precisaoPerc, tempoMedioSegundos, analisePorMateria, analisePorAssunto };
     }
 }
 
@@ -144,7 +157,7 @@ class InterfaceGrafica {
         const botaoMenu = document.querySelector(`[data-target="${idEcra}"]`);
         if (botaoMenu) botaoMenu.classList.add('active');
     }
-
+    // Exibe um modal customizado para avisos e confirmações, retornando uma Promise que resolve com a resposta do usuário.
     async mostrarAviso(mensagem, titulo = "Aviso", tipo = "alert", explicacao = null) {
         return new Promise((resolver) => {
             document.getElementById('modal-title').innerText = titulo;
@@ -187,8 +200,10 @@ class InterfaceGrafica {
         document.getElementById('main-donut').style.setProperty('--perc', `${metricas.precisaoPerc}%`);
         this.desenharAnaliseSWOT(metricas.analisePorMateria);
         this.desenharGraficoBarras(metricas.analisePorMateria);
+        this.desenharGraficoBarrasAssunto(metricas.analisePorAssunto);
+        this.desenharAnaliseSWOTAssunto(metricas.analisePorAssunto);
     }
-
+    
     desenharGraficoBarras(analisePorMateria) {
         const container = document.getElementById('materia-bar-chart');
         if (!container) return;
@@ -200,7 +215,25 @@ class InterfaceGrafica {
             const row = document.createElement('div');
             row.className = 'bar-chart-row';
             row.innerHTML = `
-                <div class="bar-label"><span>${materia}</span><span>${percentagem}%</span></div>
+            <div class="bar-label"><span>${materia}</span><span>${percentagem}%</span></div>
+            <div class="bar-container"><div class="bar-fill" style="width: ${percentagem}%"></div></div>
+            `;
+            container.appendChild(row);
+        }
+    }
+    //*******************************************************
+    desenharGraficoBarrasAssunto(analisePorAssunto) {
+        const container = document.getElementById('assunto-bar-chart');
+        if (!container) return;
+        container.innerHTML = '';
+        for (let assunto in analisePorAssunto) {
+            let dados = analisePorAssunto[assunto];
+            let respondidas = dados.c + dados.e;
+            let percentagem = respondidas > 0 ? Math.round((dados.c / respondidas) * 100) : 0;
+            const row = document.createElement('div');
+            row.className = 'bar-chart-row';
+            row.innerHTML = `
+                <div class="bar-label"><span>${assunto}</span><span>${percentagem}%</span></div>
                 <div class="bar-container"><div class="bar-fill" style="width: ${percentagem}%"></div></div>
             `;
             container.appendChild(row);
@@ -221,6 +254,23 @@ class InterfaceGrafica {
         }
         document.getElementById('swot-fortes').innerHTML = fortesHTML || '<li class="empty-state">Sem métricas suficientes.</li>';
         document.getElementById('swot-atencao').innerHTML = atencaoHTML || '<li class="empty-state">Sem alertas no momento.</li>';
+    }
+    //***********************************************************
+        desenharAnaliseSWOTAssunto(analisePorAssunto) {
+        let fortesHTML = '', atencaoHTML = '';
+        for (let assunto in analisePorAssunto) {
+            let dados = analisePorAssunto[assunto];
+            let respondidas = dados.c + dados.e;
+            if (respondidas > 0) {
+                let percentagem = Math.round((dados.c / respondidas) * 100);
+                let itemHtml = `<li class="swot-item"><span>${assunto}</span> <span class="perc">${percentagem}%</span></li>`;
+                
+                if (percentagem >= 80) fortesHTML += itemHtml;
+                else if (percentagem < 60) atencaoHTML += itemHtml;
+            }
+        }
+        document.getElementById('swot-fortes-assunto').innerHTML = fortesHTML || '<li class="empty-state">Sem métricas suficientes.</li>';
+        document.getElementById('swot-atencao-assunto').innerHTML = atencaoHTML || '<li class="empty-state">Sem alertas no momento.</li>';
     }
 
     desenharHistorico(historicoArray) {
@@ -416,11 +466,13 @@ class MotorSimulado {
         this.intervaloRelogio = null;
         this.segundosRestantes = 0;
         this.desempenhoSessao = {}; // NOVO: Registo fragmentado por matéria
+        this.desempenhoAssunto = {}; // NOVO: Registo fragmentado por assunto
     }
     // Inicia o simulado com as configurações escolhidas, preparando a fila de questões e o timer conforme o modo selecionado.
     async iniciarConfigurado(modo, tempo, qtd, materia, assunto) {
         this.modo = modo; this.acertosSessao = 0; this.momentoInicio = Math.floor(Date.now() / 1000); 
         this.desempenhoSessao = {}; // NOVO: Zera o registo no início de cada simulado
+        this.desempenhoAssunto = {}; // NOVO: Zera o registo no início de cada simulado
         if (this.modo === 'prova') {
             this.segundosRestantes = 150 * 60; document.getElementById('q-timer').classList.remove('hidden-view');
             this.iniciarRelogio(); await this.criarFilaProvaOficial();
@@ -510,6 +562,12 @@ submeterResposta() {
         }
         if (ok) this.desempenhoSessao[qOrig.materia].certas++;
         else this.desempenhoSessao[qOrig.materia].erradas++;
+        ////********************************************************
+        if (!this.desempenhoAssunto[qOrig.assunto]) {
+            this.desempenhoAssunto[qOrig.assunto] = { certas: 0, erradas: 0 };
+        }
+        if (ok) this.desempenhoAssunto[qOrig.assunto].certas++;
+        else this.desempenhoAssunto[qOrig.assunto].erradas++;
         // --------------------------------------------------------------
 
         qOrig.status = ok ? 1 : 2; 
@@ -540,7 +598,8 @@ cancelarSessao() {
                 acertos: this.acertosSessao, 
                 totalRespondidas: this.indiceAtual, 
                 tempoGasto: dur,
-                desempenhoSessao: this.desempenhoSessao // Injetado com sucesso!
+                desempenhoSessao: this.desempenhoSessao, // Injetado com sucesso!
+                desempenhoAssunto: this.desempenhoAssunto // Injetado com sucesso!
             });
             this.bd.guardar();
         }
@@ -564,7 +623,8 @@ cancelarSessao() {
             acertos: this.acertosSessao, 
             totalRespondidas: this.indiceAtual, 
             tempoGasto: dur,
-            desempenhoSessao: this.desempenhoSessao // Injetado com sucesso!
+            desempenhoSessao: this.desempenhoSessao, // Injetado com sucesso!
+            desempenhoAssunto: this.desempenhoAssunto // Injetado com sucesso!
         });
         this.bd.guardar();
         

@@ -101,6 +101,14 @@
                 <!-- O JavaScript preencherá este espaço -->
             </div>
         </article>
+        <!--Gráficos de barras de desempenho por assunto-->
+                <article class="card mb-6">
+            <h3 class="card-title">Desempenho por Assunto</h3>
+            <p class="card-subtitle">Taxa de acerto acumulada em cada assunto.</p>
+            <div id="assunto-bar-chart">
+                <!-- O JavaScript preencherá este espaço -->
+            </div>
+        </article>
 
         <!-- Matriz SWOT (Pontos Fortes vs Pontos de Atenção) -->
         <div class="dashboard-grid mb-6">
@@ -112,7 +120,7 @@
                 </header>
                 <ul id="swot-fortes" class="swot-list"></ul>
             </article>
-            
+                       
             <!-- Matérias Fracas -->
             <article class="card border-strong-red">
                 <header class="swot-header atencao">
@@ -120,6 +128,17 @@
                     <h3 class="card-title m-0">Matérias de Atenção (<60%)</h3>
                 </header>
                 <ul id="swot-atencao" class="swot-list"></ul>
+            </article>
+             <!--Assuntos Fortes-->
+            <article class="card border-strong-green">
+                <header class="swot-header fortes">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="card-title m-0">Assuntos Geral</h3>
+                </header>
+                <ul id="swot-fortes-assunto" class="swot-list"></ul>
+                <ul id="swot-atencao-assunto" class="swot-list"></ul>
             </article>
         </div>
 
