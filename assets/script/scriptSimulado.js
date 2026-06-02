@@ -1,7 +1,10 @@
 "use strict";
 
-import { QUESTOES_PADRAO } from './modules/questions.js';
+import { QUESTOES_PADRAO } from './modules/questions.js?v=2';
 
+/* ==========================================================================
+   BLOCO 2: MÓDULO DE DADOS (MODEL)
+   ========================================================================== */
 /* ==========================================================================
    BLOCO 2: MÓDULO DE DADOS (MODEL)
    ========================================================================== */
@@ -12,66 +15,47 @@ class BancoDeDados {
         this.carregarDadosLocais();
     }
 
-    /**
-     * [ARQUITETURA SÊNIOR] Sincronização Inteligente
-     * Este método agora compara o banco local (navegador) com o banco estático (código).
-     * Se houver IDs novos no código, eles são mesclados sem apagar o progresso existente.
-     */
     carregarDadosLocais() {
         const bdGuardado = localStorage.getItem('creci_2026_data');
         const histGuardado = localStorage.getItem('creci_2026_history');
         
         this.historico = histGuardado ? JSON.parse(histGuardado) : [];
-        let questoesEmMemoria = bdGuardado ? JSON.parse(bdGuardado) : [];
+        const progressoSalvo = bdGuardado ? JSON.parse(bdGuardado) : [];
 
-        if (questoesEmMemoria.length > 0) {
-            let houveMudanca = false;
-            
-            // Loop pelas questões definidas no código
-            QUESTOES_PADRAO.forEach(qPadrao => {
-                // Tenta encontrar a questão equivalente na memória do navegador pelo ID
-                const index = questoesEmMemoria.findIndex(qMem => qMem.id === qPadrao.id);
-                
-                if (index === -1) {
-                    // Caso 1: A questão é nova (ID inédito). Adicionamos ao banco.
-                    questoesEmMemoria.push(JSON.parse(JSON.stringify(qPadrao)));
-                    houveMudanca = true;
-                } else {
-                    // Caso 2: A questão já existe. 
-                    // Opcional: Podemos atualizar o enunciado/explicação se mudarem no código, 
-                    // preservando o 'status' e 'historico' (progresso do aluno).
-                    if (questoesEmMemoria[index].enunciado !== qPadrao.enunciado) {
-                        questoesEmMemoria[index].enunciado = qPadrao.enunciado;
-                        questoesEmMemoria[index].explicacao = qPadrao.explicacao;
-                        questoesEmMemoria[index].alternativas = qPadrao.alternativas;
-                        questoesEmMemoria[index].resposta_correta = qPadrao.resposta_correta;
-                        houveMudanca = true;
-                    }
-                }
-            });
-
-            this.questoes = questoesEmMemoria;
-            if (houveMudanca) {
-                this.guardar(); // Persiste a mesclagem
-            }
-        } else {
-            // Primeira execução: carrega tudo do zero
-            this.questoes = JSON.parse(JSON.stringify(QUESTOES_PADRAO));
-            this.guardar();
-        }
+        // Em tempo de execução, mescla o banco estático com o progresso do aluno.
+        // Se o aluno nunca respondeu a questão, assume 0.
+        this.questoes = QUESTOES_PADRAO.map(qPadrao => {
+            const progresso = progressoSalvo.find(p => p.id === qPadrao.id);
+            return {
+                ...qPadrao,
+                status: progresso ? progresso.status : 0,
+                historico: progresso ? progresso.historico : 0
+            };
+        });
     }
 
     guardar() {
-        localStorage.setItem('creci_2026_data', JSON.stringify(this.questoes));
+        // Mapeia e salva APENAS as questões que o aluno interagiu (status ou historico diferentes de 0).
+        // Remove enunciados, alternativas e explicações do LocalStorage.
+        const progressoEnxuto = this.questoes
+            .filter(q => q.status !== 0 || q.historico !== 0)
+            .map(q => ({
+                id: q.id,
+                status: q.status,
+                historico: q.historico
+            }));
+
+        localStorage.setItem('creci_2026_data', JSON.stringify(progressoEnxuto));
         localStorage.setItem('creci_2026_history', JSON.stringify(this.historico));
     }
 
     reporDeFabrica() {
         if (confirm("Isso apagará todo seu histórico de acertos e erros. Continuar?")) {
-            this.questoes = JSON.parse(JSON.stringify(QUESTOES_PADRAO));
+            // Zera os atributos dinâmicos sem perder a estrutura da sessão atual
+            this.questoes = QUESTOES_PADRAO.map(q => ({ ...q, status: 0, historico: 0 }));
             this.historico = [];
             this.guardar();
-            location.reload(); // Recarrega para limpar estados de memória
+            location.reload(); 
         }
     }
 
@@ -79,8 +63,21 @@ class BancoDeDados {
         try {
             const ficheiro = JSON.parse(textoJSON);
             if (!ficheiro || typeof ficheiro !== 'object') return false;
-            this.questoes = ficheiro.bank || JSON.parse(JSON.stringify(QUESTOES_PADRAO));
+            
+            // O arquivo importado agora traz apenas a estrutura enxuta
+            const progressoImportado = ficheiro.bank || [];
             this.historico = ficheiro.history || [];
+            
+            // Reconstrói o banco de questões da sessão atual baseando-se no arquivo importado
+            this.questoes = QUESTOES_PADRAO.map(qPadrao => {
+                const progresso = progressoImportado.find(p => p.id === qPadrao.id);
+                return {
+                    ...qPadrao,
+                    status: progresso ? progresso.status : 0,
+                    historico: progresso ? progresso.historico : 0
+                };
+            });
+
             this.guardar();
             return true;
         } catch (e) {
@@ -90,54 +87,51 @@ class BancoDeDados {
     }
 
     exportarParaFicheiro() {
-        return JSON.stringify({ bank: this.questoes, history: this.historico }, null, 2);
+        // Exporta exatamente a mesma estrutura enxuta utilizada no LocalStorage
+        const progressoEnxuto = this.questoes
+            .filter(q => q.status !== 0 || q.historico !== 0)
+            .map(q => ({
+                id: q.id,
+                status: q.status,
+                historico: q.historico
+            }));
+
+        return JSON.stringify({ bank: progressoEnxuto, history: this.historico }, null, 2);
     }
 
-gerarEstatisticasGlobais() {
+    gerarEstatisticasGlobais() {
         let pendentes = 0;
         let totalAcertosHistorico = 0, totalRespondidasHistorico = 0, totalTempo = 0;
         let analisePorMateria = {};
-        //**********************************
         let analisePorAssunto = {};
 
-        // 1. As questões "Pendentes" são a única métrica que ainda depende do estado do banco
-        // (Representa quantas questões INÉDITAS sobraram para resolver)
         this.questoes.forEach(q => {
             if (q.status === 0) pendentes++;
         });
 
-        // 2. Acertos, Erros, SWOT e Gráficos agora vêm EXCLUSIVAMENTE da soma dos históricos
         this.historico.forEach(simulado => {
             totalAcertosHistorico += simulado.acertos || 0;
             totalRespondidasHistorico += simulado.totalRespondidas || 0;
             totalTempo += simulado.tempoGasto || 0;
 
-            // Agrega a performance fragmentada de matéria e assunto no escopo global
             if (simulado.desempenhoSessao) {
                 for (let materia in simulado.desempenhoSessao) {
-                    if (!analisePorMateria[materia]) {
-                        analisePorMateria[materia] = { c: 0, e: 0 };
-                    }
+                    if (!analisePorMateria[materia]) analisePorMateria[materia] = { c: 0, e: 0 };
                     analisePorMateria[materia].c += simulado.desempenhoSessao[materia].certas;
                     analisePorMateria[materia].e += simulado.desempenhoSessao[materia].erradas;
                 }
             }
-            /***************************************************** */
             if (simulado.desempenhoAssunto) {
                 for (let assunto in simulado.desempenhoAssunto) {
-                    if (!analisePorAssunto[assunto]) {
-                        analisePorAssunto[assunto] = { c: 0, e: 0 };
-                    };
+                    if (!analisePorAssunto[assunto]) analisePorAssunto[assunto] = { c: 0, e: 0 };
                     analisePorAssunto[assunto].c += simulado.desempenhoAssunto[assunto].certas;
                     analisePorAssunto[assunto].e += simulado.desempenhoAssunto[assunto].erradas;
                 };
             }
-            
         });
 
         const certas = totalAcertosHistorico;
         const erradas = totalRespondidasHistorico - totalAcertosHistorico;
-        
         const precisaoPerc = totalRespondidasHistorico > 0 ? Math.round((totalAcertosHistorico / totalRespondidasHistorico) * 100) : 0;
         const tempoMedioSegundos = totalRespondidasHistorico > 0 ? Math.round(totalTempo / totalRespondidasHistorico) : 0;
 
