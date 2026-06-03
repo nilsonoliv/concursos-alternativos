@@ -279,7 +279,7 @@ import { state } from './modules/checklistData.js';
                 return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
             };
 
-            const getDaysDiff = (dateStr1, dateStr2) => {
+            const getDaysDiff = (dateStr1, dateStr2) => {// Converte as strings de data para objetos Date e calcula a diferença em dias
                 const d1 = new Date(dateStr1 + 'T00:00:00');
                 const d2 = new Date(dateStr2 + 'T00:00:00');
                 return Math.floor((d2 - d1) / 86400000);
@@ -290,7 +290,7 @@ import { state } from './modules/checklistData.js';
              */
             const initCountdown = () => {
                 // Substitua esta data pela data real da prova
-                const targetDate = new Date('2026-06-11T00:00:00'); 
+                const targetDate = new Date('2026-07-26T00:00:00'); 
                 const today = new Date();
                 today.setHours(0,0,0,0);
                 
