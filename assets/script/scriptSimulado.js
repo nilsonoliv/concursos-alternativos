@@ -1,6 +1,6 @@
 "use strict";
 
-import { QUESTOES_PADRAO } from './modules/questions.js?v=2';
+import { QUESTOES_PADRAO } from './modules/questions.js?v=2.1';
 
 /* ==========================================================================
    BLOCO 2: MÓDULO DE DADOS (MODEL)
