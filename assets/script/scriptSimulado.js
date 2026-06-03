@@ -719,7 +719,10 @@ class AppGestor {
             if (!this.user || this.user.isAnonymous) return;
             try {
                 const ref = window.FirebaseSDK.doc(this.db, 'artifacts', this.appId, 'users', this.user.uid, 'settings', 'simulationData');
-                await window.FirebaseSDK.setDoc(ref, { bank: this.bd.questoes, history: this.bd.historico, updatedAt: new Date().toISOString() });
+                // NOVO: Pega a versão perfeitamente enxuta e limpa que criamos no exportarParaFicheiro()
+                const backupEnxuto = JSON.parse(this.bd.exportarParaFicheiro());
+
+                await window.FirebaseSDK.setDoc(ref, { bank: backupEnxuto.bank, history: backupEnxuto.history, updatedAt: new Date().toISOString() });
                 await this.ui.mostrarAviso("Dados salvos na nuvem!");
             } catch (e) { await this.ui.mostrarAviso("Erro ao subir dados."); }
         });
@@ -729,7 +732,12 @@ class AppGestor {
                 const ref = window.FirebaseSDK.doc(this.db, 'artifacts', this.appId, 'users', this.user.uid, 'settings', 'simulationData');
                 const snap = await window.FirebaseSDK.getDoc(ref);
                 if (snap.exists()) {
-                    const d = snap.data(); this.bd.questoes = d.bank; this.bd.historico = d.history; this.bd.guardar();
+                    const d = snap.data(); //this.bd.questoes = d.bank; this.bd.historico = d.history; this.bd.guardar();
+                    // NOVO: Empacota os dados da nuvem numa string e envia para o importarDeFicheiro().
+                    // Isso garante que os dados enxutos se fundam com o QUESTOES_PADRAO e remontem os textos.
+                    const mockJSON = JSON.stringify({ bank: d.bank, history: d.history });
+                    this.bd.importarDeFicheiro(mockJSON);
+                    
                     await this.ui.mostrarAviso("Dados restaurados!"); this.mudarEcra('view-dashboard');
                 } else { await this.ui.mostrarAviso("Sem dados na nuvem."); }
             } catch (e) { await this.ui.mostrarAviso("Erro ao baixar dados."); }
