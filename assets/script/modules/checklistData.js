@@ -47,7 +47,8 @@ export const state = {
                     { id: 'rlm3', category: 'Raciocínio Lógico', text: '❄️ FRIO - Progressões (aritmética e geométrica).' },
                     { id: 'rlm4', category: 'Raciocínio Lógico', text: '❄️ FRIO - Raciocínio verbal, matemático e sequencial.' },
                     { id: 'rlm5', category: 'Raciocínio Lógico', text: '❄️ FRIO - Orientação no espaço e no tempo.' },
-                    
+                    { id: 'rlm6', category: 'Raciocínio Lógico', text: '❄️ FRIO - Propriedade Distributiva dos conectivos lógicos.' },
+
                     // 3. MATEMÁTICA BÁSICA
                     { id: 'mB1', category: 'Matemática Básica', text: '🔥 QUENTE - DI Razão, proporção, porcentagem e regra de três (simples e composta).' },
                     { id: 'mB2', category: 'Matemática Básica', text: '🔥 QUENTE - Análise de Dados: Estatística básica (média, moda, mediana) e Interpretação de gráficos e tabelas.' },
