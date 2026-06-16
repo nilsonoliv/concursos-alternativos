@@ -12,7 +12,7 @@ export const state = {
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
                     { id: 'di1', category: 'Ciclo de Estudos', text: 'C Esp Araçá' },
                     { id: 'di2', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
-                    { id: 'di3', category: 'Ciclo de Estudos', text: 'C. Gerais' },
+                    { id: 'di3', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
                     { id: 'di4', category: 'Ciclo de Estudos', text: 'Informática' },
                     { id: 'di5', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
                     { id: 'di6', category: 'Ciclo de Estudos', text: 'Matemática' },
@@ -22,7 +22,7 @@ export const state = {
                     { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Esp Araçá' },
                     { id: 'di11', category: 'Ciclo de Estudos', text: 'Informática' },
                     { id: 'di12', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
-                    { id: 'di13', category: 'Ciclo de Estudos', text: 'C. Gerais' },
+                    { id: 'di13', category: 'Ciclo de Estudos', text: 'C. Gerais Formosa' },
                     { id: 'di14', category: 'Ciclo de Estudos', text: 'C. Esp Araçá' },
                     { id: 'di15', category: 'Ciclo de Estudos', text: 'Matemática' },
                     { id: 'di16', category: 'Ciclo de Estudos', text: 'C. Esp Formosa' },
@@ -46,10 +46,11 @@ export const state = {
                     { id: 'lp15', category: 'Língua Portuguesa', text: '❄️ FRIO - Adequação da linguagem a diferentes contextos.' },
 
                   // C. Esp Araçá
-                    { id: 'cea1', category: 'C. Esp Araçá', text: '🔥 QUENTE - Constituição Federal de 1988: Princípios fundamentais, direitos e garantias fundamentais.' },
-                    { id: 'cea2', category: 'C. Esp Araçá', text: '🔥 QUENTE - Constituição Federal de 1988: Organização do Estado, Poder Legislativo e Poder Executivo.' },
-                    { id: 'cea3', category: 'C. Esp Araçá', text: '🟡 MORNO - Constituição Federal de 1988: Poder Judiciário, Ministério Público e Defensoria Pública.' },
-                    { id: 'cea4', category: 'C. Esp Araçá', text: '❄️ FRIO - Constituição Federal de 1988: Administração Pública, servidores públicos e regime jurídico.' },
+                    { id: 'cea1', category: 'C. Esp Araçá', text: '🔥 QUENTE - Noções de Almoxarifado e suas rotinas.' },
+                    { id: 'cea2', category: 'C. Esp Araçá', text: '🔥 QUENTE - Armazenamento de material.' },
+                    { id: 'cea3', category: 'C. Esp Araçá', text: '🟡 MORNO - Recepção e despacho de documentos.' },
+                    { id: 'cea4', category: 'C. Esp Araçá', text: '❄️ FRIO - Atendimento ao público interno e externo, pessoalmente ou através do telefone.' },
+                    { id: 'cea5', category: 'C. Esp Araçá', text: '❄️ FRIO - Noções de direitos e deveres, Noções básicas de Ética e Cidadania.' },
 
                   // C. Esp Formosa
                     { id: 'cef1', category: 'C. Esp Formosa', text: '🔥 QUENTE - Constituição Estadual de Goiás de 1989: Princípios fundamentais, direitos e garantias fundamentais.' },
