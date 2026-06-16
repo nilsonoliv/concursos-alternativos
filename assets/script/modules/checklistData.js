@@ -45,6 +45,18 @@ export const state = {
                     { id: 'lp14', category: 'Língua Portuguesa', text: '❄️ FRIO - Figuras de linguagem, denotação e conotação.' },
                     { id: 'lp15', category: 'Língua Portuguesa', text: '❄️ FRIO - Adequação da linguagem a diferentes contextos.' },
 
+                  // C. Esp Araçá
+                    { id: 'cea1', category: 'C. Esp Araçá', text: '🔥 QUENTE - Constituição Federal de 1988: Princípios fundamentais, direitos e garantias fundamentais.' },
+                    { id: 'cea2', category: 'C. Esp Araçá', text: '🔥 QUENTE - Constituição Federal de 1988: Organização do Estado, Poder Legislativo e Poder Executivo.' },
+                    { id: 'cea3', category: 'C. Esp Araçá', text: '🟡 MORNO - Constituição Federal de 1988: Poder Judiciário, Ministério Público e Defensoria Pública.' },
+                    { id: 'cea4', category: 'C. Esp Araçá', text: '❄️ FRIO - Constituição Federal de 1988: Administração Pública, servidores públicos e regime jurídico.' },
+
+                  // C. Esp Formosa
+                    { id: 'cef1', category: 'C. Esp Formosa', text: '🔥 QUENTE - Constituição Estadual de Goiás de 1989: Princípios fundamentais, direitos e garantias fundamentais.' },
+                    { id: 'cef2', category: 'C. Esp Formosa', text: '🔥 QUENTE - Constituição Estadual de Goiás de 1989: Organização do Estado, Poder Legislativo e Poder Executivo.' },
+                    { id: 'cef3', category: 'C. Esp Formosa', text: '🟡 MORNO - Constituição Estadual de Goiás de 1989: Poder Judiciário, Ministério Público e Defensoria Pública.' },
+                    { id: 'cef4', category: 'C. Esp Formosa', text: '❄️ FRIO - Constituição Estadual de Goiás de 1989: Administração Pública, servidores públicos e regime jurídico.' },
+
                     // 2. RACIOCÍNIO LÓGICO
                     { id: 'rlm1', category: 'Raciocínio Lógico', text: '🔥 QUENTE - Proposições e conectivos.' },
                     { id: 'rlm2', category: 'Raciocínio Lógico', text: '🔥 QUENTE - Estruturas lógicas e argumentação (dedução, indução).' },
@@ -91,14 +103,14 @@ export const state = {
                     { id: 'inf11', category: 'Noções de Informática', text: '❄️ FRIO - Sistemas móveis (Android e iOS).' },
                     { id: 'inf12', category: 'Noções de Informática', text: '❄️ FRIO - Ferramentas de comunicação (Teams, Meet).' },
 
-                    // 5. LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA
+                 /*   // 5. LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA
                     { id: 'leg1', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei nº 8.429/1992 (Improbidade Administrativa).' },
                     { id: 'leg2', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei nº 9.784/1999 (Processo Administrativo), direitos e deveres.' },
                     { id: 'leg3', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Princípios fundamentais da Administração Pública.' },
                     { id: 'leg4', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei Geral de Proteção de Dados - LGPD (Lei nº 13.709/2018) .' },
                     { id: 'leg5', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei nº 12.527/2011 (Transparência e Acesso à Informação) e seus decretos.' },
                     { id: 'leg6', category: 'Legislação e Ética na Adm. Pública', text: '❄️ FRIO - Conceito de ética na função pública.' },
-
+                  *//*
                     // 6. ADMINISTRAÇÃO, ATENDIMENTO E ARQUIVO
                     { id: 'adm1', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Atendimento ao Público: Qualidade, postura profissional, atendimento telefônico e presencial.' },
                     { id: 'adm2', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Comunicação Organizacional: Redação oficial de documentos e tipos de documentos administrativos.' },
@@ -113,7 +125,7 @@ export const state = {
                     { id: 'adm11', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Organização e Métodos.' },
                     { id: 'adm12', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Estrutura Organizacional: Conceito e tipos.' },
                     { id: 'adm13', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Noções de cidadania e relações públicas.' },
-
+                  *//*
                     // 7. LEGISLAÇÃO ESPECÍFICA
                     //{ id: 'esp1', category: 'Legislação Específica', text: '🔥 QUENTE - Lei nº 6.530/1978 (Regulamentação da profissão e órgãos de fiscalização).' },
                     //{ id: 'esp2', category: 'Legislação Específica', text: '🔥 QUENTE - Decreto nº 81.871/1978 (Regulamenta a Lei nº 6.530/1978).' },
@@ -130,7 +142,7 @@ export const state = {
                   /*  { id: 'esp13', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 315/1991 (Pena pecuniária).' },
                     { id: 'esp14', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 325/1992 (Comissão de Atendimento ao Consumidor).' },
                     { id: 'esp15', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 1.452/2021 (Emenda Regimental).' },*/
-
+                  /*
                     // 8. TECNOLOGIA DA INFORMAÇÃO
                     { id: 'ti1', category: 'Tecnologia da Informação', text: '🔥 QUENTE - DI Papel estratégico da TI no setor público: Função da TI no Poder Legislativo.' },
                     { id: 'ti2', category: 'Tecnologia da Informação', text: '🔥 QUENTE - DI Papel estratégico da TI no setor público: TI como suporte à gestão pública.' },
@@ -177,6 +189,6 @@ export const state = {
                     { id: 'ti43', category: 'Tecnologia da Informação', text: '❄️ FRIO - Documentação de uso: Manuais de sistemas, Base de conhecimento.' },
                     { id: 'ti44', category: 'Tecnologia da Informação', text: '❄️ FRIO - DI Metodologias e ferramentas: MS Project, Trello, Jira.' },
                     { id: 'ti45', category: 'Tecnologia da Informação', text: '❄️ FRIO - DI Pesquisa tecnológica: Pesquisa aplicada à modernização legislativa digital.' },
-
+                  */
  ]
 };
