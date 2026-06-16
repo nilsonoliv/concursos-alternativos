@@ -10,18 +10,22 @@ export const state = {
                 checklistData: [
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
-                    { id: 'di1', category: 'Ciclo de Estudos', text: 'L Portuguesa' },
-                    { id: 'di2', category: 'Ciclo de Estudos', text: 'L. ética' },
+                    { id: 'di1', category: 'Ciclo de Estudos', text: 'C Esp Araçá' },
+                    { id: 'di2', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
                     { id: 'di3', category: 'Ciclo de Estudos', text: 'C. Gerais' },
-                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Matemática' },
-                    { id: 'di5', category: 'Ciclo de Estudos', text: 'Administração' },
-                    { id: 'di6', category: 'Ciclo de Estudos', text: 'L Portuguesa' },
-                    { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Gerais' },
-                    { id: 'di8', category: 'Ciclo de Estudos', text: 'T. da Informação' },
-                    { id: 'di9', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
-                    { id: 'di10', category: 'Ciclo de Estudos', text: 'Informática' },
-                    { id: 'di11', category: 'Ciclo de Estudos', text: 'L. Específica' },
-                    { id: 'di12', category: 'Ciclo de Estudos', text: 'RLM' },
+                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Informática' },
+                    { id: 'di5', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
+                    { id: 'di6', category: 'Ciclo de Estudos', text: 'Matemática' },
+                    { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Esp Formosa' },
+                    { id: 'di8', category: 'Ciclo de Estudos', text: 'RLM' },
+                    { id: 'di9', category: 'Ciclo de Estudos', text: 'Redação' },
+                    { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Esp Araçá' },
+                    { id: 'di11', category: 'Ciclo de Estudos', text: 'Informática' },
+                    { id: 'di12', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
+                    { id: 'di13', category: 'Ciclo de Estudos', text: 'C. Gerais' },
+                    { id: 'di14', category: 'Ciclo de Estudos', text: 'C. Esp Araçá' },
+                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Matemática' },
+                    { id: 'di16', category: 'Ciclo de Estudos', text: 'C. Esp Formosa' },
 
                     // 1. LÍNGUA PORTUGUESA
         /*     ATENÇÃO O ULTIMO ID DO PT É ESS ---> */     { id: 'lp16', category: 'Língua Portuguesa', text: '🔥 QUENTE - Correspondência oficial (conforme Manual de Redação da Presidência da República).' },
