@@ -47,10 +47,15 @@ export const state = {
 
                   // C. Esp Araçá
                     { id: 'cea1', category: 'C. Esp Araçá', text: '🔥 QUENTE - Noções de Almoxarifado e suas rotinas.' },
-                    { id: 'cea2', category: 'C. Esp Araçá', text: '🔥 QUENTE - Armazenamento de material.' },
-                    { id: 'cea3', category: 'C. Esp Araçá', text: '🟡 MORNO - Recepção e despacho de documentos.' },
-                    { id: 'cea4', category: 'C. Esp Araçá', text: '❄️ FRIO - Atendimento ao público interno e externo, pessoalmente ou através do telefone.' },
-                    { id: 'cea5', category: 'C. Esp Araçá', text: '❄️ FRIO - Noções de direitos e deveres, Noções básicas de Ética e Cidadania.' },
+                    { id: 'cea2', category: 'C. Esp Araçá', text: '🔥 QUENTE - Métodos de classificação: Equalização de valores (Custo médio ponderado).' },
+                    { id: 'cea3', category: 'C. Esp Araçá', text: '🔥 QUENTE - Armazenamento de material.' },
+                    { id: 'cea4', category: 'C. Esp Araçá', text: '🔥 QUENTE - Classificação dos Inventários quanto à sua periodicidade e finalidade.' },
+                    { id: 'cea5', category: 'C. Esp Araçá', text: '🟡 MORNO - Recepção e despacho de documentos.' },
+                    { id: 'cea6', category: 'C. Esp Araçá', text: '🟡 MORNO - Métodos de classificação: Fluxo cronológico de entrada (PEPS).' },
+                    { id: 'cea7', category: 'C. Esp Araçá', text: '🟡 MORNO - Métodos de classificação: Fluxo de saída ou reversso de entrada (UEPS).' },
+                    { id: 'cea8', category: 'C. Esp Araçá', text: '🟡 MORNO - Curca ABC: Princípio de Pareto.' },
+                    { id: 'cea6', category: 'C. Esp Araçá', text: '❄️ FRIO - Atendimento ao público interno e externo, pessoalmente ou através do telefone.' },
+                    { id: 'cea7', category: 'C. Esp Araçá', text: '❄️ FRIO - Noções de direitos e deveres, Noções básicas de Ética e Cidadania.' },
 
                   // C. Esp Formosa
                     { id: 'cef1', category: 'C. Esp Formosa', text: '🔥 QUENTE - Constituição Estadual de Goiás de 1989: Princípios fundamentais, direitos e garantias fundamentais.' },
