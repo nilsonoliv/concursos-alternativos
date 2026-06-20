@@ -13,7 +13,7 @@ export const state = {
                     { id: 'di1', category: 'Ciclo de Estudos', text: 'C Esp Araçá' },
                     { id: 'di2', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
                     { id: 'di3', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
-                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Informática' },
+                    //{ id: 'di4', category: 'Ciclo de Estudos', text: 'Informática' },
                     { id: 'di5', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
                     { id: 'di6', category: 'Ciclo de Estudos', text: 'Matemática' },
                     { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Esp Formosa' },
