@@ -5,6 +5,7 @@
          */
 
 import { state } from './modules/checklistData.js';
+import { initCountdownAracas, initCountdownFormosa, initCountdownIBGE, initCountdownAllDays } from './modules/ui.js';
 
         const DashboardApp = (function() {
             'use strict';
@@ -21,11 +22,39 @@ import { state } from './modules/checklistData.js';
                 btnImportTrigger: document.getElementById('btn-import-trigger'),
                 fileImport: document.getElementById('file-import'),
                 countdownDays: document.getElementById('countdown-days'),
+
+                countdownDaysAracas: document.getElementById('countdown-days-aracas'),
+                countdownDaysAracasValue: document.getElementById('countdown-days-aracas-value'),
+                countdownDaysFormosa: document.getElementById('countdown-days-formosa'),
+                countdownDaysFormosaValue: document.getElementById('countdown-days-formosa-value'),
+                countdownDaysIBGE: document.getElementById('countdown-days-ibge'),
+                countdownDaysIBGEValue: document.getElementById('countdown-days-ibge-value'),
+                countdownDaysAll: document.getElementById('countdown-days-all'),
+
                 btnStudyToday: document.getElementById('btn-study-today'),
                 currentStreakDisplay: document.getElementById('current-streak'),
                 bestStreakDisplay: document.getElementById('best-streak'),
                 phaseCheckboxes: document.querySelectorAll('.phase-checkbox')
             };
+
+//dddddddddddddddd
+/*if(DOM.countdownDaysAracas) DOM.countdownDaysAracas.innerText = diffDays > 0 ? `${diffDays} dias` : "Chegou o dia!";
+if(DOM.countdownDaysFormosa) DOM.countdownDaysFormosa.innerText = diffDays > 0 ? `${diffDays} dias` : "Chegou o dia!";
+if(DOM.countdownDaysIBGE) DOM.countdownDaysIBGE.innerText = diffDays > 0 ? `${diffDays} dias` : "Chegou o dia!";*/
+
+//if(DOM.countdownDaysAracas) DOM.countdownDaysAracas.innerText =  `${state.checklistData[9].category} dias`;
+if(DOM.countdownDaysAracas) DOM.countdownDaysAracas.innerText = initCountdownAracas().valueDays > 0 ? `${initCountdownAracas().valueDays} dias` : "Chegou o dia!";
+if(DOM.countdownDaysAracasValue) DOM.countdownDaysAracasValue.innerText = initCountdownAracas().valuePrice > 0 ? `R$${initCountdownAracas().valuePrice.toFixed(1)} por dia` : "Chegou o dia!";
+if(DOM.countdownDaysFormosa) DOM.countdownDaysFormosa.innerText = initCountdownFormosa().valueDays > 0 ? `${initCountdownFormosa().valueDays} dias` : "Chegou o dia!";
+if(DOM.countdownDaysFormosaValue) DOM.countdownDaysFormosaValue.innerText = initCountdownFormosa().valuePrice > 0 ? `R$${initCountdownFormosa().valuePrice.toFixed(1)} por dia` : "Chegou o dia!";
+if(DOM.countdownDaysIBGE) DOM.countdownDaysIBGE.innerText = initCountdownIBGE().valueDays > 0 ? `${initCountdownIBGE().valueDays} dias` : "Chegou o dia!";
+if(DOM.countdownDaysIBGEValue) DOM.countdownDaysIBGEValue.innerText = initCountdownIBGE().valuePrice > 0 ? `R$${initCountdownIBGE().valuePrice.toFixed(1)} por dia` : "Chegou o dia!";
+if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays(initCountdownAracas().valuePrice, initCountdownFormosa().valuePrice, initCountdownIBGE().valuePrice) > 0 ? `R$${initCountdownAllDays(initCountdownAracas().valuePrice, initCountdownFormosa().valuePrice, initCountdownIBGE().valuePrice).toFixed(1)} por dia` : "Chegou o dia!";
+
+
+//************************************************************************
+// ////////////////////////////////////////
+// ////////////////////////////////////////////////////////// */
 
             // 3. FUNÇÕES DA APLICAÇÃO
 
@@ -298,6 +327,60 @@ import { state } from './modules/checklistData.js';
                 if(DOM.countdownDays) DOM.countdownDays.innerText = diffDays > 0 ? `${diffDays} dias` : "Chegou o dia!";
             };
 
+//novos contadores para as provas específicas
+/*const initCountdownAracas = () => {
+    // Substitua esta data pela data real da prova
+    const targetDate = new Date('2026-08-09T00:00:00'); 
+    const today = new Date();
+    today.setHours(0,0,0,0);// essa variavel é usada para calcular a diferença de dias entre a data atual e a data da prova
+    const ticketPrice = 340; // Valor da passagem de ida e volta
+    const diffDays = Math.ceil((targetDate - today) / 86400000); //a função Math.ceil arredonda para cima, garantindo que mesmo que falte menos de um dia, ainda seja contado como 1 dia restante
+    var ticketPriceForDaysAracas = diffDays > 0 ? ticketPrice/diffDays : 0 ; // calcula quanto por dia é necessario juntar para a passagem, caso falte menos de um dia, o valor da passagem é 0
+    if(DOM.countdownDaysAracas) DOM.countdownDaysAracas.innerText = diffDays > 0 ? `${diffDays} dias` : "Chegou o dia!";
+    if(DOM.countdownDaysAracasValue) DOM.countdownDaysAracasValue.innerText = ticketPriceForDaysAracas > 0 ? `R$${ticketPriceForDaysAracas.toFixed(1)} por dia` : "Chegou o dia!";
+    return ticketPriceForDaysAracas
+    
+};*/
+/*const initCountdownFormosa = () => {
+        // Substitua esta data pela data real da prova
+        const targetDate = new Date('2026-08-16T00:00:00'); 
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const ticketPrice = 850-69; // Valor da passagem de ida e volta
+        const diffDays = Math.ceil((targetDate - today) / 86400000);
+        var ticketPriceForDaysFormosa = diffDays > 0 ? ticketPrice/diffDays : 0 ; // calcula quanto por dia é necessario juntar para a passagem, caso falte menos de um dia, o valor da passagem é 0
+        if(DOM.countdownDaysFormosa) DOM.countdownDaysFormosa.innerText = diffDays > 0 ? `${diffDays} dias` : "Chegou o dia!";
+        if(DOM.countdownDaysFormosaValue) DOM.countdownDaysFormosaValue.innerText = ticketPriceForDaysFormosa > 0 ? `R$${ticketPriceForDaysFormosa.toFixed(1)} por dia` : "Chegou o dia!";
+      return ticketPriceForDaysFormosa
+
+    };*/
+
+  /*  const initCountdownIBGE = () => {
+        // Substitua esta data pela data real da prova
+        const targetDate = new Date('2026-08-30T00:00:00'); 
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const ticketPrice = 380; // Valor da passagem de ida e volta
+        const diffDays = Math.ceil((targetDate - today) / 86400000);
+        var ticketPriceForDaysIBGE = diffDays > 0 ? ticketPrice/diffDays : 0 ; // calcula quanto por dia é necessario juntar para a passagem, caso falte menos de um dia, o valor da passagem é 0
+        if(DOM.countdownDaysIBGE) DOM.countdownDaysIBGE.innerText = diffDays > 0 ? `${diffDays} dias` : "Chegou o dia!";
+        if(DOM.countdownDaysIBGEValue) DOM.countdownDaysIBGEValue.innerText = ticketPriceForDaysIBGE > 0 ? `R$${ticketPriceForDaysIBGE.toFixed(1)} por dia` : "Chegou o dia!";
+       return ticketPriceForDaysIBGE
+    };*/
+
+   /* const initCountdownAllDays = (value1, value2, value3) => {
+        value1 = parseFloat(value1) || 0;
+        value2 = parseFloat(value2) || 0;
+        value3 = parseFloat(value3) || 0;
+        const totalPrice = value1 + value2 + value3;
+        if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = totalPrice > 0 ? `R$${totalPrice.toFixed(1)} por dia` : "Chegou o dia!";
+        return totalPrice;
+    };*/
+
+//fimmmmmmmmmmmmmmmmmmmmmm
+
+
+
             /**
              * Verifica se o aluno perdeu a ofensiva (dias seguidos) e atualiza o visual
              */
@@ -405,6 +488,17 @@ import { state } from './modules/checklistData.js';
                     // Inicia as funcionalidades
                     renderChecklist();
                     initCountdown();
+//novos contadores para as provas específicas
+initCountdownAracas();
+initCountdownFormosa();
+initCountdownIBGE();
+initCountdownAllDays(initCountdownAracas(), initCountdownFormosa(), initCountdownIBGE());
+//fimmmmmmmmmmmmmmmmmmmmmm
+
+
+//fimmmmm
+
+
                     initStreak();
                     initPhases();
                     bindEvents(); // Liga os "botões" e escutadores
