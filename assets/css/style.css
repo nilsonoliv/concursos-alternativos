@@ -26,7 +26,13 @@ body {
 
         .header-title h1 { font-size: 1.875rem; font-weight: 700; letter-spacing: -0.025em; }
         
-        .header-stats { display: flex; gap: 2rem; align-items: center; justify-content: center; flex-wrap: wrap; }
+        .header-stats { 
+            display: flex; 
+            gap: 2rem; 
+            align-items: flex-start; 
+            justify-content: center; 
+           /* flex-wrap: wrap; */
+        };
         
         .header-info { text-align: center; }
         .header-info-label { font-size: 0.875rem; color: var(--color-text-light); }
