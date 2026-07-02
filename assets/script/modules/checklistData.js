@@ -10,7 +10,7 @@ export const state = {
                 checklistData: [
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
-                    { id: 'di1', category: 'Ciclo de Estudos', text: 'C Esp Araçá' },
+                    //{ id: 'di1', category: 'Ciclo de Estudos', text: '' },
                     { id: 'di2', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
                     { id: 'di3', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
                     //{ id: 'di4', category: 'Ciclo de Estudos', text: 'Informática' },
@@ -19,12 +19,12 @@ export const state = {
                     { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Esp Formosa' },
                     { id: 'di8', category: 'Ciclo de Estudos', text: 'RLM' },
                     { id: 'di9', category: 'Ciclo de Estudos', text: 'Redação' },
-                    { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Esp Araçá' },
+                    { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
                     { id: 'di11', category: 'Ciclo de Estudos', text: 'Informática' },
                     { id: 'di12', category: 'Ciclo de Estudos', text: 'Con Esp IBGE' },
                     { id: 'di13', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
                     { id: 'di14', category: 'Ciclo de Estudos', text: 'C. Gerais Formosa' },
-                    { id: 'di15', category: 'Ciclo de Estudos', text: 'C. Esp Araçá' },
+                    //{ id: 'di15', category: 'Ciclo de Estudos', text: '' },
                     { id: 'di16', category: 'Ciclo de Estudos', text: 'Matemática' },
                     { id: 'di17', category: 'Ciclo de Estudos', text: 'C. Esp Formosa' },
                     { id: 'di18', category: 'Ciclo de Estudos', text: 'Geografia' },
