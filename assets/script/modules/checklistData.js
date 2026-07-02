@@ -18,7 +18,7 @@ export const state = {
                     { id: 'di6', category: 'Ciclo de Estudos', text: 'Matemática' },
                     { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Esp Formosa' },
                     { id: 'di8', category: 'Ciclo de Estudos', text: 'RLM' },
-                    { id: 'di9', category: 'Ciclo de Estudos', text: 'Redação' },
+                    //{ id: 'di9', category: 'Ciclo de Estudos', text: 'Redação' },
                     { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
                     { id: 'di11', category: 'Ciclo de Estudos', text: 'Informática' },
                     { id: 'di12', category: 'Ciclo de Estudos', text: 'Con Esp IBGE' },
