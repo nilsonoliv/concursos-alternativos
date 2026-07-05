@@ -20,6 +20,7 @@ export const state = {
                     { id: 'di8', category: 'Ciclo de Estudos', text: 'RLM' },
                     //{ id: 'di9', category: 'Ciclo de Estudos', text: 'Redação' },
                     { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
+    /*ÚLTIMO ID*/   { id: 'di21', category: 'Ciclo de Estudos', text: 'Matemática' },
                     { id: 'di11', category: 'Ciclo de Estudos', text: 'Informática' },
                     { id: 'di12', category: 'Ciclo de Estudos', text: 'Con Esp IBGE' },
                     { id: 'di13', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
@@ -31,6 +32,7 @@ export const state = {
                     { id: 'di19', category: 'Ciclo de Estudos', text: 'Con Técnicos IBGE' },
                     { id: 'di20', category: 'Ciclo de Estudos', text: 'Matemática' },
 
+                    
                     // 1. LÍNGUA PORTUGUESA
         /*     ATENÇÃO O ULTIMO ID DO PT É ESS ---> */     { id: 'lp16', category: 'Língua Portuguesa', text: '🔥 QUENTE - Correspondência oficial (conforme Manual de Redação da Presidência da República).' },
                     { id: 'lp1', category: 'Língua Portuguesa', text: '🔥 QUENTE - Compreensão e Interpretação de Textos: Análise de textos variados, digitais (e-mails, redes sociais) e multimodais (gráficos, tabelas).' },
