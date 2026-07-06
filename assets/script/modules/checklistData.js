@@ -51,7 +51,7 @@ export const state = {
                     { id: 'lp14', category: 'Língua Portuguesa', text: '❄️ FRIO - Figuras de linguagem, denotação e conotação.' },
                     { id: 'lp15', category: 'Língua Portuguesa', text: '❄️ FRIO - Adequação da linguagem a diferentes contextos.' },
 
-                  // C. Esp Araçá
+                  /*// C. Esp Araçá
                     { id: 'cea1', category: 'C. Esp Araçá', text: '🔥 QUENTE - Noções de Almoxarifado e suas rotinas.' },
                     { id: 'cea2', category: 'C. Esp Araçá', text: '🔥 QUENTE - Métodos de classificação: Equalização de valores (Custo médio ponderado).' },
                     { id: 'cea3', category: 'C. Esp Araçá', text: '🔥 QUENTE - Armazenamento de material.' },
@@ -62,7 +62,7 @@ export const state = {
                     { id: 'cea8', category: 'C. Esp Araçá', text: '🟡 MORNO - Curca ABC: Princípio de Pareto.' },
                     { id: 'cea6', category: 'C. Esp Araçá', text: '❄️ FRIO - Atendimento ao público interno e externo, pessoalmente ou através do telefone.' },
                     { id: 'cea7', category: 'C. Esp Araçá', text: '❄️ FRIO - Noções de direitos e deveres, Noções básicas de Ética e Cidadania.' },
-
+                    */
                   // C. Esp Formosa
                     { id: 'cef1', category: 'C. Esp Formosa', text: '🔥 QUENTE - Noções de saúde pública, epidemiologia e saneamento.' },
                     { id: 'cef2', category: 'C. Esp Formosa', text: '🔥 QUENTE - Vigilância em saúde sanitária.' },
