@@ -27,6 +27,9 @@ export const state = {
                     { id: 'di15', category: 'Ciclo de Estudos', text: 'Geografia' },
                     { id: 'di16', category: 'Ciclo de Estudos', text: 'Con Técnicos IBGE' },
                     { id: 'di17', category: 'Ciclo de Estudos', text: 'Matemática' },
+                    //{ id: 'di18', category: 'Ciclo de Estudos', text: 'C G Quijingue (D de saúde)' },
+                    { id: 'di19', category: 'Ciclo de Estudos', text: 'Redação' },
+                    { id: 'di20', category: 'Ciclo de Estudos', text: 'C Esp. Araças' },
 
                     
                     // 1. LÍNGUA PORTUGUESA
@@ -47,7 +50,7 @@ export const state = {
                     { id: 'lp14', category: 'Língua Portuguesa', text: '❄️ FRIO - Figuras de linguagem, denotação e conotação.' },
                     { id: 'lp15', category: 'Língua Portuguesa', text: '❄️ FRIO - Adequação da linguagem a diferentes contextos.' },
 
-                  /*// C. Esp Araçá
+                  // C. Esp Araçá
                     { id: 'cea1', category: 'C. Esp Araçá', text: '🔥 QUENTE - Noções de Almoxarifado e suas rotinas.' },
                     { id: 'cea2', category: 'C. Esp Araçá', text: '🔥 QUENTE - Métodos de classificação: Equalização de valores (Custo médio ponderado).' },
                     { id: 'cea3', category: 'C. Esp Araçá', text: '🔥 QUENTE - Armazenamento de material.' },
@@ -56,9 +59,9 @@ export const state = {
                     { id: 'cea6', category: 'C. Esp Araçá', text: '🟡 MORNO - Métodos de classificação: Fluxo cronológico de entrada (PEPS).' },
                     { id: 'cea7', category: 'C. Esp Araçá', text: '🟡 MORNO - Métodos de classificação: Fluxo de saída ou reversso de entrada (UEPS).' },
                     { id: 'cea8', category: 'C. Esp Araçá', text: '🟡 MORNO - Curca ABC: Princípio de Pareto.' },
-                    { id: 'cea6', category: 'C. Esp Araçá', text: '❄️ FRIO - Atendimento ao público interno e externo, pessoalmente ou através do telefone.' },
-                    { id: 'cea7', category: 'C. Esp Araçá', text: '❄️ FRIO - Noções de direitos e deveres, Noções básicas de Ética e Cidadania.' },
-                    */
+                    { id: 'cea9', category: 'C. Esp Araçá', text: '❄️ FRIO - Atendimento ao público interno e externo, pessoalmente ou através do telefone.' },
+                    { id: 'cea10', category: 'C. Esp Araçá', text: '❄️ FRIO - Noções de direitos e deveres, Noções básicas de Ética e Cidadania.' },
+                    
                   // C. Esp Formosa
                     { id: 'cef1', category: 'C. Esp Formosa', text: '🔥 QUENTE - Noções de saúde pública, epidemiologia e saneamento.' },
                     { id: 'cef2', category: 'C. Esp Formosa', text: '🔥 QUENTE - Vigilância em saúde sanitária.' },
@@ -75,7 +78,7 @@ export const state = {
                     { id: 'cef13', category: 'C. Esp Formosa', text: '❄️ FRIO - Sistemas de drenagem urbana.' },
                     { id: 'cef14', category: 'C. Esp Formosa', text: '❄️ FRIO - Cuidados com a saúde.' },
                     { id: 'cef15', category: 'C. Esp Formosa', text: '❄️ FRIO - Sistemas de abastecimento de água.' },
-
+                  
                     // 2. RACIOCÍNIO LÓGICO
                     { id: 'rlm1', category: 'Raciocínio Lógico', text: '🔥 QUENTE - Proposições e conectivos.' },
                     { id: 'rlm2', category: 'Raciocínio Lógico', text: '🔥 QUENTE - Raciocínio Lógico Quantitativo: Avaliação da habilidade do candidato em deduzir novas informações e avaliar as condições usadas para estabelecer a estrutura dessas relações.' },
