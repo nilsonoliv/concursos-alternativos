@@ -10,26 +10,26 @@ export const state = {
                 checklistData: [
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
-                    { id: 'di1', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
+                    { id: 'di1', category: 'Ciclo de Estudos', text: 'Matemática' },
                     { id: 'di2', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
                     { id: 'di3', category: 'Ciclo de Estudos', text: 'RLM' },
-                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Matemática' },
-                    { id: 'di5', category: 'Ciclo de Estudos', text: 'C. Esp Formosa' },
-                    { id: 'di6', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
-                    { id: 'di7', category: 'Ciclo de Estudos', text: 'Informática' },
-                    { id: 'di8', category: 'Ciclo de Estudos', text: 'Con Esp IBGE' },
-                    { id: 'di9', category: 'Ciclo de Estudos', text: 'Matemática' },
-                    { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
-                    { id: 'di11', category: 'Ciclo de Estudos', text: 'C. Gerais Formosa' },
-                    { id: 'di12', category: 'Ciclo de Estudos', text: 'L. Portuguesa' },
-                    { id: 'di13', category: 'Ciclo de Estudos', text: 'Matemática' },
-                    { id: 'di14', category: 'Ciclo de Estudos', text: 'C. Esp Formosa' },
-                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Geografia' },
-                    { id: 'di16', category: 'Ciclo de Estudos', text: 'Con Técnicos IBGE' },
-                    { id: 'di17', category: 'Ciclo de Estudos', text: 'Matemática' },
-                    //{ id: 'di18', category: 'Ciclo de Estudos', text: 'C G Quijingue (D de saúde)' },
-                    { id: 'di19', category: 'Ciclo de Estudos', text: 'Redação' },
-                    { id: 'di20', category: 'Ciclo de Estudos', text: 'C Esp. Araças' },
+                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Geografia' },
+                    { id: 'di5', category: 'Ciclo de Estudos', text: 'C. Esp IBGE' },
+                    { id: 'di6', category: 'Ciclo de Estudos', text: 'Matemática' },
+                    { id: 'di7', category: 'Ciclo de Estudos', text: 'c. Gerais Saúde' },
+                    { id: 'di8', category: 'Ciclo de Estudos', text: 'Português' },
+                    { id: 'di9', category: 'Ciclo de Estudos', text: 'Geografia' },
+                    { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Técnicos IBGE' },
+                    { id: 'di11', category: 'Ciclo de Estudos', text: 'Matemática' },
+                    { id: 'di12', category: 'Ciclo de Estudos', text: 'Informática' },
+                    { id: 'di13', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
+                    { id: 'di14', category: 'Ciclo de Estudos', text: 'RLM' },
+                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Matemática' },
+                    { id: 'di16', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
+                    { id: 'di17', category: 'Ciclo de Estudos', text: 'Português' },
+                    { id: 'di18', category: 'Ciclo de Estudos', text: 'RLM' },
+                    { id: 'di19', category: 'Ciclo de Estudos', text: 'C. Técnicos IBGE' },
+                    { id: 'di20', category: 'Ciclo de Estudos', text: 'C. Gerais Formosa' },
 
                     
                     // 1. LÍNGUA PORTUGUESA
@@ -50,7 +50,7 @@ export const state = {
                     { id: 'lp14', category: 'Língua Portuguesa', text: '❄️ FRIO - Figuras de linguagem, denotação e conotação.' },
                     { id: 'lp15', category: 'Língua Portuguesa', text: '❄️ FRIO - Adequação da linguagem a diferentes contextos.' },
 
-                  // C. Esp Araçá
+                  /*// C. Esp Araçá
                     { id: 'cea1', category: 'C. Esp Araçá', text: '🔥 QUENTE - Noções de Almoxarifado e suas rotinas.' },
                     { id: 'cea2', category: 'C. Esp Araçá', text: '🔥 QUENTE - Métodos de classificação: Equalização de valores (Custo médio ponderado).' },
                     { id: 'cea3', category: 'C. Esp Araçá', text: '🔥 QUENTE - Armazenamento de material.' },
@@ -61,7 +61,7 @@ export const state = {
                     { id: 'cea8', category: 'C. Esp Araçá', text: '🟡 MORNO - Curca ABC: Princípio de Pareto.' },
                     { id: 'cea9', category: 'C. Esp Araçá', text: '❄️ FRIO - Atendimento ao público interno e externo, pessoalmente ou através do telefone.' },
                     { id: 'cea10', category: 'C. Esp Araçá', text: '❄️ FRIO - Noções de direitos e deveres, Noções básicas de Ética e Cidadania.' },
-                    
+                    */
                   // C. Esp Formosa
                     { id: 'cef1', category: 'C. Esp Formosa', text: '🔥 QUENTE  - Noções de vigilância sanitária municipal: conceito, competências do Município (Lei nº 9.782/1999 – ANVISA, noções gerais).' },
                     { id: 'cef1', category: 'C. Esp Formosa', text: '🔥 QUENTE  - Noções do Sistema Único de Saúde: princípios e diretrizes (Lei nº 8.080/1990 e Lei nº 8.142/1990).' },
@@ -196,7 +196,7 @@ export const state = {
                     { id: 'ti20', category: 'Tecnologia da Informação', text: '🟡 MORNO - Ciclo de vida: SDLC (ciclo de vida de sistemas).' },
                     { id: 'ti21', category: 'Tecnologia da Informação', text: '🟡 MORNO - Qualidade de software: Garantia de qualidade (QA).' },
                     { id: 'ti22', category: 'Tecnologia da Informação', text: '🟡 MORNO - Garantia de qualidade e testes de software.' },
-                    { id: 'ti23', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Princípios da segurança ACID: autenticidade, confidencialidade, integridade e disponibilidade.' },
+                    { id: 'ti23', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Princípios da segurança ACID (princípios fundamentais): autenticidade, confidencialidade, integridade e disponibilidade.' },
                     { id: 'ti24', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Segurança da Informação e Proteção de Dados : Gestão de acessos e controle de permissões.' },
                     { id: 'ti25', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Segurança da Informação e Proteção de Dados : Backups, logs e auditorias.' },
                     { id: 'ti26', category: 'Tecnologia da Informação', text: '🟡 MORNO - Manutenção: Manutenção corretiva, preventiva, evolutiva.' },
