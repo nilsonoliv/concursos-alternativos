@@ -30,6 +30,7 @@ export const state = {
                     { id: 'di18', category: 'Ciclo de Estudos', text: 'RLM' },
                     { id: 'di19', category: 'Ciclo de Estudos', text: 'C. Técnicos IBGE' },
                     { id: 'di20', category: 'Ciclo de Estudos', text: 'C. Gerais Formosa' },
+                    { id: 'di21', category: 'Ciclo de Estudos', text: 'Simulado' },
 
                     
                     // 1. LÍNGUA PORTUGUESA
