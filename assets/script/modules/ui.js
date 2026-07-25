@@ -7,12 +7,13 @@
         const targetDate = new Date('2026-08-30T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);// essa variavel é usada para calcular a diferença de dias entre a data atual e a data da prova
-        const ticketPrice = 100; // Valor da passagem de ida e volta
+        const ticketPrice = 143-9; // Valor da passagem de ida e volta
         const diffDays = Math.ceil((targetDate - today) / 86400000); //a função Math.ceil arredonda para cima, garantindo que mesmo que falte menos de um dia, ainda seja contado como 1 dia restante
         var ticketPriceForDaysAracas = diffDays > 0 ? ticketPrice/diffDays : 0 ; // calcula quanto por dia é necessario juntar para a passagem, caso falte menos de um dia, o valor da passagem é 0
         let aracasValues = {
             valueDays: diffDays,
-            valuePrice: ticketPriceForDaysAracas
+            valuePrice: ticketPriceForDaysAracas,
+            valueTicket: ticketPrice
         };
 
         return aracasValues;    
@@ -24,17 +25,18 @@
         const targetDate = new Date('2026-09-27T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);
-        const ticketPrice = 100; // Valor da passagem de ida e volta
+        const ticketPrice = 143; // Valor da passagem de ida e volta
         const diffDays = Math.ceil((targetDate - today) / 86400000);
         var ticketPriceForDaysFormosa = diffDays > 0 ? ticketPrice/diffDays : 0 ; // calcula quanto por dia é necessario juntar para a passagem, caso falte menos de um dia, o valor da passagem é 0
          let formosaValues = {
             valueDays: diffDays,
-            valuePrice: ticketPriceForDaysFormosa
+            valuePrice: ticketPriceForDaysFormosa,
+            valueTicket: ticketPrice
+
         };
 
         return formosaValues;
-        return ticketPriceForDaysFormosa
-
+        //return ticketPriceForDaysFormosa
     };
 
     export const initCountdownIBGE = () => {
@@ -49,7 +51,8 @@
                 
         let ibgeValues = {
             valueDays: diffDays,
-            valuePrice: ticketPriceForDaysIBGE
+            valuePrice: ticketPriceForDaysIBGE,
+            valueTicket: ticketPrice
         };
 
         return ibgeValues;
