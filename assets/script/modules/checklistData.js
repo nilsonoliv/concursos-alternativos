@@ -32,7 +32,7 @@ export const state = {
                     { id: 'di17', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
                     { id: 'di18', category: 'Ciclo de Estudos', text: 'C. Esp 3 S2s TI'},// 3
                     { id: 'di19', category: 'Ciclo de Estudos', text: 'Con. Téc IBGE'},// 4
-                    //{ id: 'di20', category: 'Ciclo de Estudos', text: '  '},// 5
+                    { id: 'di20', category: 'Ciclo de Estudos', text: 'Legislação e Ética na Adm P.'},// 5
                     { id: 'di21', category: 'Ciclo de Estudos', text: 'Simulado IBGE ACTI'},// 6
 
                     
@@ -127,14 +127,14 @@ export const state = {
                     { id: 'inf11', category: 'Noções de Informática', text: '❄️ FRIO - Sistemas móveis (Android e iOS).' },
                     { id: 'inf12', category: 'Noções de Informática', text: '❄️ FRIO - Ferramentas de comunicação (Teams, Meet).' },
 
-                 /*   // 5. LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA
+                    // 5. LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA
                     { id: 'leg1', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei nº 8.429/1992 (Improbidade Administrativa).' },
                     { id: 'leg2', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei nº 9.784/1999 (Processo Administrativo), direitos e deveres.' },
                     { id: 'leg3', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Princípios fundamentais da Administração Pública.' },
                     { id: 'leg4', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei Geral de Proteção de Dados - LGPD (Lei nº 13.709/2018) .' },
                     { id: 'leg5', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei nº 12.527/2011 (Transparência e Acesso à Informação) e seus decretos.' },
                     { id: 'leg6', category: 'Legislação e Ética na Adm. Pública', text: '❄️ FRIO - Conceito de ética na função pública.' },
-                  */
+                  
                     // 6. ADMINISTRAÇÃO, ATENDIMENTO E ARQUIVO
                     { id: 'adm1', category: 'Administração, Atendimento e Arquivo', text: '🟡 MORNO - Atendimento ao Público: Qualidade, postura profissional, atendimento telefônico e presencial.' },
                     { id: 'adm2', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Comunicação Organizacional: Redação oficial de documentos e tipos de documentos administrativos.' },
