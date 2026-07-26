@@ -10,31 +10,33 @@ export const state = {
                 checklistData: [
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
-                    { id: 'di1', category: 'Ciclo de Estudos', text: 'Matemática' },
-                    { id: 'di2', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
-                    { id: 'di3', category: 'Ciclo de Estudos', text: 'RLM' },
-                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Geografia' },
-                    { id: 'di5', category: 'Ciclo de Estudos', text: 'C. Esp IBGE' },
-                    { id: 'di6', category: 'Ciclo de Estudos', text: 'Matemática' },
-                    { id: 'di7', category: 'Ciclo de Estudos', text: 'c. Gerais Saúde' },
-                    { id: 'di8', category: 'Ciclo de Estudos', text: 'Português' },
-                    { id: 'di9', category: 'Ciclo de Estudos', text: 'Geografia' },
-                    { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Técnicos IBGE' },
-                    { id: 'di11', category: 'Ciclo de Estudos', text: 'Matemática' },
-                    { id: 'di12', category: 'Ciclo de Estudos', text: 'Informática' },
-                    { id: 'di13', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
-                    { id: 'di14', category: 'Ciclo de Estudos', text: 'RLM' },
-                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Matemática' },
-                    { id: 'di16', category: 'Ciclo de Estudos', text: 'C. Gerais Saúde' },
-                    { id: 'di17', category: 'Ciclo de Estudos', text: 'Português' },
-                    { id: 'di18', category: 'Ciclo de Estudos', text: 'RLM' },
-                    { id: 'di19', category: 'Ciclo de Estudos', text: 'C. Técnicos IBGE' },
-                    { id: 'di20', category: 'Ciclo de Estudos', text: 'C. Gerais Formosa' },
-                    { id: 'di21', category: 'Ciclo de Estudos', text: 'Simulado' },
+                    { id: 'di1', category: 'Ciclo de Estudos', text: 'Con Esp IBGE'},//  <--------//  <--------
+                    { id: 'di2', category: 'Ciclo de Estudos', text: 'Português'},// 1
+                    { id: 'di3', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
+                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Geografia'},// 3
+                    { id: 'di5', category: 'Ciclo de Estudos', text: 'Con. Téc IBGE'},// 4
+
+                    { id: 'di6', category: 'Ciclo de Estudos', text: 'Con Esp IBGE'},//  <--------//  <--------
+                    { id: 'di7', category: 'Ciclo de Estudos', text: 'Simulado IBGE ACQ'}, // 1
+                    { id: 'di8', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
+                    { id: 'di9', category: 'Ciclo de Estudos', text: 'Geografia'},// 3
+                    { id: 'di10', category: 'Ciclo de Estudos', text: 'Con. Téc IBGE'},// 4
+
+                    { id: 'di11', category: 'Ciclo de Estudos', text: 'Con Esp IBGE'},//  <--------//  <--------
+                    { id: 'di12', category: 'Ciclo de Estudos', text: 'Português'},// 1
+                    { id: 'di13', category: 'Ciclo de Estudos', text: 'RLM'},// 2
+                    { id: 'di14', category: 'Ciclo de Estudos', text: 'C. Esp 3 S2s Adm'},// 3
+
+                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Con Esp IBGE'},//  <--------//  <--------
+                    { id: 'di16', category: 'Ciclo de Estudos', text: 'Geografia'},// 1
+                    { id: 'di17', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
+                    { id: 'di18', category: 'Ciclo de Estudos', text: 'C. Esp 3 S2s TI'},// 3
+                    { id: 'di19', category: 'Ciclo de Estudos', text: 'Con. Téc IBGE'},// 4
+                    //{ id: 'di20', category: 'Ciclo de Estudos', text: '  '},// 5
+                    { id: 'di21', category: 'Ciclo de Estudos', text: 'Simulado IBGE ACTI'},// 6
 
                     
                     // 1. LÍNGUA PORTUGUESA
-        /*     ATENÇÃO O ULTIMO ID DO PT É ESS ---> */     { id: 'lp16', category: 'Língua Portuguesa', text: '🔥 QUENTE - Correspondência oficial (conforme Manual de Redação da Presidência da República).' },
                     { id: 'lp1', category: 'Língua Portuguesa', text: '🔥 QUENTE - Compreensão e Interpretação de Textos: Análise de textos variados, digitais (e-mails, redes sociais) e multimodais (gráficos, tabelas).' },
                     { id: 'lp2', category: 'Língua Portuguesa', text: '🔥 QUENTE - Coesão, coerência e uso de conectores.' },
                     { id: 'lp3', category: 'Língua Portuguesa', text: '🔥 QUENTE - Pontuação: Uso correto dos sinais de pontuação.' },
@@ -50,42 +52,33 @@ export const state = {
                     { id: 'lp13', category: 'Língua Portuguesa', text: '❄️ FRIO - Identificação de tipos textuais.' },
                     { id: 'lp14', category: 'Língua Portuguesa', text: '❄️ FRIO - Figuras de linguagem, denotação e conotação.' },
                     { id: 'lp15', category: 'Língua Portuguesa', text: '❄️ FRIO - Adequação da linguagem a diferentes contextos.' },
+                    { id: 'lp16', category: 'Língua Portuguesa', text: '🔥 QUENTE - Correspondência oficial (conforme Manual de Redação da Presidência da República).' },
 
-                  /*// C. Esp Araçá
-                    { id: 'cea1', category: 'C. Esp Araçá', text: '🔥 QUENTE - Noções de Almoxarifado e suas rotinas.' },
-                    { id: 'cea2', category: 'C. Esp Araçá', text: '🔥 QUENTE - Métodos de classificação: Equalização de valores (Custo médio ponderado).' },
-                    { id: 'cea3', category: 'C. Esp Araçá', text: '🔥 QUENTE - Armazenamento de material.' },
-                    { id: 'cea4', category: 'C. Esp Araçá', text: '🔥 QUENTE - Classificação dos Inventários quanto à sua periodicidade e finalidade.' },
-                    { id: 'cea5', category: 'C. Esp Araçá', text: '🟡 MORNO - Recepção e despacho de documentos.' },
-                    { id: 'cea6', category: 'C. Esp Araçá', text: '🟡 MORNO - Métodos de classificação: Fluxo cronológico de entrada (PEPS).' },
-                    { id: 'cea7', category: 'C. Esp Araçá', text: '🟡 MORNO - Métodos de classificação: Fluxo de saída ou reversso de entrada (UEPS).' },
-                    { id: 'cea8', category: 'C. Esp Araçá', text: '🟡 MORNO - Curca ABC: Princípio de Pareto.' },
-                    { id: 'cea9', category: 'C. Esp Araçá', text: '❄️ FRIO - Atendimento ao público interno e externo, pessoalmente ou através do telefone.' },
-                    { id: 'cea10', category: 'C. Esp Araçá', text: '❄️ FRIO - Noções de direitos e deveres, Noções básicas de Ética e Cidadania.' },
-                    */
-                  // C. Esp Formosa
-                    { id: 'cef1', category: 'C. Esp Formosa', text: '🔥 QUENTE  - Noções de vigilância sanitária municipal: conceito, competências do Município (Lei nº 9.782/1999 – ANVISA, noções gerais).' },
-                    { id: 'cef2', category: 'C. Esp Formosa', text: '🔥 QUENTE  - Noções do Sistema Único de Saúde: princípios e diretrizes (Lei nº 8.080/1990 e Lei nº 8.142/1990).' },
-                    { id: 'cef3', category: 'C. Esp Formosa', text: '🔥 QUENTE  - Noções de saneamento básico: abastecimento de água, esgotamento sanitário, resíduos sólidos e controle de vetores.' },
-                    { id: 'cef4', category: 'C. Esp Formosa', text: '🔥 QUENTE  - Procedimento administrativo de fiscalização sanitária municipal: notificação, auto de infração e devido processo legal, no âmbito das atribuições administrativas do cargo.' },
-                    { id: 'cef5', category: 'C. Esp Formosa', text: '🔥 QUENTE  - Boas práticas de higiene e segurança sanitária em estabelecimentos comerciais e de alimentos.' },
-                    { id: 'cef6', category: 'C. Esp Formosa', text: '🔥 QUENTE  - Noções de educação em saúde e comunicação com a comunidade.' },
-                    { id: 'cef7', category: 'C. Esp Formosa', text: '🔥 QUENTE  - Ética no serviço público.' },
-                    { id: 'cef8', category: 'C. Esp Formosa', text: '❄️ FRIO  - Noções de saúde pública, epidemiologia e saneamento.' },
-                    { id: 'cef9', category: 'C. Esp Formosa', text: '❄️ FRIO  - Vigilância em saúde sanitária.' },
-                    { id: 'cef10', category: 'C. Esp Formosa', text: '❄️ FRIO  - Controle de zoonoses.' },
-                    { id: 'cef11', category: 'C. Esp Formosa', text: '❄️ FRIO  - Vigilância sanitária e Ambiental.' },
-                    { id: 'cef12', category: 'C. Esp Formosa', text: '❄️ FRIO  - Combate a doenças, doenças epidêmicas.' },
-                    { id: 'cef13', category: 'C. Esp Formosa', text: '❄️ FRIO  - Controle de poluição da água.' },
-                    { id: 'cef14', category: 'C. Esp Formosa', text: '❄️ FRIO  - Sistemas de esgotos sanitários.' },
-                    { id: 'cef15', category: 'C. Esp Formosa', text: '❄️ FRIO  - Qualidade da água.' },
-                    { id: 'cef16', category: 'C. Esp Formosa', text: '❄️ FRIO  - Tratamento de água de abastecimento.' },
-                    { id: 'cef17', category: 'C. Esp Formosa', text: '❄️ FRIO  - Tratamento de águas residuais.' },
-                    { id: 'cef18', category: 'C. Esp Formosa', text: '❄️ FRIO  - Resíduos sólidos e limpeza pública.' },
-                    { id: 'cef19', category: 'C. Esp Formosa', text: '❄️ FRIO  - Educação ambiental.' },
-                    { id: 'cef20', category: 'C. Esp Formosa', text: '❄️ FRIO - Sistemas de drenagem urbana.' },
-                    { id: 'cef21', category: 'C. Esp Formosa', text: '❄️ FRIO - Cuidados com a saúde.' },
-                    { id: 'cef22', category: 'C. Esp Formosa', text: '❄️ FRIO - Sistemas de abastecimento de água.' },
+
+                  // Saúde Pública
+                    { id: 'cef1', category: 'Saúde Pública', text: '🔥 QUENTE  - Noções de vigilância sanitária municipal: conceito, competências do Município (Lei nº 9.782/1999 – ANVISA, noções gerais).' },
+                    { id: 'cef2', category: 'Saúde Pública', text: '🔥 QUENTE  - Noções do Sistema Único de Saúde: princípios e diretrizes (Lei nº 8.080/1990 e Lei nº 8.142/1990).' },
+                    { id: 'cef3', category: 'Saúde Pública', text: '🔥 QUENTE  - Noções de saneamento básico: abastecimento de água, esgotamento sanitário, resíduos sólidos e controle de vetores.' },
+                    { id: 'cef4', category: 'Saúde Pública', text: '🔥 QUENTE  - Procedimento administrativo de fiscalização sanitária municipal: notificação, auto de infração e devido processo legal, no âmbito das atribuições administrativas do cargo.' },
+                    { id: 'cef5', category: 'Saúde Pública', text: '🔥 QUENTE  - Boas práticas de higiene e segurança sanitária em estabelecimentos comerciais e de alimentos.' },
+                    { id: 'cef6', category: 'Saúde Pública', text: '🔥 QUENTE  - Noções de educação em saúde e comunicação com a comunidade.' },
+                    { id: 'cef7', category: 'Saúde Pública', text: '🔥 QUENTE  - Ética no serviço público.' },
+                    { id: 'cef8', category: 'Saúde Pública', text: '❄️ FRIO  - Noções de saúde pública, epidemiologia e saneamento.' },
+                    { id: 'cef9', category: 'Saúde Pública', text: '❄️ FRIO  - Vigilância em saúde sanitária.' },
+                    { id: 'cef10', category: 'Saúde Pública', text: '❄️ FRIO  - Controle de zoonoses.' },
+                    { id: 'cef11', category: 'Saúde Pública', text: '❄️ FRIO  - Vigilância sanitária e Ambiental.' },
+                    { id: 'cef12', category: 'Saúde Pública', text: '❄️ FRIO  - Combate a doenças, doenças epidêmicas.' },
+                    { id: 'cef13', category: 'Saúde Pública', text: '❄️ FRIO  - Controle de poluição da água.' },
+                    { id: 'cef14', category: 'Saúde Pública', text: '❄️ FRIO  - Sistemas de esgotos sanitários.' },
+                    { id: 'cef15', category: 'Saúde Pública', text: '❄️ FRIO  - Qualidade da água.' },
+                    { id: 'cef16', category: 'Saúde Pública', text: '❄️ FRIO  - Tratamento de água de abastecimento.' },
+                    { id: 'cef17', category: 'Saúde Pública', text: '❄️ FRIO  - Tratamento de águas residuais.' },
+                    { id: 'cef18', category: 'Saúde Pública', text: '❄️ FRIO  - Resíduos sólidos e limpeza pública.' },
+                    { id: 'cef19', category: 'Saúde Pública', text: '❄️ FRIO  - Educação ambiental.' },
+                    { id: 'cef20', category: 'Saúde Pública', text: '❄️ FRIO - Sistemas de drenagem urbana.' },
+                    { id: 'cef21', category: 'Saúde Pública', text: '❄️ FRIO - Cuidados com a saúde.' },
+                    { id: 'cef22', category: 'Saúde Pública', text: '❄️ FRIO - Sistemas de abastecimento de água.' },
+
                   
                     // 2. RACIOCÍNIO LÓGICO
                     { id: 'rlm1', category: 'Raciocínio Lógico', text: '🔥 QUENTE - Proposições e conectivos.' },
@@ -141,23 +134,37 @@ export const state = {
                     { id: 'leg4', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei Geral de Proteção de Dados - LGPD (Lei nº 13.709/2018) .' },
                     { id: 'leg5', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei nº 12.527/2011 (Transparência e Acesso à Informação) e seus decretos.' },
                     { id: 'leg6', category: 'Legislação e Ética na Adm. Pública', text: '❄️ FRIO - Conceito de ética na função pública.' },
-                  *//*
+                  */
                     // 6. ADMINISTRAÇÃO, ATENDIMENTO E ARQUIVO
-                    { id: 'adm1', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Atendimento ao Público: Qualidade, postura profissional, atendimento telefônico e presencial.' },
+                    { id: 'adm1', category: 'Administração, Atendimento e Arquivo', text: '🟡 MORNO - Atendimento ao Público: Qualidade, postura profissional, atendimento telefônico e presencial.' },
                     { id: 'adm2', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Comunicação Organizacional: Redação oficial de documentos e tipos de documentos administrativos.' },
                     { id: 'adm3', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de arquivologia: Tipos de arquivos, métodos de arquivamento e gestão eletrônica/digitalização.' },
-                    { id: 'adm4', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Funções administrativas: planejamento, organização, direção e controle.' },
+                    { id: 'adm4', category: 'Administração, Atendimento e Arquivo', text: '🟡 MORNO - Funções administrativas: planejamento, organização, direção e controle.' },
                     { id: 'adm5', category: 'Administração, Atendimento e Arquivo', text: '🟡 MORNO - Trabalho em Equipe: Personalidade, relacionamento interpessoal, empatia e comportamento.' },
                     { id: 'adm6', category: 'Administração, Atendimento e Arquivo', text: '🟡 MORNO - Protocolo: recepção, classificação, registro, distribuição e expedição de documentos.' },
                     { id: 'adm7', category: 'Administração, Atendimento e Arquivo', text: '🟡 MORNO - Noções de Administração de Pessoas e Administração de Materiais.' },
                     { id: 'adm8', category: 'Administração, Atendimento e Arquivo', text: '🟡 MORNO - Gestão de estoque e suprimentos de escritório.' },
                     { id: 'adm9', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Noções de Administração Financeira.' },
-                    { id: 'adm10', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Procedimentos Administrativos e Manuais Administrativos.' },
+                    { id: 'adm10', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Procedimentos Administrativos e Manuais Administrativos.' },
                     { id: 'adm11', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Organização e Métodos.' },
                     { id: 'adm12', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Estrutura Organizacional: Conceito e tipos.' },
                     { id: 'adm13', category: 'Administração, Atendimento e Arquivo', text: '❄️ FRIO - Noções de cidadania e relações públicas.' },
-                  *//*
-                    // 7. LEGISLAÇÃO ESPECÍFICA
+                    { id: 'adm14', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de arquivologia: Organização e arquivamento de documentos.' },
+                    { id: 'adm15', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Procedimentos de registro e controle de informações administrativas.' },
+                    { id: 'adm16', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Elaboração, revisão e transcrição de relatórios, memorandos, ofícios e outros documentos oficiais.' },
+                    { id: 'adm17', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Estrutura e formatação de documentos administrativos.' },
+                    { id: 'adm18', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Procedimentos para manutenção e atualização de arquivos físicos e digitais.' },
+                    { id: 'adm19', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Normas de segurança e confidencialidade no gerenciamento de informações.' },
+                    { id: 'adm20', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Procedimentos de acompanhamento e controle de processos administrativos.' },
+                    { id: 'adm21', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Normas e práticas relacionadas à emissão e conferência de documentos.' },
+                    { id: 'adm22', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Operações relacionadas à organização de dados institucionais.' },
+                    { id: 'adm23', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de Contabilidade: princípios básicos.' },
+                    { id: 'adm24', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de Contabilidade: escrituração e conciliação de contas.' },
+                    { id: 'adm25', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de Contabilidade: conceitos de ativo, passivo, receita, despesa e investimento.' },
+                    { id: 'adm26', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de Contabilidade: noções de custos.' },
+                    { id: 'adm27', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de Contabilidade: fundamentos da contabilidade geral. .' },
+                  
+                   /* // 7. LEGISLAÇÃO ESPECÍFICA
                     //{ id: 'esp1', category: 'Legislação Específica', text: '🔥 QUENTE - Lei nº 6.530/1978 (Regulamentação da profissão e órgãos de fiscalização).' },
                     //{ id: 'esp2', category: 'Legislação Específica', text: '🔥 QUENTE - Decreto nº 81.871/1978 (Regulamenta a Lei nº 6.530/1978).' },
                     //{ id: 'esp3', category: 'Legislação Específica', text: '🔥 QUENTE - Resolução COFECI nº 326/1992 (Código de Ética Profissional).' },
@@ -168,20 +175,18 @@ export const state = {
                     //{ id: 'esp8', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.065/2007 (Nome abreviado, fantasia e publicidade).' },
                     //{ id: 'esp9', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 458/1995 (Destaque do registro em anúncios).' },
                     //{ id: 'esp10', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.484/2022 (Isenção e remissão de débitos).' },
-                    { id: 'esp11', category: 'Legislação Específica', text: '❄️ FRIO - Decreto-Lei nº 2.848/1940 (Código Penal - Art. 205).' },
-                    { id: 'esp12', category: 'Legislação Específica', text: '❄️ FRIO - Decreto-Lei nº 3.688/1941 (LCP - Art. 47).' },
-                  /*  { id: 'esp13', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 315/1991 (Pena pecuniária).' },
-                    { id: 'esp14', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 325/1992 (Comissão de Atendimento ao Consumidor).' },
-                    { id: 'esp15', category: 'Legislação Específica', text: '❄️ FRIO - Resolução COFECI nº 1.452/2021 (Emenda Regimental).' },*/
-                  
+                    { id: 'esp11', category: 'Legislação Específica', text: '❄️ FRIO - 3 Corações: Lei Orgânica Municipal de Três Corações.' },
+                    { id: 'esp12', category: 'Legislação Específica', text: '❄️ FRIO - 3 Corações: Regimento Interno da Câmara Municipal.' },
+                    { id: 'esp13', category: 'Legislação Específica', text: '❄️ FRIO - 3 Corações: Estatuto dos Servidores Públicos do Município.' },
+                  */
                     // 8. TECNOLOGIA DA INFORMAÇÃO
-                    { id: 'ti1', category: 'Tecnologia da Informação', text: '🟡 MORNO - Papel estratégico da TI no setor público: Função da TI no Poder Legislativo.' },
-                    { id: 'ti2', category: 'Tecnologia da Informação', text: '🟡 MORNO - Papel estratégico da TI no setor público: TI como suporte à gestão pública.' },
+                    //{ id: 'ti1', category: 'Tecnologia da Informação', text: '🟡 MORNO - Papel estratégico da TI no setor público: Função da TI no Poder Legislativo.' },
+                    //{ id: 'ti2', category: 'Tecnologia da Informação', text: '🟡 MORNO - Papel estratégico da TI no setor público: TI como suporte à gestão pública.' },
                     { id: 'ti3', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Governança e valor público: Eficiência operacional.' },
                     { id: 'ti4', category: 'Tecnologia da Informação', text: '🟡 MORNO - Governança e valor público: Transparência administrativa.' },
                     { id: 'ti5', category: 'Tecnologia da Informação', text: '🟡 MORNO - Governança e valor público: Inovação no setor público.' },
                     { id: 'ti6', category: 'Tecnologia da Informação', text: '🟡 MORNO - Governança e valor público: Governança e gestão de TI no Setor Público.' },
-                    { id: 'ti7', category: 'Tecnologia da Informação', text: '🟡 MORNO - Princípios: Confidencialidade, Integridade, Disponibilidade.' },
+                    //{ id: 'ti7', category: 'Tecnologia da Informação', text: '🟡 MORNO -  .' },
                     { id: 'ti8', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Proteção de dados: LGPD aplicada ao setor público.' },
                     { id: 'ti9', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Planejamento de projetos: Planejamento e coordenação de projetos de TI.' },
                     { id: 'ti10', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Metodologias e ferramentas: PMBOK e ferramentas de gestão de TI.' },
@@ -195,31 +200,31 @@ export const state = {
                     { id: 'ti18', category: 'Tecnologia da Informação', text: '🟡 MORNO - Planejamento e Desenvolvimento de Sistemas de Informação: Documentação técnica e controle de versão.' },
                     { id: 'ti19', category: 'Tecnologia da Informação', text: '🟡 MORNO - Arquitetura e especificação: Arquitetura de sistemas.' },
                     { id: 'ti20', category: 'Tecnologia da Informação', text: '🟡 MORNO - Ciclo de vida: SDLC (ciclo de vida de sistemas).' },
-                    { id: 'ti21', category: 'Tecnologia da Informação', text: '🟡 MORNO - Qualidade de software: Garantia de qualidade (QA).' },
-                    { id: 'ti22', category: 'Tecnologia da Informação', text: '🟡 MORNO - Garantia de qualidade e testes de software.' },
+                    //{ id: 'ti21', category: 'Tecnologia da Informação', text: '🟡 MORNO - Qualidade de software: Garantia de qualidade (QA).' },
+                    //{ id: 'ti22', category: 'Tecnologia da Informação', text: '🟡 MORNO - Garantia de qualidade e testes de software.' },
                     { id: 'ti23', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Princípios da segurança ACID (princípios fundamentais): autenticidade, confidencialidade, integridade e disponibilidade.' },
                     { id: 'ti24', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Segurança da Informação e Proteção de Dados : Gestão de acessos e controle de permissões.' },
                     { id: 'ti25', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Segurança da Informação e Proteção de Dados : Backups, logs e auditorias.' },
-                    { id: 'ti26', category: 'Tecnologia da Informação', text: '🟡 MORNO - Manutenção: Manutenção corretiva, preventiva, evolutiva.' },
+                    { id: 'ti26', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações:Manutenção de equipamentos. (Manutenção: Manutenção corretiva, preventiva, evolutiva.)' },
                     { id: 'ti27', category: 'Tecnologia da Informação', text: '🟡 MORNO - Monitoramento: Monitoramento de desempenho, Análise de logs.' },
                     { id: 'ti28', category: 'Tecnologia da Informação', text: '🟡 MORNO - Auditoria e rastreabilidade: Logs, Auditorias, Backups.' },
                     { id: 'ti29', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Segurança da Informação e Proteção de Dados : Backups, logs e auditorias.' },
                     { id: 'ti30', category: 'Tecnologia da Informação', text: '🟡 MORNO - Suporte técnico: Nível 1 (help desk), Nível 2 (suporte especializado).' },
                     { id: 'ti31', category: 'Tecnologia da Informação', text: '🟡 MORNO - Suporte técnico: Manual de sistemas e help desk.' },
-                    { id: 'ti32', category: 'Tecnologia da Informação', text: '🟡 MORNO - Relacionamento: Atendimento aos setores e Orientação proativa.' },
-                    { id: 'ti33', category: 'Tecnologia da Informação', text: '🟡 MORNO - Viabilidade: Estudos de viabilidade, Modernização de infraestrutura.' },
-                    { id: 'ti34', category: 'Tecnologia da Informação', text: '🟡 MORNO - Comunicação estratégica: Apresentação de soluções tecnológicas e Apoio a parlamentares.' },
-                    { id: 'ti35', category: 'Tecnologia da Informação', text: '❄️ FRIO - Planejamento de sistemas: Modelagem de sistemas.' },
-                    { id: 'ti36', category: 'Tecnologia da Informação', text: '❄️ FRIO - Arquitetura e especificação: Especificação de funcionalidades, Ferramentas de desenvolvimento.' },
-                    { id: 'ti37', category: 'Tecnologia da Informação', text: '❄️ FRIO - Documentação: Documentação técnica, Controle de versão.' },
-                    { id: 'ti38', category: 'Tecnologia da Informação', text: '❄️ FRIO - Modelos de desenvolvimento: Metodologias tradicionais (Cascata).' },
-                    { id: 'ti39', category: 'Tecnologia da Informação', text: '❄️ FRIO - Implantação: Implantação progressiva, Adaptação e treinamento de usuários.' },
-                    { id: 'ti40', category: 'Tecnologia da Informação', text: '❄️ FRIO - Monitoramento: Monitoramento de desempenho e Análise de logs.' },
-                    { id: 'ti41', category: 'Tecnologia da Informação', text: '❄️ FRIO - Otimização: Otimização de desempenho, Usabilidade de sistemas.' },
-                    { id: 'ti42', category: 'Tecnologia da Informação', text: '❄️ FRIO - Capacitação: Treinamento de usuários internos.' },
-                    { id: 'ti43', category: 'Tecnologia da Informação', text: '❄️ FRIO - Documentação de uso: Manuais de sistemas, Base de conhecimento.' },
-                    { id: 'ti44', category: 'Tecnologia da Informação', text: '❄️ FRIO - Metodologias e ferramentas: MS Project, Trello, Jira.' },
-                    { id: 'ti45', category: 'Tecnologia da Informação', text: '❄️ FRIO - Pesquisa tecnológica: Pesquisa aplicada à modernização legislativa digital.' },
+                    //{ id: 'ti32', category: 'Tecnologia da Informação', text: '🟡 MORNO - Relacionamento: Atendimento aos setores e Orientação proativa.' },
+                    //{ id: 'ti33', category: 'Tecnologia da Informação', text: '🟡 MORNO - Viabilidade: Estudos de viabilidade, Modernização de infraestrutura.' },
+                    //{ id: 'ti34', category: 'Tecnologia da Informação', text: '🟡 MORNO - Comunicação estratégica: Apresentação de soluções tecnológicas e Apoio a parlamentares.' },
+                    //{ id: 'ti35', category: 'Tecnologia da Informação', text: '❄️ FRIO - Planejamento de sistemas: Modelagem de sistemas.' },
+                    //{ id: 'ti36', category: 'Tecnologia da Informação', text: '❄️ FRIO - Arquitetura e especificação: Especificação de funcionalidades, Ferramentas de desenvolvimento.' },
+                    //{ id: 'ti37', category: 'Tecnologia da Informação', text: '❄️ FRIO - Documentação: Documentação técnica, Controle de versão.' },
+                    //{ id: 'ti38', category: 'Tecnologia da Informação', text: '❄️ FRIO - Modelos de desenvolvimento: Metodologias tradicionais (Cascata).' },
+                    //{ id: 'ti39', category: 'Tecnologia da Informação', text: '❄️ FRIO - Implantação: Implantação progressiva, Adaptação e treinamento de usuários.' },
+                    //{ id: 'ti40', category: 'Tecnologia da Informação', text: '❄️ FRIO - Monitoramento: Monitoramento de desempenho e Análise de logs.' },
+                    //{ id: 'ti41', category: 'Tecnologia da Informação', text: '❄️ FRIO - Otimização: Otimização de desempenho, Usabilidade de sistemas.' },
+                    //{ id: 'ti42', category: 'Tecnologia da Informação', text: '❄️ FRIO - Capacitação: Treinamento de usuários internos.' },
+                    //{ id: 'ti43', category: 'Tecnologia da Informação', text: '❄️ FRIO - Documentação de uso: Manuais de sistemas, Base de conhecimento.' },
+                    //{ id: 'ti44', category: 'Tecnologia da Informação', text: '❄️ FRIO - Metodologias e ferramentas: MS Project, Trello, Jira.' },
+                    //{ id: 'ti45', category: 'Tecnologia da Informação', text: '❄️ FRIO - Pesquisa tecnológica: Pesquisa aplicada à modernização legislativa digital.' },
                     { id: 'ti46', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Projetos: Melhores práticas estabelecidas pelo Project Management Institute e no PMBOK,como os conceitos de projetos, programas e portfólios, ciclo de vida dos projetos, e .' },
                     { id: 'ti47', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Projetos: Melhores práticas estabelecidas pelo Project Management Institute e no PMBOK,  e suas áreas de conhecimento escopo, prazo, custo, qualidade, riscos, comunicação e aquisições.' },
                     { id: 'ti48', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Técnicas de gestão de riscos e monitoramento de projetos.' },
@@ -237,8 +242,21 @@ export const state = {
                     { id: 'ti60', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Governança: gestão de incidentes, problemas e mudanças, bem como melhoria contínua de processos.' },
                     { id: 'ti61', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Frameworks amplamente utilizados como o COBIT e o ITIL.' },
                     { id: 'ti62', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Gestão de portfólio de sistemas e transformação digital.' },
-                    { id: 'ti63', category: 'Tecnologia da Informação', text: '🔥 QUENTE - .' },
-                  
+                    { id: 'ti63', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações: Arquitetura de computadores.' },
+                    { id: 'ti64', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações: Instalação e manutenção de periféricos: impressora, scanner, teclado e mouse.' },
+                    { id: 'ti65', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações: Instalação e configuração de redes de computadores.' },
+                    { id: 'ti66', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações: Sistemas operacionais WINDOWS/LINUX.' },
+                    { id: 'ti67', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações: Instalação e organização de programas: direitos e licenças de programas;' },
+                    { id: 'ti68', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações: Manutenção de arquivos, obtenção e instalação de drivers e dispositivos' },
+                    { id: 'ti69', category: 'Tecnologia da Informação', text: '🟡 MORNO - 3 Corações: Internet: conceitos gerais e protocolos.' },
+                    { id: 'ti70', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Conhecimento de linguagens de programação visual:Visual Basic' },
+                    { id: 'ti71', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Conhecimento de linguagens de programação visual:PHP' },
+                    { id: 'ti72', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Conhecimento de linguagens de programação visual:NET' },
+                    { id: 'ti73', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Conhecimento de linguagens de programação visual:CSharp' },
+                    { id: 'ti74', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Modelagem e conhecimento de banco de dados:  MS SQL Server' },
+                    { id: 'ti75', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Modelagem e conhecimento de banco de dados: MySQL' },
+                    { id: 'ti76', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Modelagem e conhecimento de banco de dados: Access' },
+
                     //Geografia
                     { id: 'geo1', category: 'Geografia', text: '🔥 QUENTE - Noções básicas de cartografia.' },
                     { id: 'geo2', category: 'Geografia', text: '🔥 QUENTE - Localização: coordenadas geográficas, latitude, longitude e altitude.' },
@@ -251,6 +269,35 @@ export const state = {
                     { id: 'geo9', category: 'Geografia', text: '🟡 MORNO - Questões ambientais no campo brasileiro.' },
                     { id: 'geo10', category: 'Geografia', text: '🟡 MORNO - Formação territorial e divisão político-administrativa (organização federativa).' },
                     { id: 'geo11', category: 'Geografia', text: '❄️ FRIO - Organização espacial da agricultura, da pecuária e do extrativismo no Brasil.' },
+
+                    //Direito Administrativo
+                    { id: 'da1', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: conceito e deveres dos servidores públicos.' },
+                    { id: 'da2', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: regime e sanções disciplinares.' },
+                    { id: 'da3', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: processo administrativo disciplinar básico (Sindicância Administrativa e Processo Administrativo Disciplinar - PAD).' },
+                    { id: 'da4', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: responsabilidade civil do servidor.' },
+                    { id: 'da5', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: atos administrativos (conceito, elementos, validade, eficácia, extinção e revisão).' },
+                    { id: 'da6', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: processo administrativo e seus princípios.' },
+                    { id: 'da7', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de licitações públicas (Lei nº 14.133/2021): princípios, modalidades.' },
+                    { id: 'da8', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de licitações públicas (Lei nº 14.133/2021): processo licitatório.' },
+                    { id: 'da9', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de licitações públicas (Lei nº 14.133/2021): registro de preços e contratos administrativos (características gerais, prazos e extinção).' },
+                    { id: 'da10', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: noções sobre serviços públicos. .' },
+
+                   /* //C. Locais Bonito
+                    { id: 'lbo1', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Meios de transporte e comunicação, limites, território, povoados, distritos.' },
+                    { id: 'lbo2', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Pontos extremos, relevo, clima, hidrografia,.' },
+                    { id: 'lbo3', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Desenvolvimento humano, economia, extrativismo,.' },
+                    { id: 'lbo4', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Pontos turísticos e folclore.' },
+                    { id: 'lbo5', category: 'C. Locais', text: '🔥 QUENTE - História de Bonito: As Autoridades Municipais.' },
+                    { id: 'lbo6', category: 'C. Locais', text: '🔥 QUENTE - Símbolos do município.' },
+                    { id: 'lbo7', category: 'C. Locais', text: '🔥 QUENTE - Datas Cívicas e Sociais.' },
+                    { id: 'lbo8', category: 'C. Locais', text: '🔥 QUENTE - Acontecimentos importantes ocorridos em Bonito.' },
+                    { id: 'lbo9', category: 'C. Locais', text: '🔥 QUENTE - Formação do Município de Bonito (período pré-emancipatório ao contemporâneo).' },
+                    { id: 'lbo10', category: 'C. Locais', text: '🔥 QUENTE - Obras e feitos relevantes realizados por entes públicos e particulares no âmbito Municipal.' },
+                    { id: 'lbo11', category: 'C. Locais', text: '🔥 QUENTE - Personalidades que marcaram história no contexto local.' },
+                    { id: 'lbo12', category: 'C. Locais', text: '🔥 QUENTE - Os grandes desafios enfrentados pela população bonitense no decorrer de sua história.' },
+                    { id: 'lbo13', category: 'C. Locais', text: '🔥 QUENTE - Agentes políticos.' },
+                    { id: 'lbo14', category: 'C. Locais', text: '🟡 MORNO - Lei Orgânica do Município de Bonito.' },*/
+
 
  ]
 };
