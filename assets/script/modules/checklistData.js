@@ -10,30 +10,30 @@ export const state = {
                 checklistData: [
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
-                    { id: 'di1', category: 'Ciclo de Estudos', text: 'Con Esp IBGE'},//  <--------//  <--------
+                    { id: 'di1', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
                     { id: 'di2', category: 'Ciclo de Estudos', text: 'Português'},// 1
                     { id: 'di3', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
-                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Geografia'},// 3
-                    { id: 'di5', category: 'Ciclo de Estudos', text: 'Con. Téc IBGE'},// 4
+                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Informática'},// 3
+                    { id: 'di5', category: 'Ciclo de Estudos', text: 'C. Gerais Bonito'},// 4
 
-                    { id: 'di6', category: 'Ciclo de Estudos', text: 'Con Esp IBGE'},//  <--------//  <--------
-                    { id: 'di7', category: 'Ciclo de Estudos', text: 'Simulado IBGE ACQ'}, // 1
+                    { id: 'di6', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
+                    { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Locais Bonito '}, // 1
                     { id: 'di8', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
-                    { id: 'di9', category: 'Ciclo de Estudos', text: 'Geografia'},// 3
-                    { id: 'di10', category: 'Ciclo de Estudos', text: 'Con. Téc IBGE'},// 4
+                    { id: 'di9', category: 'Ciclo de Estudos', text: 'C. Esp Formosa'},// 3
+                    //{ id: 'di10', category: 'Ciclo de Estudos', text: ' '},// 4
 
-                    { id: 'di11', category: 'Ciclo de Estudos', text: 'Con Esp IBGE'},//  <--------//  <--------
+                    { id: 'di11', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
                     { id: 'di12', category: 'Ciclo de Estudos', text: 'Português'},// 1
                     { id: 'di13', category: 'Ciclo de Estudos', text: 'RLM'},// 2
-                    { id: 'di14', category: 'Ciclo de Estudos', text: 'C. Esp 3 S2s Adm'},// 3
+                    { id: 'di14', category: 'Ciclo de Estudos', text: 'C. Locais Bonito'},// 3
+                    //{ id: 'di15', category: 'Ciclo de Estudos', text: ' '},// 4
 
-                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Con Esp IBGE'},//  <--------//  <--------
-                    { id: 'di16', category: 'Ciclo de Estudos', text: 'Geografia'},// 1
-                    { id: 'di17', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
-                    { id: 'di18', category: 'Ciclo de Estudos', text: 'C. Esp 3 S2s TI'},// 3
-                    { id: 'di19', category: 'Ciclo de Estudos', text: 'Con. Téc IBGE'},// 4
-                    { id: 'di20', category: 'Ciclo de Estudos', text: 'Legislação e Ética na Adm P.'},// 5
-                    { id: 'di21', category: 'Ciclo de Estudos', text: 'Simulado IBGE ACTI'},// 6
+                    { id: 'di16', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
+                    { id: 'di17', category: 'Ciclo de Estudos', text: 'Matemática'},// 1
+                    //{ id: 'di18', category: 'Ciclo de Estudos', text: ' '},// 2
+                    { id: 'di19', category: 'Ciclo de Estudos', text: 'Legislação e Ética na Adm P.'},// 3
+                    { id: 'di20', category: 'Ciclo de Estudos', text: 'RLM'},// 4
+                    { id: 'di21', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 5
 
                     
                     // 1. LÍNGUA PORTUGUESA
@@ -54,15 +54,14 @@ export const state = {
                     { id: 'lp15', category: 'Língua Portuguesa', text: '❄️ FRIO - Adequação da linguagem a diferentes contextos.' },
                     { id: 'lp16', category: 'Língua Portuguesa', text: '🔥 QUENTE - Correspondência oficial (conforme Manual de Redação da Presidência da República).' },
 
-
-                  // Saúde Pública
-                    { id: 'cef1', category: 'Saúde Pública', text: '🔥 QUENTE  - Noções de vigilância sanitária municipal: conceito, competências do Município (Lei nº 9.782/1999 – ANVISA, noções gerais).' },
-                    { id: 'cef2', category: 'Saúde Pública', text: '🔥 QUENTE  - Noções do Sistema Único de Saúde: princípios e diretrizes (Lei nº 8.080/1990 e Lei nº 8.142/1990).' },
+                  // Saúde Pública                                    Noções de educação em saúde e comunicação com a comunidade.   
+                    { id: 'cef1', category: 'Saúde Pública', text: '🟡 MORNO  - Noções de vigilância sanitária municipal: conceito, competências do Município (Lei nº 9.782/1999 - ANVISA, noções gerais).' },
+                    { id: 'cef2', category: 'Saúde Pública', text: '🔥 QUENTE  - Diretrizes Nacionais para prevenção e controle de epidemias da Dengue.' },
                     { id: 'cef3', category: 'Saúde Pública', text: '🔥 QUENTE  - Noções de saneamento básico: abastecimento de água, esgotamento sanitário, resíduos sólidos e controle de vetores.' },
-                    { id: 'cef4', category: 'Saúde Pública', text: '🔥 QUENTE  - Procedimento administrativo de fiscalização sanitária municipal: notificação, auto de infração e devido processo legal, no âmbito das atribuições administrativas do cargo.' },
-                    { id: 'cef5', category: 'Saúde Pública', text: '🔥 QUENTE  - Boas práticas de higiene e segurança sanitária em estabelecimentos comerciais e de alimentos.' },
-                    { id: 'cef6', category: 'Saúde Pública', text: '🔥 QUENTE  - Noções de educação em saúde e comunicação com a comunidade.' },
-                    { id: 'cef7', category: 'Saúde Pública', text: '🔥 QUENTE  - Ética no serviço público.' },
+                    { id: 'cef4', category: 'Saúde Pública', text: '🟡 MORNO  - Procedimento administrativo de fiscalização sanitária municipal: notificação, auto de infração e devido processo legal, no âmbito das atribuições administrativas do cargo.' },
+                    { id: 'cef5', category: 'Saúde Pública', text: '🟡 MORNO  - Boas práticas de higiene e segurança sanitária em estabelecimentos comerciais e de alimentos.' },
+                    { id: 'cef6', category: 'Saúde Pública', text: '🟡 MORNO  - Noções de educação em saúde e comunicação com a comunidade.' },
+                    { id: 'cef7', category: 'Saúde Pública', text: '🔥 QUENTE - Vigilância em Saúde da Esquistossomose, Malária, Tracoma.' },
                     { id: 'cef8', category: 'Saúde Pública', text: '❄️ FRIO  - Noções de saúde pública, epidemiologia e saneamento.' },
                     { id: 'cef9', category: 'Saúde Pública', text: '❄️ FRIO  - Vigilância em saúde sanitária.' },
                     { id: 'cef10', category: 'Saúde Pública', text: '❄️ FRIO  - Controle de zoonoses.' },
@@ -78,8 +77,35 @@ export const state = {
                     { id: 'cef20', category: 'Saúde Pública', text: '❄️ FRIO - Sistemas de drenagem urbana.' },
                     { id: 'cef21', category: 'Saúde Pública', text: '❄️ FRIO - Cuidados com a saúde.' },
                     { id: 'cef22', category: 'Saúde Pública', text: '❄️ FRIO - Sistemas de abastecimento de água.' },
-
-                  
+                    { id: 'cef23', category: 'Saúde Pública', text: '🔥 QUENTE - Evolução histórica das Políticas públicas de saúde no Brasil com ênfase no Sistema Único de Saúde (SUS), seus princípios e Diretrizes.' },
+                    { id: 'cef24', category: 'Saúde Pública', text: '🔥 QUENTE - Regulamentação da Profissão de Agente de combate às endemias: Lei Federal nº 11.350/2006' },
+                    { id: 'cef25', category: 'Saúde Pública', text: '🔥 QUENTE - Noções de meio-ambiente:poluição atmosférica e sonora.' },
+                    { id: 'cef26', category: 'Saúde Pública', text: '🔥 QUENTE - Coleta, transporte e destinação de lixo.' },
+                    { id: 'cef27', category: 'Saúde Pública', text: '🔥 QUENTE - Questões de caráter prático versando sobre as atividades e atribuições específicas do cargo e inerentes ao desempenho de suas funções, especialmente no que diz respeito à atividade da categoria profissional no contexto do serviço público municipal.' },
+                    { id: 'cef28', category: 'Saúde Pública', text: '🔥 QUENTE - Noções de vigilância nutricional e de alimentos: produção, armazenagem, distribuição e qualidade de alimentos.' },
+                    { id: 'cef29', category: 'Saúde Pública', text: '🔥 QUENTE - Condições nutricionais da população em geral.' },
+                    { id: 'cef30', category: 'Saúde Pública', text: '🔥 QUENTE - Enfermidades transmitidas por alimentos.' },
+                    { id: 'cef31', category: 'Saúde Pública', text: '🔥 QUENTE - Noções das condições higiênico-sanitárias de estabelecimentos de saúde e de uso coletivo.' },
+                    { id: 'cef32', category: 'Saúde Pública', text: '🔥 QUENTE - Noções de condições de medicamentos e desinfetantes.' },
+                    { id: 'cef33', category: 'Saúde Pública', text: '🔥 QUENTE - Política Nacional de Atenção Básica: Conceito; Princípios.' },
+                    { id: 'cef34', category: 'Saúde Pública', text: '🔥 QUENTE - Financiamento Atribuições das Equipes.' },
+                    { id: 'cef35', category: 'Saúde Pública', text: '🔥 QUENTE - Educação Permanente.' },
+                    { id: 'cef36', category: 'Saúde Pública', text: '🔥 QUENTE - Conceitos de: Promoção à Saúde.' },
+                    { id: 'cef37', category: 'Saúde Pública', text: '🔥 QUENTE - Conceitos de: Humanização.' },
+                    { id: 'cef38', category: 'Saúde Pública', text: '🔥 QUENTE - Conceitos de: Equidade.' },
+                    { id: 'cef39', category: 'Saúde Pública', text: '🔥 QUENTE - Conceitos de: Acessibilidade.' },
+                    { id: 'cef40', category: 'Saúde Pública', text: '🔥 QUENTE - Conceitos de: Intersetorialidade.' },
+                    { id: 'cef41', category: 'Saúde Pública', text: '🔥 QUENTE - Conceitos de: Interdisciplinaridade.' },
+                    { id: 'cef42', category: 'Saúde Pública', text: '🔥 QUENTE - Conceitos de: Eficácia.' },
+                    { id: 'cef43', category: 'Saúde Pública', text: '🔥 QUENTE - Conceitos de: Eficiência e Efetividade em Saúde Coletiva.' },
+                    { id: 'cef44', category: 'Saúde Pública', text: '🔥 QUENTE - Vigilância Ambiental em Saúde: saneamento básico.' },
+                    { id: 'cef45', category: 'Saúde Pública', text: '🔥 QUENTE - Qualidade do ar e dos alimentos para consumo humano.' },
+                    { id: 'cef46', category: 'Saúde Pública', text: '🔥 QUENTE - Noções Básicas de Epidemiologia: Notificação compulsória. Investigação. Inquérito.' },
+                    { id: 'cef47', category: 'Saúde Pública', text: '🔥 QUENTE - Noções Básicas de Epidemiologia: Epidemia. Endemia. Surto. Bloqueio.' },
+                    { id: 'cef48', category: 'Saúde Pública', text: '🔥 QUENTE - Noções Básicas de Epidemiologia:  Controle de agravos.' },
+                    { id: 'cef49', category: 'Saúde Pública', text: '🔥 QUENTE - Vigilância em Saúde da Raiva Humana, Leishmaniose e Febre Amarela.' },
+                    { id: 'cef50', category: 'Saúde Pública', text: '🔥 QUENTE - Vigilância em Saúde da Chikungunya, Dengue e Zika.' },
+             
                     // 2. RACIOCÍNIO LÓGICO
                     { id: 'rlm1', category: 'Raciocínio Lógico', text: '🔥 QUENTE - Proposições e conectivos.' },
                     { id: 'rlm2', category: 'Raciocínio Lógico', text: '🔥 QUENTE - Raciocínio Lógico Quantitativo: Avaliação da habilidade do candidato em deduzir novas informações e avaliar as condições usadas para estabelecer a estrutura dessas relações.' },
@@ -128,14 +154,19 @@ export const state = {
                     { id: 'inf12', category: 'Noções de Informática', text: '❄️ FRIO - Ferramentas de comunicação (Teams, Meet).' },
 
                     // 5. LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA
-                    { id: 'leg1', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei nº 8.429/1992 (Improbidade Administrativa).' },
-                    { id: 'leg2', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei nº 9.784/1999 (Processo Administrativo), direitos e deveres.' },
-                    { id: 'leg3', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Princípios fundamentais da Administração Pública.' },
+                    { id: 'leg1', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei nº 8.429/1992 (Improbidade Administrativa).' },
+                    { id: 'leg2', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei nº 9.784/1999 (Processo Administrativo), direitos e deveres.' },
+                    { id: 'leg3', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Princípios fundamentais da Administração Pública.' },
                     { id: 'leg4', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei Geral de Proteção de Dados - LGPD (Lei nº 13.709/2018) .' },
                     { id: 'leg5', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei nº 12.527/2011 (Transparência e Acesso à Informação) e seus decretos.' },
                     { id: 'leg6', category: 'Legislação e Ética na Adm. Pública', text: '❄️ FRIO - Conceito de ética na função pública.' },
+                    { id: 'leg7', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Ética, moral, princípios e valores.' },
+                    { id: 'leg8', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Ética e democracia: exercício da cidadania.' },
+                    { id: 'leg9', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Ética e função pública.' },
+                    { id: 'leg10', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei n°. 8.429/1992: disposições gerais.' },
+                    { id: 'leg11', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Atos de improbidade administrativa. (alterada pela Lei nº 14.230 de 25 de outubro de 2021).' },
                   
-                    // 6. ADMINISTRAÇÃO, ATENDIMENTO E ARQUIVO
+                 /*   // 6. ADMINISTRAÇÃO, ATENDIMENTO E ARQUIVO
                     { id: 'adm1', category: 'Administração, Atendimento e Arquivo', text: '🟡 MORNO - Atendimento ao Público: Qualidade, postura profissional, atendimento telefônico e presencial.' },
                     { id: 'adm2', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Comunicação Organizacional: Redação oficial de documentos e tipos de documentos administrativos.' },
                     { id: 'adm3', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de arquivologia: Tipos de arquivos, métodos de arquivamento e gestão eletrônica/digitalização.' },
@@ -163,23 +194,19 @@ export const state = {
                     { id: 'adm25', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de Contabilidade: conceitos de ativo, passivo, receita, despesa e investimento.' },
                     { id: 'adm26', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de Contabilidade: noções de custos.' },
                     { id: 'adm27', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Noções de Contabilidade: fundamentos da contabilidade geral. .' },
-                  
-                   /* // 7. LEGISLAÇÃO ESPECÍFICA
-                    //{ id: 'esp1', category: 'Legislação Específica', text: '🔥 QUENTE - Lei nº 6.530/1978 (Regulamentação da profissão e órgãos de fiscalização).' },
-                    //{ id: 'esp2', category: 'Legislação Específica', text: '🔥 QUENTE - Decreto nº 81.871/1978 (Regulamenta a Lei nº 6.530/1978).' },
-                    //{ id: 'esp3', category: 'Legislação Específica', text: '🔥 QUENTE - Resolução COFECI nº 326/1992 (Código de Ética Profissional).' },
-                    //{ id: 'esp4', category: 'Legislação Específica', text: '🔥 QUENTE - Resolução COFECI nº 146/1982 (Código de Processo Disciplinar).' },
-                    //{ id: 'esp5', category: 'Legislação Específica', text: '🔥 QUENTE - Lei nº 10.406/2002 (Código Civil - Cap. XIII: Da Corretagem).' },
-                    //{ id: 'esp6', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.126/2009 (Regimento COFECI e Padrão para Regionais).' },
-                    //{ id: 'esp7', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 327/1992 (Normas para inscrição PF e PJ).' },
-                    //{ id: 'esp8', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.065/2007 (Nome abreviado, fantasia e publicidade).' },
-                    //{ id: 'esp9', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 458/1995 (Destaque do registro em anúncios).' },
-                    //{ id: 'esp10', category: 'Legislação Específica', text: '🟡 MORNO - Resolução COFECI nº 1.484/2022 (Isenção e remissão de débitos).' },
-                    { id: 'esp11', category: 'Legislação Específica', text: '❄️ FRIO - 3 Corações: Lei Orgânica Municipal de Três Corações.' },
-                    { id: 'esp12', category: 'Legislação Específica', text: '❄️ FRIO - 3 Corações: Regimento Interno da Câmara Municipal.' },
-                    { id: 'esp13', category: 'Legislação Específica', text: '❄️ FRIO - 3 Corações: Estatuto dos Servidores Públicos do Município.' },
                   */
-                    // 8. TECNOLOGIA DA INFORMAÇÃO
+                    // 7. LEGISLAÇÃO ESPECÍFICA
+                    { id: 'esp1', category: 'Legislação Específica', text: '🔥 QUENTE - SUS > princípios, diretrizes e arcabouço legal: Constituição Federal.' },
+                    { id: 'esp2', category: 'Legislação Específica', text: '🔥 QUENTE - SUS > princípios, diretrizes e arcabouço legal: Leis Orgânicas da Saúde: 8.080/1990 e 8.142/1990.' },
+                    { id: 'esp3', category: 'Legislação Específica', text: '🔥 QUENTE - SUS > princípios, diretrizes e arcabouço legal: Decreto Presidencial nº 7.508, de 28 de junho de 2011.' },
+                    { id: 'esp4', category: 'Legislação Específica', text: '🔥 QUENTE - Resolução nº 453/2012 do Conselho Nacional da Saúde.' },
+                    { id: 'esp5', category: 'Legislação Específica', text: '🔥 QUENTE - Determinantes sociais da saúde.' },
+                    { id: 'esp6', category: 'Legislação Específica', text: '🔥 QUENTE - Sistemas Nacionais de informação em saúde.' },
+                    { id: 'esp7', category: 'Legislação Específica', text: '🔥 QUENTE - Legislação.' },
+                    { id: 'esp8', category: 'Legislação Específica', text: '🔥 QUENTE - Controle social no SUS.' },
+                    { id: 'esp9', category: 'Legislação Específica', text: '🔥 QUENTE - Política Nacional de Humanização do SUS.' },
+                  
+                /*    // 8. TECNOLOGIA DA INFORMAÇÃO
                     //{ id: 'ti1', category: 'Tecnologia da Informação', text: '🟡 MORNO - Papel estratégico da TI no setor público: Função da TI no Poder Legislativo.' },
                     //{ id: 'ti2', category: 'Tecnologia da Informação', text: '🟡 MORNO - Papel estratégico da TI no setor público: TI como suporte à gestão pública.' },
                     { id: 'ti3', category: 'Tecnologia da Informação', text: '🔥 QUENTE - Governança e valor público: Eficiência operacional.' },
@@ -256,8 +283,8 @@ export const state = {
                     { id: 'ti74', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Modelagem e conhecimento de banco de dados:  MS SQL Server' },
                     { id: 'ti75', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Modelagem e conhecimento de banco de dados: MySQL' },
                     { id: 'ti76', category: 'Tecnologia da Informação', text: '🔥 QUENTE - 3 Corações; Modelagem e conhecimento de banco de dados: Access' },
-
-                    //Geografia
+                  */
+               /*     //Geografia
                     { id: 'geo1', category: 'Geografia', text: '🔥 QUENTE - Noções básicas de cartografia.' },
                     { id: 'geo2', category: 'Geografia', text: '🔥 QUENTE - Localização: coordenadas geográficas, latitude, longitude e altitude.' },
                     { id: 'geo3', category: 'Geografia', text: '🔥 QUENTE - Organização do espaço agrário: atividades econômicas, modernização tecnológica e conflitos.' },
@@ -269,8 +296,8 @@ export const state = {
                     { id: 'geo9', category: 'Geografia', text: '🟡 MORNO - Questões ambientais no campo brasileiro.' },
                     { id: 'geo10', category: 'Geografia', text: '🟡 MORNO - Formação territorial e divisão político-administrativa (organização federativa).' },
                     { id: 'geo11', category: 'Geografia', text: '❄️ FRIO - Organização espacial da agricultura, da pecuária e do extrativismo no Brasil.' },
-
-                    //Direito Administrativo
+                  */
+                 /*   //Direito Administrativo
                     { id: 'da1', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: conceito e deveres dos servidores públicos.' },
                     { id: 'da2', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: regime e sanções disciplinares.' },
                     { id: 'da3', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: processo administrativo disciplinar básico (Sindicância Administrativa e Processo Administrativo Disciplinar - PAD).' },
@@ -281,8 +308,8 @@ export const state = {
                     { id: 'da8', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de licitações públicas (Lei nº 14.133/2021): processo licitatório.' },
                     { id: 'da9', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de licitações públicas (Lei nº 14.133/2021): registro de preços e contratos administrativos (características gerais, prazos e extinção).' },
                     { id: 'da10', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: noções sobre serviços públicos. .' },
-
-                   /* //C. Locais Bonito
+                  */
+                    //C. Locais Bonito
                     { id: 'lbo1', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Meios de transporte e comunicação, limites, território, povoados, distritos.' },
                     { id: 'lbo2', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Pontos extremos, relevo, clima, hidrografia,.' },
                     { id: 'lbo3', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Desenvolvimento humano, economia, extrativismo,.' },
@@ -296,7 +323,7 @@ export const state = {
                     { id: 'lbo11', category: 'C. Locais', text: '🔥 QUENTE - Personalidades que marcaram história no contexto local.' },
                     { id: 'lbo12', category: 'C. Locais', text: '🔥 QUENTE - Os grandes desafios enfrentados pela população bonitense no decorrer de sua história.' },
                     { id: 'lbo13', category: 'C. Locais', text: '🔥 QUENTE - Agentes políticos.' },
-                    { id: 'lbo14', category: 'C. Locais', text: '🟡 MORNO - Lei Orgânica do Município de Bonito.' },*/
+                    { id: 'lbo14', category: 'C. Locais', text: '🟡 MORNO - Lei Orgânica do Município de Bonito.' },
 
 
  ]

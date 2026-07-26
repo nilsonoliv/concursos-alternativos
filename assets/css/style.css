@@ -141,8 +141,19 @@ body {
         .btn-reset:hover { background-color: #d1d5db; }
 
         .checklist-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-        .checklist-category { background-color: var(--color-bg); padding: 1rem; border-radius: var(--radius-lg); border: 1px solid #e5e7eb; }
-        .checklist-category-title { font-weight: 700; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #d1d5db; }
+        .checklist-category { 
+            background-color: var(--color-bg); 
+            padding: 1rem; border-radius: var(--radius-lg); 
+            border: 1px solid #e5e7eb; 
+            max-height: 60vh; 
+            overflow-y: auto;
+        }
+        .checklist-category-title { 
+            font-weight: 700; 
+            margin-bottom: 1rem; 
+            padding-bottom: 0.5rem; 
+            border-bottom: 1px solid #d1d5db; 
+        }
 
         .check-container { display: block; position: relative; padding-left: 35px; margin-bottom: 12px; cursor: pointer; font-size: 15px; user-select: none; color: var(--color-text-main); transition: var(--transition-default); }
         .check-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }

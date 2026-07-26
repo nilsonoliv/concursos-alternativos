@@ -319,7 +319,7 @@ if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays(i
              */
             const initCountdown = () => {
                 // Substitua esta data pela data real da prova
-                const targetDate = new Date('2026-08-30T00:00:00'); 
+                const targetDate = new Date('2026-09-17T00:00:00'); 
                 const today = new Date();
                 today.setHours(0,0,0,0);
                 
