@@ -388,7 +388,23 @@ class InterfaceGrafica {
   
     
     // Exibe a questão atual no formato de enunciado, alternativas e informações adicionais, preparando os botões para interação.
-    exibirQuestaoAtual(questao, indiceAtual, totalQuestoes, aoSelecionarOpcao, aoConfirmar) {
+       exibirQuestaoAtual(questao, indiceAtual, totalQuestoes, aoSelecionarOpcao, aoConfirmar) {
+        document.getElementById('q-header-info').innerText = `#${questao.id} | ${questao.materia} > ${questao.assunto} (${questao.banca})`;
+        document.getElementById('q-counter').innerText = `Questão ${indiceAtual + 1} de ${totalQuestoes}`;
+        document.getElementById('q-enunciado').innerText = questao.enunciado;
+        const imgCont = document.getElementById('q-imagem-container');
+        
+        if (questao.imagem) { 
+            // Substitua "/assets/img/" pelo caminho real onde você guardou as imagens das questões
+            document.getElementById('q-imagem').src = "/assets/img/" + questao.imagem; 
+            imgCont.classList.remove('hidden-view'); 
+        }
+        else { imgCont.classList.add('hidden-view'); }
+        document.getElementById('q-feedback').classList.add('hidden-view');
+        const btnResp = document.getElementById('btn-responder');
+    
+    
+    /*exibirQuestaoAtual(questao, indiceAtual, totalQuestoes, aoSelecionarOpcao, aoConfirmar) {
         document.getElementById('q-header-info').innerText = `#${questao.id} | ${questao.materia} > ${questao.assunto} (${questao.banca})`;
         document.getElementById('q-counter').innerText = `Questão ${indiceAtual + 1} de ${totalQuestoes}`;
         document.getElementById('q-enunciado').innerText = questao.enunciado;
@@ -396,7 +412,7 @@ class InterfaceGrafica {
         if (questao.imagem) { document.getElementById('q-imagem').src = questao.imagem; imgCont.classList.remove('hidden-view'); }
         else { imgCont.classList.add('hidden-view'); }
         document.getElementById('q-feedback').classList.add('hidden-view');
-        const btnResp = document.getElementById('btn-responder');
+        const btnResp = document.getElementById('btn-responder');*/
         btnResp.innerText = "Responder";
         btnResp.disabled = true;
         btnResp.onclick = aoConfirmar;
