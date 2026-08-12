@@ -20,17 +20,17 @@ export const state = {
                     { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Locais Bonito '}, // 1
                     { id: 'di8', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
                     { id: 'di9', category: 'Ciclo de Estudos', text: 'C. Esp Formosa'},// 3
-                    //{ id: 'di10', category: 'Ciclo de Estudos', text: ' '},// 4
+                    { id: 'di10', category: 'Ciclo de Estudos', text: 'Redação'},// 4
 
                     { id: 'di11', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
                     { id: 'di12', category: 'Ciclo de Estudos', text: 'Português'},// 1
                     { id: 'di13', category: 'Ciclo de Estudos', text: 'RLM'},// 2
                     { id: 'di14', category: 'Ciclo de Estudos', text: 'C. Locais Bonito'},// 3
-                    //{ id: 'di15', category: 'Ciclo de Estudos', text: ' '},// 4
+                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Legislação Merendeira'},// 4
 
                     { id: 'di16', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
                     { id: 'di17', category: 'Ciclo de Estudos', text: 'Matemática'},// 1
-                    //{ id: 'di18', category: 'Ciclo de Estudos', text: ' '},// 2
+                    { id: 'di18', category: 'Ciclo de Estudos', text: 'C. Esp. Merendeira '},// 2
                     { id: 'di19', category: 'Ciclo de Estudos', text: 'Legislação e Ética na Adm P.'},// 3
                     { id: 'di20', category: 'Ciclo de Estudos', text: 'RLM'},// 4
                     { id: 'di21', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 5
@@ -205,6 +205,11 @@ export const state = {
                     { id: 'esp7', category: 'Legislação Específica', text: '🔥 QUENTE - Legislação.' },
                     { id: 'esp8', category: 'Legislação Específica', text: '🔥 QUENTE - Controle social no SUS.' },
                     { id: 'esp9', category: 'Legislação Específica', text: '🔥 QUENTE - Política Nacional de Humanização do SUS.' },
+                    { id: 'esp10', category: 'Legislação Específica', text: '🟡 MORNO - Merendeira. Constituição Federal de 1988' },
+                    { id: 'esp11', category: 'Legislação Específica', text: '🟡 MORNO - Merendeira. Lei n. º 229/2015 (Estatuto do Servidor Público Municipal de Araçás-BA)' },
+                    { id: 'esp12', category: 'Legislação Específica', text: '🟡 MORNO - Merendeira. Lei n.º 280/2019 (Plano de Cargos, e Vencimentos dos Servidores da Prefeitura de Araçás-BA)' },
+                    { id: 'esp13', category: 'Legislação Específica', text: '🟡 MORNO - Merendeira. Lei n.º 304/2021 (Concede revisão geral anual da remuneração dos servidores efetivos da Prefeitura Municipal de Araçás-BA )' },
+                    { id: 'esp14', category: 'Legislação Específica', text: '🟡 MORNO - Merendeira. Lei n.º 353/ 2025 (Altera a Lei n.º 304/2021).' },
                   
                 /*    // 8. TECNOLOGIA DA INFORMAÇÃO
                     //{ id: 'ti1', category: 'Tecnologia da Informação', text: '🟡 MORNO - Papel estratégico da TI no setor público: Função da TI no Poder Legislativo.' },
@@ -324,6 +329,24 @@ export const state = {
                     { id: 'lbo12', category: 'C. Locais', text: '🔥 QUENTE - Os grandes desafios enfrentados pela população bonitense no decorrer de sua história.' },
                     { id: 'lbo13', category: 'C. Locais', text: '🔥 QUENTE - Agentes políticos.' },
                     { id: 'lbo14', category: 'C. Locais', text: '🟡 MORNO - Lei Orgânica do Município de Bonito.' },
+
+                // COnhe Esp Merendeira
+                { id: 'CespM1', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Programa Nacional de Alimentação Escolar (PNAE).' },
+                { id: 'CespM2', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Técnicas de pré-preparo, preparo e cocção.' },
+                { id: 'CespM3', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Controle de estoque de alimentos perecíveis e não perecíveis e desperdício.' },
+                { id: 'CespM4', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Controle de temperatura. Técnicas de congelamento e descongelamento de alimentos.' },
+                { id: 'CespM5', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Noções gerais sobre: alimentos, função dos alimentos, vitaminas e nutrientes, reaproveitamento de alimentos, alimentos in natura e alimentos processados, recebimento, armazenamento, acondicionamento, conservação e validade dos alimentos.' },
+                { id: 'CespM6', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Noções de higienização de alimentos. Limpeza e conservação dos objetos de uso, de equipamentos e do local de trabalho.' },
+                { id: 'CespM7', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Noções básicas de preparação de alimentos.' },
+                { id: 'CespM8', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Hipersensibilidade alimentar: Cuidados e manipulação.' },
+                { id: 'CespM9', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Doenças Transmitidas por Alimentos (DTAs).' },
+                { id: 'CespM10', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Noções básicas de cardápio.' },
+                { id: 'CespM11', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Qualidade da água: importância da água potável e proteção dos reservatórios.' },
+                { id: 'CespM12', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Vestuário adequado ao ambiente de trabalho e higiene pessoal.' },
+                { id: 'CespM13', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Prevenção e controle de insetos e roedores. Separação de lixo e coleta seletiva.' },
+                { id: 'CespM14', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Segurança no trabalho: Equipamentos de Proteção Individual (EPI) e Equipamentos de Proteção Coletiva (EPC).' },
+                { id: 'CespM15', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Prevenção de incêndios e Noções de Primeiros Socorros.' },
+                { id: 'CespM16', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Resolução-RDC Anvisa n.º 216/04.' },
 
 
  ]
