@@ -25,7 +25,7 @@
         const targetDate = new Date('2026-09-27T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);
-        const ticketPrice = 143; // Valor da passagem de ida e volta
+        const ticketPrice = 50; // Valor da passagem de ida e volta
         const diffDays = Math.ceil((targetDate - today) / 86400000);
         var ticketPriceForDaysFormosa = diffDays > 0 ? ticketPrice/diffDays : 0 ; // calcula quanto por dia é necessario juntar para a passagem, caso falte menos de um dia, o valor da passagem é 0
          let formosaValues = {
