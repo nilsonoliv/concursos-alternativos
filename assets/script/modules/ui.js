@@ -4,7 +4,7 @@
    export const initCountdownAracas = () => {
             //Bonito
                 // Substitua esta data pela data real da prova
-        const targetDate = new Date('2026-09-17T00:00:00'); 
+        const targetDate = new Date('2026-09-20T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);// essa variavel é usada para calcular a diferença de dias entre a data atual e a data da prova
         const ticketPrice = 450-9; // Valor da passagem de ida e volta
@@ -22,7 +22,7 @@
   export const initCountdownFormosa = () => {
         //IBGE 2
         // Substitua esta data pela data real da prova
-        const targetDate = new Date('2026-09-24T00:00:00'); 
+        const targetDate = new Date('2026-09-27T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);
         const ticketPrice = 143; // Valor da passagem de ida e volta
@@ -42,7 +42,7 @@
     export const initCountdownIBGE = () => {
         //FORMOSA
         // Substitua esta data pela data real da prova
-        const targetDate = new Date('2026-11-08T00:00:00'); 
+        const targetDate = new Date('2026-10-11T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);
         const ticketPrice = 900; // Valor da passagem de ida e volta
