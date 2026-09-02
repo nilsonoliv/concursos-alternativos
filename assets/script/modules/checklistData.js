@@ -15,29 +15,28 @@ export const state = {
                     { id: 'di3', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
                     { id: 'di4', category: 'Ciclo de Estudos', text: 'Informática'},// 3
                     { id: 'di5', category: 'Ciclo de Estudos', text: 'C. Gerais Bonito'},// 4
-                    { id: 'di24', category: 'Ciclo de Estudos', text: 'Simulado da Apk'},// 6
+                    { id: 'di6', category: 'Ciclo de Estudos', text: 'Simulado da Apk'},// 6
 
-                    { id: 'di6', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
-                    { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Locais Bonito'}, // 1
-                    { id: 'di8', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
-                    { id: 'di9', category: 'Ciclo de Estudos', text: 'C. Esp Formosa'},// 3
-                    { id: 'di10', category: 'Ciclo de Estudos', text: 'Redação'},// 4
-                    { id: 'di23', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 6
+                    { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
+                    { id: 'di8', category: 'Ciclo de Estudos', text: 'C. Locais Bonito'}, // 1
+                    { id: 'di9', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
+                    { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Esp Formosa'},// 3
+                    { id: 'di11', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 6
 
-                    { id: 'di11', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
-                    { id: 'di12', category: 'Ciclo de Estudos', text: 'Português'},// 1
-                    { id: 'di13', category: 'Ciclo de Estudos', text: 'RLM'},// 2
-                    { id: 'di25', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 6
-                    { id: 'di14', category: 'Ciclo de Estudos', text: 'C. Locais Bonito'},// 3
-                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Legislação Merendeira'},// 4
-                    { id: 'di22', category: 'Ciclo de Estudos', text: 'Simulado da Apk'},// 6
+                    { id: 'di12', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
+                    { id: 'di13', category: 'Ciclo de Estudos', text: 'Português'},// 1
+                    { id: 'di14', category: 'Ciclo de Estudos', text: 'RLM'},// 2
+                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 6
+                    { id: 'di16', category: 'Ciclo de Estudos', text: 'C. Locais Bonito'},// 3
+                    { id: 'di17', category: 'Ciclo de Estudos', text: 'Legislação Merendeira'},// 4
+                    { id: 'di18', category: 'Ciclo de Estudos', text: 'Simulado da Apk'},// 6
 
-                    { id: 'di16', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
-                    { id: 'di17', category: 'Ciclo de Estudos', text: 'Matemática'},// 1
-                    { id: 'di18', category: 'Ciclo de Estudos', text: 'C. Esp. Merendeira '},// 2
-                    { id: 'di19', category: 'Ciclo de Estudos', text: 'Legislação e Ética na Adm P.'},// 3
-                    { id: 'di20', category: 'Ciclo de Estudos', text: 'RLM'},// 4
-                    { id: 'di21', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 5
+                    { id: 'di19', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
+                    { id: 'di20', category: 'Ciclo de Estudos', text: 'Matemática'},// 1
+                    { id: 'di21', category: 'Ciclo de Estudos', text: 'C. Esp. Merendeira '},// 2
+                    { id: 'di22', category: 'Ciclo de Estudos', text: 'Legislação e Ética na Adm P.'},// 3
+                    { id: 'di23', category: 'Ciclo de Estudos', text: 'RLM'},// 4
+                    { id: 'di24', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 5
 
                     
                     // 1. LÍNGUA PORTUGUESA
