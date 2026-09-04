@@ -44,12 +44,12 @@ if(DOM.countdownDaysIBGE) DOM.countdownDaysIBGE.innerText = diffDays > 0 ? `${di
 
 //if(DOM.countdownDaysAracas) DOM.countdownDaysAracas.innerText =  `${state.checklistData[9].category} dias`;
 if(DOM.countdownDaysAracas) DOM.countdownDaysAracas.innerText = initCountdownAracas().valueDays > 0 ? `${initCountdownAracas().valueDays} dias` : "Chegou o dia!";
-if(DOM.countdownDaysAracasValue) DOM.countdownDaysAracasValue.innerText = initCountdownAracas().valueTicket > 0 ? `R$${initCountdownAracas().valueTicket.toFixed(1)} por dia` : "Chegou o dia!";
+if(DOM.countdownDaysAracasValue) DOM.countdownDaysAracasValue.innerText = initCountdownAracas().valuePrice > 0 ? `R$${initCountdownAracas().valuePrice.toFixed(1)} por dia` : "Chegou o dia!";
 if(DOM.countdownDaysFormosa) DOM.countdownDaysFormosa.innerText = initCountdownFormosa().valueDays > 0 ? `${initCountdownFormosa().valueDays} dias` : "Chegou o dia!";
-if(DOM.countdownDaysFormosaValue) DOM.countdownDaysFormosaValue.innerText = initCountdownFormosa().valueTicket > 0 ? `R$${initCountdownFormosa().valueTicket.toFixed(1)} por dia` : "Chegou o dia!";
+if(DOM.countdownDaysFormosaValue) DOM.countdownDaysFormosaValue.innerText = initCountdownFormosa().valuePrice > 0 ? `R$${initCountdownFormosa().valuePrice.toFixed(1)} por dia` : "Chegou o dia!";
 if(DOM.countdownDaysIBGE) DOM.countdownDaysIBGE.innerText = initCountdownIBGE().valueDays > 0 ? `${initCountdownIBGE().valueDays} dias` : "Chegou o dia!";
-if(DOM.countdownDaysIBGEValue) DOM.countdownDaysIBGEValue.innerText = initCountdownIBGE().valueTicket > 0 ? `R$${initCountdownIBGE().valueTicket.toFixed(1)} por dia` : "Chegou o dia!";
-if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays(initCountdownAracas().valueTicket, initCountdownFormosa().valueTicket, initCountdownIBGE().valueTicket) > 0 ? `R$${initCountdownAllDays(initCountdownAracas().valueTicket, initCountdownFormosa().valueTicket, initCountdownIBGE().valueTicket).toFixed(1)} por dia` : "Chegou o dia!";
+if(DOM.countdownDaysIBGEValue) DOM.countdownDaysIBGEValue.innerText = initCountdownIBGE().valuePrice > 0 ? `R$${initCountdownIBGE().valuePrice.toFixed(1)} por dia` : "Chegou o dia!";
+if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays(initCountdownAracas().valuePrice, initCountdownFormosa().valuePrice, initCountdownIBGE().valuePrice) > 0 ? `R$${initCountdownAllDays(initCountdownAracas().valuePrice, initCountdownFormosa().valuePrice, initCountdownIBGE().valuePrice).toFixed(1)} por dia` : "Chegou o dia!";
 
 
 //************************************************************************
