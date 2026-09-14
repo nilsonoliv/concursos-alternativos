@@ -290,21 +290,114 @@ class InterfaceGrafica {
         });
     }
 
+    // Retorna um array de matérias que estão selecionadas no dropdown
+    obterMateriasMaradas() {
+        const chkTodos = document.getElementById('chk-todas-materias');
+        if (chkTodos && chkTodos.checked) {
+            return ['todas'];
+        }
+        const checkboxesMarcados = document.querySelectorAll('.chk-materia:checked');
+        return Array.from(checkboxesMarcados).map(chk => chk.value);
+    }
+
     // Preenche o dropdown de matérias com base nas questões disponíveis, garantindo que apenas matérias relevantes sejam listadas.
     preencherFiltros(listaQuestoes) {
         const materiasUnicas = [...new Set(listaQuestoes.map(q => q.materia))];
-        const selectMateria = document.getElementById('sel-materia');
-        selectMateria.innerHTML = '<option value="todas">Todas as Matérias</option>';
-        materiasUnicas.forEach(m => selectMateria.innerHTML += `<option value="${m}">${m}</option>`);
+        
+        // Pega a nova div que foi adicionada para adicionar checkboxes e selecionar mais de uma matéria
+        const containerMaterias = document.getElementById('caixa-materias');    
+        if (!containerMaterias) return;
+        
+        // Adiciona a opção de selecionar todas as matérias
+        containerMaterias.innerHTML = `<label style="display: block; font-weight: bold; margin-bottom: 8px; cursor: pointer;">
+        <input type="checkbox" id="chk-todas-materias" value="todas" checked>
+        Selecionar Todas
+        </label>
+        <hr style="margin-bottom: 8px;">`;
+        
+        // Adiciona as matérias individuais
+        materiasUnicas.forEach(m => {
+            containerMaterias.innerHTML += `
+            <label style="display: block; margin-bottom: 5px; margin-left: 10px; cursor: pointer;">
+                        <input type="checkbox" class="chk-materia" value="${m}" checked>
+                        ${m}
+                    </label>
+            `;
+        });
+        
+        // --- UX Sênior: Comportamento do Dropdown e Checkboxes ---
+        const chkTodos = document.getElementById('chk-todas-materias');
+        const chksIndividuais = document.querySelectorAll('.chk-materia');
+        const dropdownTitle = document.getElementById('dropdown-title-materia');
+        const dropdownHeader = document.getElementById('dropdown-header-materia');
+        const caixaMaterias = document.getElementById('caixa-materias');
+
+        // 1. Função para atualizar o texto do falso select
+        const atualizarTitulo = () => {
+            if (chkTodos.checked) {
+                dropdownTitle.innerText = "Todas as matérias";
+            } else {
+                const marcados = document.querySelectorAll('.chk-materia:checked').length;
+                if (marcados === 0) dropdownTitle.innerText = "Nenhuma selecionada";
+                else if (marcados === 1) dropdownTitle.innerText = "1 matéria selecionada";
+                else dropdownTitle.innerText = `${marcados} matérias selecionadas`;
+            }
+        };
+
+        // 2. Lógica de marcar/desmarcar checkboxes
+        chkTodos.addEventListener('change', (e) => {
+            chksIndividuais.forEach(chk => chk.checked = e.target.checked);
+            atualizarTitulo();
+            // Atualiza os assuntos disponíveis quando matérias mudam
+            this.atualizarAssuntos(listaQuestoes, this.obterMateriasMaradas());
+        });
+
+        chksIndividuais.forEach(chk => {
+            chk.addEventListener('change', () => {
+                if (!chk.checked) chkTodos.checked = false;
+                const todosMarcados = Array.from(chksIndividuais).every(c => c.checked);
+                if (todosMarcados) chkTodos.checked = true;
+                atualizarTitulo();
+                // Atualiza os assuntos disponíveis quando matérias mudam
+                this.atualizarAssuntos(listaQuestoes, this.obterMateriasMaradas());
+            });
+        });
+
+        atualizarTitulo(); // Configura o texto inicial
+
+        // 3. Lógica de abrir e fechar a caixa suspensa (Dropdown)
+        dropdownHeader.addEventListener('click', (e) => {
+            e.stopPropagation(); // Impede que o clique seja detetado pelo fecho global abaixo
+            const isVisible = caixaMaterias.style.display === 'block';
+            caixaMaterias.style.display = isVisible ? 'none' : 'block';
+        });
+
+        // 4. Fechar o dropdown automaticamente ao clicar noutro lugar do ecrã
+        if (!window.dropdownListenerMateriaAdicionado) {
+            window.addEventListener('click', (e) => {
+                const caixa = document.getElementById('caixa-materias');
+                const header = document.getElementById('dropdown-header-materia');
+                if (caixa && header && !header.contains(e.target) && !caixa.contains(e.target)) {
+                    caixa.style.display = 'none';
+                }
+            });
+            window.dropdownListenerMateriaAdicionado = true; // Garante que não adicionamos o listener duplicado
+        }
     }
 
-// Atualiza o dropdown de assuntos com base na matéria selecionada, garantindo que apenas assuntos relevantes sejam listados.
-    atualizarAssuntos(listaQuestoes, materiaSelecionada) {
+// Atualiza o dropdown de assuntos com base nas matérias selecionadas, garantindo que apenas assuntos relevantes sejam listados.
+    atualizarAssuntos(listaQuestoes, materiasSelecionadas) {
         let assuntosValidos = [];
-        if (materiaSelecionada === 'todas') {
+        
+        // Verifica se materiasSelecionadas é um array ou string (para compatibilidade)
+        let materiasArray = Array.isArray(materiasSelecionadas) ? materiasSelecionadas : [materiasSelecionadas];
+        
+        // Se "todas" está selecionada, mostra todos os assuntos
+        if (materiasArray.includes('todas')) {
             assuntosValidos = [...new Set(listaQuestoes.map(q => q.assunto))];
         } else {
-            assuntosValidos = [...new Set(listaQuestoes.filter(q => q.materia === materiaSelecionada).map(q => q.assunto))];
+            // Filtra assuntos apenas das matérias selecionadas
+            assuntosValidos = [...new Set(listaQuestoes.filter(q => materiasArray.includes(q.materia)).map(q => q.assunto))];
         };
 
         
@@ -330,8 +423,8 @@ class InterfaceGrafica {
     // --- UX Sênior: Comportamento do Dropdown e Checkboxes ---
     const chkTodos = document.getElementById('chk-todos-assuntos');
     const chksIndividuais = document.querySelectorAll('.chk-assunto');
-        const dropdownTitle = document.getElementById('dropdown-title');
-        const dropdownHeader = document.getElementById('dropdown-header');
+        const dropdownTitle = document.getElementById('dropdown-title-assunto');
+        const dropdownHeader = document.getElementById('dropdown-header-assunto');
         const caixaAssuntos = document.getElementById('caixa-assuntos');
 
         // 1. Função para atualizar o texto do falso select
@@ -364,20 +457,17 @@ class InterfaceGrafica {
         atualizarTitulo(); // Configura o texto inicial
 
         // 3. Lógica de abrir e fechar a caixa suspensa (Dropdown)
-        dropdownHeader.onclick = (e) => {
+        dropdownHeader.addEventListener('click', (e) => {
             e.stopPropagation(); // Impede que o clique seja detetado pelo fecho global abaixo
-            if(caixaAssuntos.style.display === 'none' || caixaAssuntos.style.display === '') {
-                caixaAssuntos.style.display = 'block';
-            } else {
-                caixaAssuntos.style.display = 'none';
-            }
-        };
+            const isVisible = caixaAssuntos.style.display === 'block';
+            caixaAssuntos.style.display = isVisible ? 'none' : 'block';
+        });
 
         // 4. Fechar o dropdown automaticamente ao clicar noutro lugar do ecrã
         if (!window.dropdownListenerAdicionado) {
             window.addEventListener('click', (e) => {
                 const caixa = document.getElementById('caixa-assuntos');
-                const header = document.getElementById('dropdown-header');
+                const header = document.getElementById('dropdown-header-assunto');
                 if (caixa && header && !header.contains(e.target) && !caixa.contains(e.target)) {
                     caixa.style.display = 'none';
                 }
@@ -501,7 +591,13 @@ class MotorSimulado {
 
     async criarFilaCustomizada(qtd, materia, assunto) {
         let cand = this.bd.questoes.filter(q => q.status !== 1);
-        if (materia !== 'todas') cand = cand.filter(q => q.materia === materia);
+        
+        // Filtra por matérias selecionadas (agora é um array)
+        if (!materia.includes('todas')) {
+            // Retorna a questão APENAS se a matéria dela existir dentro da lista (Array) de escolhidas
+            cand = cand.filter(q => materia.includes(q.materia));
+        }
+        
         // Aplica o filtro tanto para modo livre quanto cronometrado
         if ((this.modo === 'livre' || this.modo === 'cronometrado') && !assunto.includes('todos')) {
             // Retorna a questão APENAS se o assunto dela existir dentro da lista (Array) de escolhidos
@@ -689,21 +785,38 @@ class AppGestor {
             if (m === 'livre') ['field-materia', 'field-assunto', 'field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.remove('hidden-view'));
             else if (m === 'cronometrado') ['field-materia', 'field-assunto','field-tempo', 'field-qtd'].forEach(f => document.getElementById(f).classList.remove('hidden-view'));
         }));
-        document.getElementById('sel-materia').addEventListener('change', (e) => this.ui.atualizarAssuntos(this.bd.questoes, e.target.value));
         document.getElementById('btn-iniciar').addEventListener('click', () => {
             const active = document.querySelector('.setup-card.active');
             const m = active ? active.dataset.mode : 'livre';
             
+            // Lógica para pegar múltiplas matérias
+            const chkTodosMaterias = document.getElementById('chk-todas-materias');
+            let materiasParaEnviar = [];
+            
+            if (chkTodosMaterias && chkTodosMaterias.checked) {
+                materiasParaEnviar = ['todas'];
+            } else {
+                const checkboxesMarcadosMaterias = document.querySelectorAll('.chk-materia:checked');
+                // Transforma a lista HTML em um Array de textos (Ex: ["Matemática", "Português"])
+                materiasParaEnviar = Array.from(checkboxesMarcadosMaterias).map(chk => chk.value);
+            }
+            
+            // Trava de segurança: Se o cara não marcou NENHUMA matéria, não deixa iniciar
+            if (materiasParaEnviar.length === 0) {
+                this.ui.mostrarAviso("Selecione pelo menos uma matéria para gerar o simulado.");
+                return;
+            }
+            
             // Lógica para pegar múltiplos assuntos
-            const chkTodos = document.getElementById('chk-todos-assuntos');
+            const chkTodosAssuntos = document.getElementById('chk-todos-assuntos');
             let assuntosParaEnviar = [];
             
-            if (chkTodos && chkTodos.checked) {
+            if (chkTodosAssuntos && chkTodosAssuntos.checked) {
                 assuntosParaEnviar = ['todos'];
             } else {
-                const checkboxesMarcados = document.querySelectorAll('.chk-assunto:checked');
+                const checkboxesMarcadosAssuntos = document.querySelectorAll('.chk-assunto:checked');
                 // Transforma a lista HTML em um Array de textos (Ex: ["Matemática", "Português"])
-                assuntosParaEnviar = Array.from(checkboxesMarcados).map(chk => chk.value);
+                assuntosParaEnviar = Array.from(checkboxesMarcadosAssuntos).map(chk => chk.value);
             }
             
             // Trava de segurança: Se o cara não marcou NENHUM assunto, não deixa iniciar
@@ -716,7 +829,7 @@ class AppGestor {
                 m, 
                 parseInt(document.getElementById('num-tempo').value), 
                 parseInt(document.getElementById('num-qtd').value), 
-                document.getElementById('sel-materia').value, 
+                materiasParaEnviar, // Agora estamos enviando um Array de matérias!
                 assuntosParaEnviar // Agora estamos enviando um Array para o Motor, e não mais uma String!
             );
         });
