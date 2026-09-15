@@ -366,11 +366,12 @@ class InterfaceGrafica {
         atualizarTitulo(); // Configura o texto inicial
 
         // 3. Lógica de abrir e fechar a caixa suspensa (Dropdown)
-        dropdownHeader.addEventListener('click', (e) => {
+        dropdownHeader.onclick = (e) => {
             e.stopPropagation(); // Impede que o clique seja detetado pelo fecho global abaixo
+            document.getElementById('caixa-assuntos').style.display = 'none';
             const isVisible = caixaMaterias.style.display === 'block';
             caixaMaterias.style.display = isVisible ? 'none' : 'block';
-        });
+        };
 
         // 4. Fechar o dropdown automaticamente ao clicar noutro lugar do ecrã
         if (!window.dropdownListenerMateriaAdicionado) {
@@ -457,11 +458,12 @@ class InterfaceGrafica {
         atualizarTitulo(); // Configura o texto inicial
 
         // 3. Lógica de abrir e fechar a caixa suspensa (Dropdown)
-        dropdownHeader.addEventListener('click', (e) => {
+        dropdownHeader.onclick = (e) => {
             e.stopPropagation(); // Impede que o clique seja detetado pelo fecho global abaixo
+            document.getElementById('caixa-materias').style.display = 'none';
             const isVisible = caixaAssuntos.style.display === 'block';
             caixaAssuntos.style.display = isVisible ? 'none' : 'block';
-        });
+        };
 
         // 4. Fechar o dropdown automaticamente ao clicar noutro lugar do ecrã
         if (!window.dropdownListenerAdicionado) {

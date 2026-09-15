@@ -382,9 +382,11 @@ img {
 }
 .form-materia-container{
     position: relative;
+    z-index: 1;
 }
 .form-assunto-container{
     position: relative;
+    z-index: 2;
 }
 .form-img-assunto{
     width: 9px; 
