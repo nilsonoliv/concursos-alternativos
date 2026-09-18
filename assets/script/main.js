@@ -315,11 +315,11 @@ if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays(i
             };
 
             /**
-             * Calcula os dias restantes para a prova
+             * Calcula os dias restantes para a proxima etapa de estudos
              */
             const initCountdown = () => {
                 // Substitua esta data pela data real da prova
-                const targetDate = new Date('2026-10-25T00:00:00'); 
+                const targetDate = new Date('2026-10-27T00:00:00'); 
                 const today = new Date();
                 today.setHours(0,0,0,0);
                 

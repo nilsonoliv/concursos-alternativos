@@ -2,12 +2,12 @@
 
     
    export const initCountdownAracas = () => {
-            //Bonito
+            //Ibge 2
                 // Substitua esta data pela data real da prova
-        const targetDate = new Date('2026-09-20T00:00:00'); 
+        const targetDate = new Date('2026-09-27T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);// essa variavel é usada para calcular a diferença de dias entre a data atual e a data da prova
-        const ticketPrice = 450-9; // Valor da passagem de ida e volta
+        const ticketPrice = 50; // Valor da passagem de ida e volta
         const diffDays = Math.ceil((targetDate - today) / 86400000); //a função Math.ceil arredonda para cima, garantindo que mesmo que falte menos de um dia, ainda seja contado como 1 dia restante
         var ticketPriceForDaysAracas = diffDays > 0 ? ticketPrice/diffDays : 0 ; // calcula quanto por dia é necessario juntar para a passagem, caso falte menos de um dia, o valor da passagem é 0
         let aracasValues = {
@@ -20,9 +20,9 @@
         
     };
   export const initCountdownFormosa = () => {
-        //IBGE 2
+        //Ribeira do Pombal
         // Substitua esta data pela data real da prova
-        const targetDate = new Date('2026-09-27T00:00:00'); 
+        const targetDate = new Date('2026-10-18T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);
         const ticketPrice = 50; // Valor da passagem de ida e volta
@@ -40,12 +40,12 @@
     };
 
     export const initCountdownIBGE = () => {
-        //FORMOSA
+        //nenhum
         // Substitua esta data pela data real da prova
-        const targetDate = new Date('2026-10-11T00:00:00'); 
+        const targetDate = new Date('2027-08-15T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);
-        const ticketPrice = 900; // Valor da passagem de ida e volta
+        const ticketPrice = 1; // Valor da passagem de ida e volta
         const diffDays = Math.ceil((targetDate - today) / 86400000);
         var ticketPriceForDaysIBGE = diffDays > 0 ? ticketPrice/diffDays : 0 ; // calcula quanto por dia é necessario juntar para a passagem, caso falte menos de um dia, o valor da passagem é 0
                 

@@ -10,33 +10,33 @@ export const state = {
                 checklistData: [
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
-                    { id: 'di1', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
+                    { id: 'di1', category: 'Ciclo de Estudos', text: 'C. Saúde Pub'},//  <--------//  <--------
                     { id: 'di2', category: 'Ciclo de Estudos', text: 'Português'},// 1
                     { id: 'di3', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
-                    { id: 'di4', category: 'Ciclo de Estudos', text: 'Informática'},// 3
-                    { id: 'di5', category: 'Ciclo de Estudos', text: 'C. Gerais Bonito'},// 4
+                    //{ id: 'di4', category: 'Ciclo de Estudos', text: ''},// 3
+                    { id: 'di5', category: 'Ciclo de Estudos', text: 'Informática'},// 4
                     { id: 'di6', category: 'Ciclo de Estudos', text: 'Simulado da Apk'},// 6
 
-                    { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
-                    { id: 'di8', category: 'Ciclo de Estudos', text: 'C. Locais Bonito'}, // 1
+                    { id: 'di7', category: 'Ciclo de Estudos', text: 'C. Saúde Pub'},//  <--------//  <--------
+                    { id: 'di8', category: 'Ciclo de Estudos', text: 'L Esp SUS'}, // 1
                     { id: 'di9', category: 'Ciclo de Estudos', text: 'Matemática'},// 2
-                    { id: 'di10', category: 'Ciclo de Estudos', text: 'C. Esp Formosa'},// 3
-                    { id: 'di11', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 6
+                    //{ id: 'di10', category: 'Ciclo de Estudos', text: ''},// 3
+                    { id: 'di11', category: 'Ciclo de Estudos', text: 'Simulado R Pombal'},// 6
 
-                    { id: 'di12', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
+                    { id: 'di12', category: 'Ciclo de Estudos', text: 'C. Saúde Pub'},//  <--------//  <--------
                     { id: 'di13', category: 'Ciclo de Estudos', text: 'Português'},// 1
-                    { id: 'di14', category: 'Ciclo de Estudos', text: 'RLM'},// 2
-                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 6
-                    { id: 'di16', category: 'Ciclo de Estudos', text: 'C. Locais Bonito'},// 3
-                    { id: 'di17', category: 'Ciclo de Estudos', text: 'Legislação Merendeira'},// 4
+                    //{ id: 'di14', category: 'Ciclo de Estudos', text: ''},// 2
+                    { id: 'di15', category: 'Ciclo de Estudos', text: 'Simulado R Pombal'},// 6
+                    { id: 'di16', category: 'Ciclo de Estudos', text: 'RLM'},// 3
+                    { id: 'di17', category: 'Ciclo de Estudos', text: 'L Esp SUS'},// 4
                     { id: 'di18', category: 'Ciclo de Estudos', text: 'Simulado da Apk'},// 6
 
-                    { id: 'di19', category: 'Ciclo de Estudos', text: 'C. Esp Bonito'},//  <--------//  <--------
+                    { id: 'di19', category: 'Ciclo de Estudos', text: 'C. Saúde Pub'},//  <--------//  <--------
                     { id: 'di20', category: 'Ciclo de Estudos', text: 'Matemática'},// 1
-                    { id: 'di21', category: 'Ciclo de Estudos', text: 'C. Esp. Merendeira '},// 2
+                    //{ id: 'di21', category: 'Ciclo de Estudos', text: ''},// 2
                     { id: 'di22', category: 'Ciclo de Estudos', text: 'Legislação e Ética na Adm P.'},// 3
                     { id: 'di23', category: 'Ciclo de Estudos', text: 'RLM'},// 4
-                    { id: 'di24', category: 'Ciclo de Estudos', text: 'Simulado Bonito'},// 5
+                    { id: 'di24', category: 'Ciclo de Estudos', text: 'Simulado R Pombal'},// 5
 
                     
                     // 1. LÍNGUA PORTUGUESA
@@ -156,7 +156,7 @@ export const state = {
                     { id: 'inf11', category: 'Noções de Informática', text: '❄️ FRIO - Sistemas móveis (Android e iOS).' },
                     { id: 'inf12', category: 'Noções de Informática', text: '❄️ FRIO - Ferramentas de comunicação (Teams, Meet).' },
 
-                    // 5. LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA
+                    /*// 5. LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA
                     { id: 'leg1', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei nº 8.429/1992 (Improbidade Administrativa).' },
                     { id: 'leg2', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Lei nº 9.784/1999 (Processo Administrativo), direitos e deveres.' },
                     { id: 'leg3', category: 'Legislação e Ética na Adm. Pública', text: '🟡 MORNO - Princípios fundamentais da Administração Pública.' },
@@ -168,7 +168,7 @@ export const state = {
                     { id: 'leg9', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Ética e função pública.' },
                     { id: 'leg10', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Lei n°. 8.429/1992: disposições gerais.' },
                     { id: 'leg11', category: 'Legislação e Ética na Adm. Pública', text: '🔥 QUENTE - Atos de improbidade administrativa. (alterada pela Lei nº 14.230 de 25 de outubro de 2021).' },
-                  
+                  */
                  /*   // 6. ADMINISTRAÇÃO, ATENDIMENTO E ARQUIVO
                     { id: 'adm1', category: 'Administração, Atendimento e Arquivo', text: '🟡 MORNO - Atendimento ao Público: Qualidade, postura profissional, atendimento telefônico e presencial.' },
                     { id: 'adm2', category: 'Administração, Atendimento e Arquivo', text: '🔥 QUENTE - Comunicação Organizacional: Redação oficial de documentos e tipos de documentos administrativos.' },
@@ -317,7 +317,7 @@ export const state = {
                     { id: 'da9', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de licitações públicas (Lei nº 14.133/2021): registro de preços e contratos administrativos (características gerais, prazos e extinção).' },
                     { id: 'da10', category: 'Direito Administrativo', text: '🔥 QUENTE - Noções de Direito Administrativo: noções sobre serviços públicos. .' },
                   */
-                    //C. Locais Bonito
+                    /*//C. Locais Bonito
                     { id: 'lbo1', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Meios de transporte e comunicação, limites, território, povoados, distritos.' },
                     { id: 'lbo2', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Pontos extremos, relevo, clima, hidrografia,.' },
                     { id: 'lbo3', category: 'C. Locais', text: '🔥 QUENTE - Geografia de Bonito: Desenvolvimento humano, economia, extrativismo,.' },
@@ -331,9 +331,9 @@ export const state = {
                     { id: 'lbo11', category: 'C. Locais', text: '🔥 QUENTE - Personalidades que marcaram história no contexto local.' },
                     { id: 'lbo12', category: 'C. Locais', text: '🔥 QUENTE - Os grandes desafios enfrentados pela população bonitense no decorrer de sua história.' },
                     { id: 'lbo13', category: 'C. Locais', text: '🔥 QUENTE - Agentes políticos.' },
-                    { id: 'lbo14', category: 'C. Locais', text: '🟡 MORNO - Lei Orgânica do Município de Bonito.' },
+                    { id: 'lbo14', category: 'C. Locais', text: '🟡 MORNO - Lei Orgânica do Município de Bonito.' },*/
 
-                // COnhe Esp Merendeira
+                /*// COnhe Esp Merendeira
                 { id: 'CespM1', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Programa Nacional de Alimentação Escolar (PNAE).' },
                 { id: 'CespM2', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Técnicas de pré-preparo, preparo e cocção.' },
                 { id: 'CespM3', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Controle de estoque de alimentos perecíveis e não perecíveis e desperdício.' },
@@ -349,7 +349,7 @@ export const state = {
                 { id: 'CespM13', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Prevenção e controle de insetos e roedores. Separação de lixo e coleta seletiva.' },
                 { id: 'CespM14', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Segurança no trabalho: Equipamentos de Proteção Individual (EPI) e Equipamentos de Proteção Coletiva (EPC).' },
                 { id: 'CespM15', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Prevenção de incêndios e Noções de Primeiros Socorros.' },
-                { id: 'CespM16', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Resolução-RDC Anvisa n.º 216/04.' },
+                { id: 'CespM16', category: 'C. Esp. Merendeira', text: '🔥 QUENTE - Resolução-RDC Anvisa n.º 216/04.' },*/
 
 
  ]
