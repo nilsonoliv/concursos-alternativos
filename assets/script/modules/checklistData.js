@@ -11,31 +11,31 @@ export const state = {
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
                     { id:'di1', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
-                    { id:'di2', category:'Ciclo de Estudos', text:'Português'},// 1
+                    //{ id:'di2', category:'Ciclo de Estudos', text:''},// 1
                     { id:'di3', category:'Ciclo de Estudos', text:'Matemática'},// 2
-                    //{ id:'di4', category:'Ciclo de Estudos', text:''},// 3
-                    { id:'di5', category:'Ciclo de Estudos', text:'Informática'},// 4
+                    { id:'di4', category:'Ciclo de Estudos', text:'Simulado Google'},// 3
+                    //{ id:'di5', category:'Ciclo de Estudos', text:''},// 4
                     { id:'di6', category:'Ciclo de Estudos', text:'Simulado da Apk'},// 6
 
                     { id:'di7', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
-                    { id:'di8', category:'Ciclo de Estudos', text:'L Esp SUS'}, // 1
-                    { id:'di9', category:'Ciclo de Estudos', text:'Matemática'},// 2
+                    //{ id:'di8', category:'Ciclo de Estudos', text:'L Esp SUS'}, // 1
+                    { id:'di9', category:'Ciclo de Estudos', text:'Simulado Apk'},// 2
                     //{ id:'di10', category:'Ciclo de Estudos', text:''},// 3
                     { id:'di11', category:'Ciclo de Estudos', text:'Simulado R Pombal'},// 6
 
                     { id:'di12', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
-                    { id:'di13', category:'Ciclo de Estudos', text:'Português'},// 1
+                    //{ id:'di13', category:'Ciclo de Estudos', text:'Português'},// 1
                     //{ id:'di14', category:'Ciclo de Estudos', text:''},// 2
                     { id:'di15', category:'Ciclo de Estudos', text:'Simulado R Pombal'},// 6
-                    { id:'di16', category:'Ciclo de Estudos', text:'RLM'},// 3
-                    { id:'di17', category:'Ciclo de Estudos', text:'L Esp SUS'},// 4
+                    //{ id:'di16', category:'Ciclo de Estudos', text:'RLM'},// 3
+                    //{ id:'di17', category:'Ciclo de Estudos', text:'L Esp SUS'},// 4
                     { id:'di18', category:'Ciclo de Estudos', text:'Simulado da Apk'},// 6
 
                     { id:'di19', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
-                    { id:'di20', category:'Ciclo de Estudos', text:'Matemática'},// 1
+                    //{ id:'di20', category:'Ciclo de Estudos', text:'Matemática'},// 1
                     //{ id:'di21', category:'Ciclo de Estudos', text:''},// 2
-                    { id:'di22', category:'Ciclo de Estudos', text:'Legislação e Ética na Adm P.'},// 3
-                    { id:'di23', category:'Ciclo de Estudos', text:'RLM'},// 4
+                    //{ id:'di22', category:'Ciclo de Estudos', text:'Legislação e Ética na Adm P.'},// 3
+                    { id:'di23', category:'Ciclo de Estudos', text:'Simulado Apk'},// 4
                     { id:'di24', category:'Ciclo de Estudos', text:'Simulado R Pombal'},// 5
 
     
@@ -212,112 +212,119 @@ export const state = {
     { id:'M2ti49', category:'Materia T.I n2', text:'🔥 - Nível 2 - UFBA - Infraestrutura de TI: redes.' },
     { id:'M2ti50', category:'Materia T.I n2', text:'🔥 - Nível 2 - UFBA - Infraestrutura de TI: armazenamento e serviços corporativos.' },
                     
-
-                  //Materia T.I n3
-                  { id:'ti41', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: princípios da confidencialidade, integridade, disponibilidade, autenticidade e não repúdio.' },
-                    { id:'ti42', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: políticas de segurança da informação.' },
-                    { id:'ti43', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: gestão de riscos.' },
-                    { id:'ti44', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: gestão de ativos.' },
-                    { id:'ti45', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: continuidade de negócios; recuperação de desastres.' },
-                    { id:'ti46', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: backup e restauração.' },
-                    { id:'ti47', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: gestão de vulnerabilidades.' },
-                    { id:'ti48', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: segurança em redes e aplicações; WAF, proxy e VPN.' },
-                    { id:'ti49', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: segurança em redes e aplicações; firewall, IDS, IPS.' },
-                    { id:'ti50', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: antivírus e antimalware.' },
-                    { id:'ti51', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: IAM; PAM; Zero Trust.' },
-                    { id:'ti52', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: SIEM; EDR/XDR.' },
-                    { id:'ti53', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: análise e monitoramento de tráfego.' },
-                    { id:'ti54', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: criptografia simétrica e assimétrica; autenticação multifator.' },
-                    { id:'ti55', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: certificados digitais.' },
-                    { id:'ti56', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: SSL/TLS.' },
-                    { id:'ti57', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: hardening de servidores e aplicações.' },
-                    { id:'ti58', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: análise de logs e auditoria; resposta a incidentes.' },
-                    { id:'ti59', category:'Materia T.I n3', text:'❄️ - Nível 3 - UFBA - Segurança da Informação: LGPD.' },
-                    { id:'ti60', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: normas ISO/IEC 27701.' },
-                    { id:'ti61', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: normas ISO/IEC 27005.' },
-                    { id:'ti62', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: normas ISO/IEC 27002.' },
-                    { id:'ti63', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: normas ISO/IEC 27001.' },
-                    { id:'ti64', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: ataques cibernéticos: phishing, ransomware, malware, botnets.' },
-                    { id:'ti65', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: ataques cibernéticos: SQL Injection, XSS, DDoS, brute force, spoofing.' },
-                    { id:'ti66', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: ataques cibernéticos: engenharia social.' },
-                    { id:'ti67', category:'Materia T.I n3', text:'❄️ - Nível 2 - UFBA - Segurança da Informação: segurança em ambientes virtualizados e em nuvem.' },
-                    { id:'ti68', category:'Materia T.I n3', text:'❄️ - Nível 3 - UFBA - Segurança da Informação: cartilha de segurança do CERT.br.' },
-                    { id:'ti119', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: conceitos, classificação e tipos de sistemas de informação.' },
-                    { id:'ti120', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: sistemas transacionais, gerenciais, estratégicos e de apoio à decisão.' },
-                    { id:'ti121', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: ERP, CRM, BI e BPM.' },
-                    { id:'ti122', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: governança e gestão da informação.' },
-                    { id:'ti123', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: análise e melhoria de processos.' },
-                    { id:'ti124', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: transformação digital; integração de sistemas corporativos.' },
-                    { id:'ti125', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: gestão eletrônica de documentos.' },
-                    { id:'ti126', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: arquitetura corporativa; interoperabilidade.' },
-                    { id:'ti127', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: qualidade da informação.' },
-                    { id:'ti128', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: indicadores de desempenho.' },
-                    { id:'ti129', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: inteligência organizacional.' },
-                    { id:'ti130', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: gestão do conhecimento; mineração e análise de dados.' },
-                    { id:'ti131', category:'Tecnologia da Informação', text:'❄️ - Nível 1 - UFBA - Sistemas de Informação: fundamentos de ciência de dados e inteligência artificial aplicados à gestão organizacional.' },
+    //Materia T.I n3
+    { id:'M3ti1', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: princípios da confidencialidade, integridade, disponibilidade, autenticidade e não repúdio.' },
+    { id:'M3ti2', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: políticas de segurança da informação.' },
+    { id:'M3ti3', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: gestão de riscos.' },
+    { id:'M3ti4', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: gestão de ativos.' },
+    { id:'M3ti5', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: continuidade de negócios; recuperação de desastres.' },
+    { id:'M3ti6', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: backup e restauração.' },
+    { id:'M3ti7', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: gestão de vulnerabilidades.' },
+    { id:'M3ti8', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: segurança em redes e aplicações; WAF, proxy e VPN.' },
+    { id:'M3ti9', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: segurança em redes e aplicações; firewall, IDS, IPS.' },
+    { id:'M3ti10', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: antivírus e antimalware.' },
+    { id:'M3ti11', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: IAM; PAM; Zero Trust.' },
+    { id:'M3ti12', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: SIEM; EDR/XDR.' },
+    { id:'M3ti13', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: análise e monitoramento de tráfego.' },
+    { id:'M3ti14', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: criptografia simétrica e assimétrica; autenticação multifator.' },
+    { id:'M3ti15', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: certificados digitais.' },
+    { id:'M3ti16', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: SSL/TLS.' },
+    { id:'M3ti17', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: hardening de servidores e aplicações.' },
+    { id:'M3ti18', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: análise de logs e auditoria; resposta a incidentes.' },
+    { id:'M3ti19', category:'Materia T.I n3', text:'🔥 - Nível 3 - UFBA - Segurança da Informação: LGPD.' },
+    { id:'M3ti20', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: normas ISO/IEC 27701.' },
+    { id:'M3ti21', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: normas ISO/IEC 27005.' },
+    { id:'M3ti22', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: normas ISO/IEC 27002.' },
+    { id:'M3ti23', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: normas ISO/IEC 27001.' },
+    { id:'M3ti24', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: ataques cibernéticos: phishing, ransomware, malware, botnets.' },
+    { id:'M3ti25', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: ataques cibernéticos: SQL Injection, XSS, DDoS, brute force, spoofing.' },
+    { id:'M3ti26', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: ataques cibernéticos: engenharia social.' },
+    { id:'M3ti27', category:'Materia T.I n3', text:'🔥 - Nível 2 - UFBA - Segurança da Informação: segurança em ambientes virtualizados e em nuvem.' },
+    { id:'M3ti28', category:'Materia T.I n3', text:'🔥 - Nível 3 - UFBA - Segurança da Informação: cartilha de segurança do CERT.br.' },
+    { id:'M3ti29', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: conceitos, classificação e tipos de sistemas de informação.' },
+    { id:'M3ti30', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: sistemas transacionais, gerenciais, estratégicos e de apoio à decisão.' },
+    { id:'M3ti31', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: ERP, CRM, BI e BPM.' },
+    { id:'M3ti32', category:'Materia T.I n3', text:'🔥 - Nível 1 - UFBA - Sistemas de Informação: governança e gestão da informação.' },
+    { id:'M3ti33', category:'Materia T.I n3', text:'🔥 - Nível 1 - UFBA - Sistemas de Informação: análise e melhoria de processos.' },
+    { id:'M3ti34', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: transformação digital; integração de sistemas corporativos.' },
+    { id:'M3ti35', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: gestão eletrônica de documentos.' },
+    { id:'M3ti36', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: arquitetura corporativa; interoperabilidade.' },
+    { id:'M3ti37', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: qualidade da informação.' },
+    { id:'M3ti38', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: indicadores de desempenho.' },
+    { id:'M3ti39', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: inteligência organizacional.' },
+    { id:'M3ti40', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: gestão do conhecimento; mineração e análise de dados.' },
+    { id:'M3ti41', category:'Materia T.I n3', text:'🟡 - Nível 1 - UFBA - Sistemas de Informação: fundamentos de ciência de dados e inteligência artificial aplicados à gestão organizacional.' },
                     
 
-                  //Materia T.I n4
-                  { id:'ti132', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: conceitos, fundamentos e objetivos da Governança de TI.' },
-                    { id:'ti133', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: alinhamento estratégico entre TI e negócio.' },
-                    { id:'ti134', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: COBIT 2019.' },
-                    { id:'ti135', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: ITIL 4.' },
-                    { id:'ti136', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: gestão de serviços de TI; catálogo de serviços; acordos de nível de serviço (SLA).' },
-                    { id:'ti137', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: gerenciamento de incidentes, problemas, mudanças, configuração e ativos.' },
-                    { id:'ti138', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: gestão de riscos em TI.' },
-                    { id:'ti139', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: compliance.' },
-                    { id:'ti140', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: auditoria de TI.' },
-                    { id:'ti141', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: indicadores e métricas.' },
-                    { id:'ti142', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: gestão de contratos e fornecedores.' },
-                    { id:'ti143', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: governança de dados.' },
-                    { id:'ti144', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: transformação digital.' },
-                    { id:'ti145', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: continuidade de serviços.' },
-                    { id:'ti146', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: gestão estratégica de TI.' },
-                    { id:'ti147', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: gestão de capacidade, disponibilidade e continuidade.' },
-                    { id:'ti148', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Governança de TI: gestão financeira de TI.' },
-                  { id:'ti149', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: fundamentos de gerenciamento de projetos.' },
-                    { id:'ti150', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: PMBOK.' },
-                    { id:'ti151', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: metodologias ágeis e híbridas; SCRUM; Kanban.' },
-                    { id:'ti152', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: gestão de escopo, tempo, custo, qualidade, comunicação, riscos, aquisições e stakeholders.' },
-                    { id:'ti153', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: cronogramas; métricas; análise de viabilidade.' },
-                    { id:'ti154', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: gestão de mudanças.' },
-                    { id:'ti155', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: liderança de equipes.' },
-                    { id:'ti156', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: escritório de projetos (PMO).' },
-                    { id:'ti157', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: gestão de portfólio e programas.' },
-                    { id:'ti158', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Gerenciamento de projetos de TI: indicadores de desempenho.' },
-                    { id:'ti159', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: contratação de soluções de tecnologia da informação na administração pública; Lei nº 14.133/2021.' },
-                    { id:'ti160', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: Instrução Normativa SGD/ME nº 94/2022 e alterações.' },
-                    { id:'ti161', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: plano diretor de tecnologia da informação e comunicação (PDTIC).' },
-                    { id:'ti162', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: planejamento da contratação; estudo técnico preliminar; termo de referência; gestão e fiscalização contratual.' },
-                    { id:'ti163', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: gestão de riscos nas contratações; acordos de nível de serviço.' },
-                    { id:'ti164', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: licitações e contratos administrativos.' },
-                    { id:'ti165', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: proteção de dados pessoais.' },
-                    { id:'ti166', category:'Tecnologia da Informação', text:'❄️ - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: legislação relacionada à segurança da informação e governo digital.' },
+    //'Materia T.I n4'
+    { id:'M4ti1', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: conceitos, fundamentos e objetivos da Governança de TI.' },
+    { id:'M4ti2', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: alinhamento estratégico entre TI e negócio.' },
+    { id:'M4ti3', category:'Materia T.I n4', text:'🔥 - Nível 2 - UFBA - Governança de TI: COBIT 2019.' },
+    { id:'M4ti4', category:'Materia T.I n4', text:'🔥 - Nível 2 - UFBA - Governança de TI: ITIL 4.' },
+    { id:'M4ti5', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: gestão de serviços de TI; catálogo de serviços; acordos de nível de serviço (SLA).' },
+    { id:'M4ti6', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: gerenciamento de incidentes, problemas, mudanças, configuração e ativos.' },
+    { id:'M4ti7', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: gestão de riscos em TI.' },
+    { id:'M4ti8', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: compliance.' },
+    { id:'M4ti9', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: auditoria de TI.' },
+    { id:'M4ti10', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: indicadores e métricas.' },
+    { id:'M4ti11', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: gestão de contratos e fornecedores.' },
+    { id:'M4ti12', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: governança de dados.' },
+    { id:'M4ti13', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: transformação digital.' },
+    { id:'M4ti14', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: continuidade de serviços.' },
+    { id:'M4ti15', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: gestão estratégica de TI.' },
+    { id:'M4ti16', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: gestão de capacidade, disponibilidade e continuidade.' },
+    { id:'M4ti17', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Governança de TI: gestão financeira de TI.' },
+    { id:'M4ti18', category:'Materia T.I n4', text:'🔥 - Nível 2 - UFBA - Gerenciamento de projetos de TI: fundamentos de gerenciamento de projetos.' },
+    { id:'M4ti19', category:'Materia T.I n4', text:'🔥 - Nível 2 - UFBA - Gerenciamento de projetos de TI: PMBOK.' },
+    { id:'M4ti20', category:'Materia T.I n4', text:'🔥 - Nível 2 - UFBA - Gerenciamento de projetos de TI: metodologias ágeis e híbridas; SCRUM; Kanban.' },
+    { id:'M4ti21', category:'Materia T.I n4', text:'🔥 - Nível 2 - UFBA - Gerenciamento de projetos de TI: gestão de escopo, tempo, custo, qualidade, comunicação, riscos, aquisições e stakeholders.' },
+    { id:'M4ti22', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Gerenciamento de projetos de TI: cronogramas; métricas; análise de viabilidade.' },
+    { id:'M4ti23', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Gerenciamento de projetos de TI: gestão de mudanças.' },
+    { id:'M4ti24', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Gerenciamento de projetos de TI: liderança de equipes.' },
+    { id:'M4ti25', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Gerenciamento de projetos de TI: escritório de projetos (PMO).' },
+    { id:'M4ti26', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Gerenciamento de projetos de TI: gestão de portfólio e programas.' },
+    { id:'M4ti27', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Gerenciamento de projetos de TI: indicadores de desempenho.' },
+    { id:'M4ti28', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: contratação de soluções de tecnologia da informação na administração pública; Lei nº 14.133/2021.' },
+    { id:'M4ti29', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: Instrução Normativa SGD/ME nº 94/2022 e alterações.' },
+    { id:'M4ti30', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: plano diretor de tecnologia da informação e comunicação (PDTIC).' },
+    { id:'M4ti31', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: planejamento da contratação; estudo técnico preliminar; termo de referência; gestão e fiscalização contratual.' },
+    { id:'M4ti32', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: gestão de riscos nas contratações; acordos de nível de serviço.' },
+    { id:'M4ti33', category:'Materia T.I n4', text:'🔥 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: licitações e contratos administrativos.' },
+    { id:'M4ti34', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: proteção de dados pessoais.' },
+    { id:'M4ti35', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: legislação relacionada à segurança da informação e governo digital.' },
 
-                    // 8. TECNOLOGIA DA INFORMAÇÃO
+     
+                        // MATERIA: Conhecimentos Específicos Assistente Administração
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Estado, governo e Administração Pública: conceitos; elementos.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Estado, governo e Administração Pública: poderes; organização.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Estado, governo e Administração Pública: natureza; fins; e princípios.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 3 - UFBA - Organização administrativa da União: administração direta e indireta.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 3 - UFBA - Agentes públicos: espécies e classificação.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 3 - UFBA - Agentes públicos: poderes, deveres e prerrogativas.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 3 - UFBA - Agentes públicos: cargo, emprego e função pública.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: poder hierárquico.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: poder disciplinar.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: poder regulamentar.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: poder de polícia.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: uso e abuso do poder.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 2 - UFBA - Serviços públicos: classificação, regulamentação e controle.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 2 - UFBA - Serviços públicos: forma, meios e requisitos.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 2 - UFBA - Serviços públicos: delegação (concessão, permissão e autorização).' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: controle administrativo.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: controle judicial.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: controle legislativo.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: responsabilidade civil do Estado.' },
+                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: .' },
+    
+    
+            //Adm Pública
+            { id:'da11', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: princípios constitucionais da Administração Pública (legalidade, impessoalidade, moralidade, publicidade e eficiência). .' },
+            { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: CF - disposições gerais, administração direta e indireta, servidores públicos e organização administrativa previstos no Título III, Capítulo VII.' },
+            { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: Características básicas das organizações formais modernas: tipos de estrutura organizacional; natureza.' },
+            { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: Características básicas das organizações formais modernas.  finalidades; e critérios de departamentalização' },
+          
+          
                     
-                    
-                    
-                    
-                    
-                    { id:'ti182', category:'Tecnologia da Informação', text:'❄️ - Governança e valor público: Transparência administrativa.' },
-                    { id:'ti183', category:'Tecnologia da Informação', text:'❄️ - Governança e valor público: Inovação no setor público.' },
-                    { id:'ti184', category:'Tecnologia da Informação', text:'❄️ - anutenção de equipamentos. (Manutenção: Manutenção corretiva, preventiva, evolutiva.)' },
-                    { id:'ti185', category:'Tecnologia da Informação', text:'❄️ - Suporte técnico: Nível 1 (help desk), Nível 2 (suporte especializado).' },
-                    { id:'ti186', category:'Tecnologia da Informação', text:'❄️ - Suporte técnico: Manual de sistemas e help desk.' },
-                    { id:'ti187', category:'Tecnologia da Informação', text:'❄️ - Técnicas de gestão de riscos e monitoramento de projetos.' },
-                    { id:'ti188', category:'Tecnologia da Informação', text:'❄️ - Diretrizes do NIST.' },
-                    { id:'ti189', category:'Tecnologia da Informação', text:'❄️ - Instalação e manutenção de periféricos: impressora, scanner, teclado e mouse.' },
-                    { id:'ti190', category:'Tecnologia da Informação', text:'❄️ - Instalação e configuração de redes de computadores.' },
-                    { id:'ti191', category:'Tecnologia da Informação', text:'❄️ - Instalação e organização de programas: direitos e licenças de programas;' },
-                    { id:'ti192', category:'Tecnologia da Informação', text:'❄️ - Manutenção de arquivos, obtenção e instalação de drivers e dispositivos' },
-                    { id:'ti193', category:'Tecnologia da Informação', text:'❄️ - Conhecimento de linguagens de programação visual:Visual Basic' },
-                    { id:'ti194', category:'Tecnologia da Informação', text:'❄️ - Conhecimento de linguagens de programação visual:PHP' },
-                    { id:'ti195', category:'Tecnologia da Informação', text:'❄️ - Conhecimento de linguagens de programação visual:NET' },
-                    { id:'ti196', category:'Tecnologia da Informação', text:'❄️ - Conhecimento de linguagens de programação visual:CSharp' },
-                    { id:'ti197', category:'Tecnologia da Informação', text:'❄️ - Modelagem e conhecimento de banco de dados:  MS SQL Server' },
-                    { id:'ti198', category:'Tecnologia da Informação', text:'❄️ - Modelagem e conhecimento de banco de dados: Access' },
-                  
                     //Direito Administrativo e Adm Pública
                     { id:'da1', category:'Direito Administrativo', text:'❄️ - Noções de Direito Administrativo: conceito e deveres dos servidores públicos.' },
                     { id:'da2', category:'Direito Administrativo', text:'❄️ - Noções de Direito Administrativo: regime e sanções disciplinares.' },
@@ -326,14 +333,7 @@ export const state = {
                     { id:'da5', category:'Direito Administrativo', text:'❄️ - Noções de Direito Administrativo: atos administrativos (conceito, elementos, validade, eficácia, extinção e revisão).' },
                     { id:'da6', category:'Direito Administrativo', text:'❄️ - Noções de Direito Administrativo: processo administrativo e seus princípios.' },
                     { id:'da10', category:'Direito Administrativo', text:'🔥 - Noções de Direito Administrativo: noções sobre serviços públicos. .' },
-                    { id:'da11', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: princípios constitucionais da Administração Pública (legalidade, impessoalidade, moralidade, publicidade e eficiência). .' },
-                    { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: CF - disposições gerais, administração direta e indireta, servidores públicos e organização administrativa previstos no Título III, Capítulo VII.' },
-                    { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: Características básicas das organizações formais modernas: tipos de estrutura organizacional; natureza.' },
-                    { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: Características básicas das organizações formais modernas.  finalidades; e critérios de departamentalização' },
-                    { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: .' },
-                    { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: .' },
-                    { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: .' },
-                    { id:'da12', category:'Direito Administrativo', text:'🔥 -  Nível 2 - UFBA - Administração Pública: .' },
+                    
                     { id:'da13', category:'Direito Administrativo', text:'🔥 -  Nível 1 - UFBA - Organização e Administração da Adm Pública F: administração direta, autárquica, fundacional e demais entidades da administração indireta.' },
                     { id:'da14', category:'Direito Administrativo', text:'🔥 -  Nível 1 - UFBA - Organização e Administração da Adm Pública F: competências, descentralização, desconcentração e prestação de serviços públicos.' },
                     { id:'da15', category:'Direito Administrativo', text:'🔥 -  Nível 1 - UFBA - Agentes públicos: conceito, espécies, classificação, investidura, exercício da função pública, deveres funcionais.' },
@@ -441,27 +441,7 @@ export const state = {
                     { id:'adm27', category:'Administração, Atendimento e Arquivo', text:'🔥 - Nível 1 - UFBA - Estatuto e Regimento Geral da UFBA: direitos e deveres da comunidade universitária e normas de funcionamento da Universidade.' },
                     
                     
-                    // MATERIA: Conhecimentos Específicos Assistente Administração
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Estado, governo e Administração Pública: conceitos; elementos.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Estado, governo e Administração Pública: poderes; organização.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Estado, governo e Administração Pública: natureza; fins; e princípios.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 3 - UFBA - Organização administrativa da União: administração direta e indireta.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 3 - UFBA - Agentes públicos: espécies e classificação.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 3 - UFBA - Agentes públicos: poderes, deveres e prerrogativas.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 3 - UFBA - Agentes públicos: cargo, emprego e função pública.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: poder hierárquico.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: poder disciplinar.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: poder regulamentar.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: poder de polícia.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Poderes administrativos: uso e abuso do poder.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 2 - UFBA - Serviços públicos: classificação, regulamentação e controle.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 2 - UFBA - Serviços públicos: forma, meios e requisitos.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 2 - UFBA - Serviços públicos: delegação (concessão, permissão e autorização).' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: controle administrativo.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: controle judicial.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: controle legislativo.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: responsabilidade civil do Estado.' },
-                    { id:'adm27', category:'C E Assistente Administração', text:'🔥 - Nível 1 - UFBA - Controle e responsabilização da Administração: .' },
+
                   
 
 
@@ -605,7 +585,24 @@ export const state = {
                     { id:'mB19', category:'Matemática Básica', text:'❄️ - Descontos e taxas (Mat. Financeira).' },
                     { id:'mB20', category:'Matemática Básica', text:'❄️ - Funções e equações (1º e 2º graus).' },
                     { id:'mB21', category:'Matemática Básica', text:'❄️ - Conjuntos Numéricos: Números Naturais .' },*/
-
+             /*  // 8. TECNOLOGIA DA INFORMAÇÃO
+                    { id:'ti182', category:'Tecnologia da Informação', text:'❄️ - Governança e valor público: Transparência administrativa.' },
+                    { id:'ti183', category:'Tecnologia da Informação', text:'❄️ - Governança e valor público: Inovação no setor público.' },
+                    { id:'ti184', category:'Tecnologia da Informação', text:'❄️ - anutenção de equipamentos. (Manutenção: Manutenção corretiva, preventiva, evolutiva.)' },
+                    { id:'ti185', category:'Tecnologia da Informação', text:'❄️ - Suporte técnico: Nível 1 (help desk), Nível 2 (suporte especializado).' },
+                    { id:'ti186', category:'Tecnologia da Informação', text:'❄️ - Suporte técnico: Manual de sistemas e help desk.' },
+                    { id:'ti187', category:'Tecnologia da Informação', text:'❄️ - Técnicas de gestão de riscos e monitoramento de projetos.' },
+                    { id:'ti188', category:'Tecnologia da Informação', text:'❄️ - Diretrizes do NIST.' },
+                    { id:'ti189', category:'Tecnologia da Informação', text:'❄️ - Instalação e manutenção de periféricos: impressora, scanner, teclado e mouse.' },
+                    { id:'ti190', category:'Tecnologia da Informação', text:'❄️ - Instalação e configuração de redes de computadores.' },
+                    { id:'ti191', category:'Tecnologia da Informação', text:'❄️ - Instalação e organização de programas: direitos e licenças de programas;' },
+                    { id:'ti192', category:'Tecnologia da Informação', text:'❄️ - Manutenção de arquivos, obtenção e instalação de drivers e dispositivos' },
+                    { id:'ti193', category:'Tecnologia da Informação', text:'❄️ - Conhecimento de linguagens de programação visual:Visual Basic' },
+                    { id:'ti194', category:'Tecnologia da Informação', text:'❄️ - Conhecimento de linguagens de programação visual:PHP' },
+                    { id:'ti195', category:'Tecnologia da Informação', text:'❄️ - Conhecimento de linguagens de programação visual:NET' },
+                    { id:'ti196', category:'Tecnologia da Informação', text:'❄️ - Conhecimento de linguagens de programação visual:CSharp' },
+                    { id:'ti197', category:'Tecnologia da Informação', text:'❄️ - Modelagem e conhecimento de banco de dados:  MS SQL Server' },
+                    { id:'ti198', category:'Tecnologia da Informação', text:'❄️ - Modelagem e conhecimento de banco de dados: Access' },*/
 
  ]
 };
