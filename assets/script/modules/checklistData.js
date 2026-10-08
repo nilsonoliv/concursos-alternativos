@@ -11,32 +11,33 @@ export const state = {
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
                     { id:'di1', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
-                    //{ id:'di2', category:'Ciclo de Estudos', text:''},// 1
                     { id:'di3', category:'Ciclo de Estudos', text:'Matemática'},// 2
                     { id:'di4', category:'Ciclo de Estudos', text:'Simulado Google'},// 3
-                    //{ id:'di5', category:'Ciclo de Estudos', text:''},// 4
                     { id:'di6', category:'Ciclo de Estudos', text:'Simulado da Apk'},// 6
-
                     { id:'di7', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
-                    //{ id:'di8', category:'Ciclo de Estudos', text:'L Esp SUS'}, // 1
                     { id:'di9', category:'Ciclo de Estudos', text:'Simulado Apk'},// 2
-                    //{ id:'di10', category:'Ciclo de Estudos', text:''},// 3
                     { id:'di11', category:'Ciclo de Estudos', text:'Simulado R Pombal'},// 6
-
                     { id:'di12', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
-                    //{ id:'di13', category:'Ciclo de Estudos', text:'Português'},// 1
-                    //{ id:'di14', category:'Ciclo de Estudos', text:''},// 2
                     { id:'di15', category:'Ciclo de Estudos', text:'Simulado R Pombal'},// 6
-                    //{ id:'di16', category:'Ciclo de Estudos', text:'RLM'},// 3
-                    //{ id:'di17', category:'Ciclo de Estudos', text:'L Esp SUS'},// 4
                     { id:'di18', category:'Ciclo de Estudos', text:'Simulado da Apk'},// 6
-
                     { id:'di19', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
-                    //{ id:'di20', category:'Ciclo de Estudos', text:'Matemática'},// 1
-                    //{ id:'di21', category:'Ciclo de Estudos', text:''},// 2
-                    //{ id:'di22', category:'Ciclo de Estudos', text:'Legislação e Ética na Adm P.'},// 3
                     { id:'di23', category:'Ciclo de Estudos', text:'Simulado Apk'},// 4
                     { id:'di24', category:'Ciclo de Estudos', text:'Simulado R Pombal'},// 5
+
+                    // Ciclo de estudos para a UFBA
+                    { id:'cicuf1', category:'Ciclo de Estudos UFBA', text:'T.I 1: 90 minutos'},
+                    { id:'cicuf2', category:'Ciclo de Estudos UFBA', text:'Português: 30 minutos'},
+                    { id:'cicuf3', category:'Ciclo de Estudos UFBA', text:'T.I 2: 90 minutos'},
+                    { id:'cicuf4', category:'Ciclo de Estudos UFBA', text:'Redação: 30 minutos'},
+                    { id:'cicuf5', category:'Ciclo de Estudos UFBA', text:'T.I 3: 90 minutos'},
+                    { id:'cicuf6', category:'Ciclo de Estudos UFBA', text:'Adm Pública: 60 minutos'},
+                    { id:'cicuf7', category:'Ciclo de Estudos UFBA', text:'RLM: 30 minutos'},
+                    { id:'cicuf8', category:'Ciclo de Estudos UFBA', text:'C. Esp Assistente: 30 minutos'},
+                    { id:'cicuf9', category:'Ciclo de Estudos UFBA', text:'T.I 4: 90 minutos'},
+                    { id:'cicuf10', category:'Ciclo de Estudos UFBA', text:'Redação: 30 minutos'},
+                    { id:'cicuf11', category:'Ciclo de Estudos UFBA', text:'Informática: 30 minutos'},
+                    { id:'cicuf12', category:'Ciclo de Estudos UFBA', text:'C. Esp Assistente: 30 minutos'},
+
 
     
     // 1. LÍNGUA PORTUGUESA
