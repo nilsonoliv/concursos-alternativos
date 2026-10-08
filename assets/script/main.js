@@ -49,7 +49,10 @@ if(DOM.countdownDaysFormosa) DOM.countdownDaysFormosa.innerText = initCountdownF
 if(DOM.countdownDaysFormosaValue) DOM.countdownDaysFormosaValue.innerText = initCountdownFormosa().valuePrice > 0 ? `R$${initCountdownFormosa().valuePrice.toFixed(1)} por dia` : "Chegou o dia!";
 if(DOM.countdownDaysIBGE) DOM.countdownDaysIBGE.innerText = initCountdownIBGE().valueDays > 0 ? `${initCountdownIBGE().valueDays} dias` : "Chegou o dia!";
 if(DOM.countdownDaysIBGEValue) DOM.countdownDaysIBGEValue.innerText = initCountdownIBGE().valuePrice > 0 ? `R$${initCountdownIBGE().valuePrice.toFixed(1)} por dia` : "Chegou o dia!";
-if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays(initCountdownAracas().valuePrice, initCountdownFormosa().valuePrice, initCountdownIBGE().valuePrice) > 0 ? `R$${initCountdownAllDays(initCountdownAracas().valuePrice, initCountdownFormosa().valuePrice, initCountdownIBGE().valuePrice).toFixed(1)} por dia` : "Chegou o dia!";
+if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays().valueDays > 0 ? `${initCountdownAllDays().valueDays} dias` : "Chegou o dia!";
+if(DOM.countdownDaysAllValue) DOM.countdownDaysAllValue.innerText = initCountdownAllDays().valuePrice > 0 ? `R$${initCountdownAllDays().valuePrice.toFixed(1)} por dia` : "Chegou o dia!";
+
+//if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays(initCountdownAracas().valuePrice, initCountdownFormosa().valuePrice, initCountdownIBGE().valuePrice) > 0 ? `R$${initCountdownAllDays(initCountdownAracas().valuePrice, initCountdownFormosa().valuePrice, initCountdownIBGE().valuePrice).toFixed(1)} por dia` : "Chegou o dia!";
 
 
 //************************************************************************
@@ -319,6 +322,7 @@ if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays(i
              */
             const initCountdown = () => {
                 // Substitua esta data pela data real da prova
+                //R POMBAL
                 const targetDate = new Date('2026-10-18T00:00:00'); 
                 const today = new Date();
                 today.setHours(0,0,0,0);
@@ -492,7 +496,8 @@ if(DOM.countdownDaysAll) DOM.countdownDaysAll.innerText = initCountdownAllDays(i
 initCountdownAracas();
 initCountdownFormosa();
 initCountdownIBGE();
-initCountdownAllDays(initCountdownAracas(), initCountdownFormosa(), initCountdownIBGE());
+initCountdownAllDays();
+//initCountdownAllDays(initCountdownAracas(), initCountdownFormosa(), initCountdownIBGE());
 //fimmmmmmmmmmmmmmmmmmmmmm
 
 
