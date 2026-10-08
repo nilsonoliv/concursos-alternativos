@@ -4,7 +4,7 @@
    export const initCountdownAracas = () => {
             //EPPGG-BA
                 // Substitua esta data pela data real da prova
-        const targetDate = new Date('2026-01-10T00:00:00'); 
+        const targetDate = new Date('2027-01-10T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);// essa variavel é usada para calcular a diferença de dias entre a data atual e a data da prova
         const ticketPrice = 1; // Valor da passagem de ida e volta
