@@ -2,6 +2,8 @@
 
 import { QUESTOES_PADRAO } from './modules/questions.js?v=2.1';
 
+const CHAVES_FILTROS_SIMULADO = 'creci_2026_simulado_filters';
+
 /* ==========================================================================
    BLOCO 2: MÓDULO DE DADOS (MODEL)
    ========================================================================== */
@@ -144,6 +146,39 @@ class BancoDeDados {
    estão carregados conforme o arquivo original. */
 
 class InterfaceGrafica {
+    lerFiltrosSalvos() {
+        const filtrosGuardados = localStorage.getItem(CHAVES_FILTROS_SIMULADO);
+        if (!filtrosGuardados) return null;
+
+        try {
+            const filtros = JSON.parse(filtrosGuardados);
+            if (!filtros || !Array.isArray(filtros.materias) || !Array.isArray(filtros.assuntos)
+                || !filtros.materias.every(valor => typeof valor === 'string')
+                || !filtros.assuntos.every(valor => typeof valor === 'string')) {
+                console.warn('Filtros salvos do simulado possuem formato inválido.');
+                return null;
+            }
+            return filtros;
+        } catch (erro) {
+            console.warn('Não foi possível ler os filtros salvos do simulado:', erro);
+            return null;
+        }
+    }
+
+    salvarFiltros() {
+        const chkTodosAssuntos = document.getElementById('chk-todos-assuntos');
+        if (!chkTodosAssuntos) return;
+
+        const assuntos = chkTodosAssuntos.checked
+            ? ['todos']
+            : Array.from(document.querySelectorAll('.chk-assunto:checked')).map(chk => chk.value);
+
+        localStorage.setItem(CHAVES_FILTROS_SIMULADO, JSON.stringify({
+            materias: this.obterMateriasMaradas(),
+            assuntos
+        }));
+    }
+
     navegarPara(idEcra) {
         document.querySelectorAll('.view').forEach(ecra => ecra.classList.add('hidden-view'));
         document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
@@ -303,6 +338,13 @@ class InterfaceGrafica {
     // Preenche o dropdown de matérias com base nas questões disponíveis, garantindo que apenas matérias relevantes sejam listadas.
     preencherFiltros(listaQuestoes) {
         const materiasUnicas = [...new Set(listaQuestoes.map(q => q.materia))];
+        const filtrosSalvos = this.lerFiltrosSalvos();
+        const materiasSalvas = filtrosSalvos && filtrosSalvos.materias;
+        const materiasSelecionadas = materiasSalvas
+            ? new Set(materiasSalvas.includes('todas')
+                ? materiasUnicas
+                : materiasSalvas.filter(materia => materiasUnicas.includes(materia)))
+            : new Set(materiasUnicas);
         
         // Pega a nova div que foi adicionada para adicionar checkboxes e selecionar mais de uma matéria
         const containerMaterias = document.getElementById('caixa-materias');    
@@ -310,7 +352,7 @@ class InterfaceGrafica {
         
         // Adiciona a opção de selecionar todas as matérias
         containerMaterias.innerHTML = `<label style="display: block; font-weight: bold; margin-bottom: 8px; cursor: pointer;">
-        <input type="checkbox" id="chk-todas-materias" value="todas" checked>
+        <input type="checkbox" id="chk-todas-materias" value="todas">
         Selecionar Todas
         </label>
         <hr style="margin-bottom: 8px;">`;
@@ -319,7 +361,7 @@ class InterfaceGrafica {
         materiasUnicas.forEach(m => {
             containerMaterias.innerHTML += `
             <label style="display: block; margin-bottom: 5px; margin-left: 10px; cursor: pointer;">
-                        <input type="checkbox" class="chk-materia" value="${m}" checked>
+                        <input type="checkbox" class="chk-materia" value="${m}" ${materiasSelecionadas.has(m) ? 'checked' : ''}>
                         ${m}
                     </label>
             `;
@@ -331,6 +373,7 @@ class InterfaceGrafica {
         const dropdownTitle = document.getElementById('dropdown-title-materia');
         const dropdownHeader = document.getElementById('dropdown-header-materia');
         const caixaMaterias = document.getElementById('caixa-materias');
+        chkTodos.checked = materiasUnicas.length > 0 && materiasUnicas.every(materia => materiasSelecionadas.has(materia));
 
         // 1. Função para atualizar o texto do falso select
         const atualizarTitulo = () => {
@@ -348,6 +391,7 @@ class InterfaceGrafica {
         chkTodos.addEventListener('change', (e) => {
             chksIndividuais.forEach(chk => chk.checked = e.target.checked);
             atualizarTitulo();
+            this.salvarFiltros();
             // Atualiza os assuntos disponíveis quando matérias mudam
             this.atualizarAssuntos(listaQuestoes, this.obterMateriasMaradas());
         });
@@ -358,6 +402,7 @@ class InterfaceGrafica {
                 const todosMarcados = Array.from(chksIndividuais).every(c => c.checked);
                 if (todosMarcados) chkTodos.checked = true;
                 atualizarTitulo();
+                this.salvarFiltros();
                 // Atualiza os assuntos disponíveis quando matérias mudam
                 this.atualizarAssuntos(listaQuestoes, this.obterMateriasMaradas());
             });
@@ -401,6 +446,14 @@ class InterfaceGrafica {
             assuntosValidos = [...new Set(listaQuestoes.filter(q => materiasArray.includes(q.materia)).map(q => q.assunto))];
         };
 
+        const filtrosSalvos = this.lerFiltrosSalvos();
+        const assuntosSalvos = filtrosSalvos && filtrosSalvos.assuntos;
+        const assuntosSelecionados = assuntosSalvos
+            ? new Set(assuntosSalvos.includes('todos')
+                ? assuntosValidos
+                : assuntosSalvos.filter(assunto => assuntosValidos.includes(assunto)))
+            : new Set(assuntosValidos);
+
         
         //Pega a nova div que foi adicionada para adicionar checkboxes e selecionar mais de um assunto 
         const containerAssuntos = document.getElementById('caixa-assuntos');    
@@ -408,7 +461,7 @@ class InterfaceGrafica {
         
         //Adiciona a opção de selecionar todos os assuntos
         containerAssuntos.innerHTML = `<label style="display: block; font-weight: bold; margin-bottom: 8px; cursor: pointer;">
-        <input type="checkbox" id="chk-todos-assuntos" value="todos" checked>
+        <input type="checkbox" id="chk-todos-assuntos" value="todos">
         Selecionar Todos
         </label>
         <hr style="margin-bottom: 8px;">`;
@@ -416,7 +469,7 @@ class InterfaceGrafica {
         assuntosValidos.forEach(a => {
         containerAssuntos.innerHTML += `
         <label style="display: block; margin-bottom: 5px; margin-left: 10px; cursor: pointer;">
-                    <input type="checkbox" class="chk-assunto" value="${a}" checked>
+                    <input type="checkbox" class="chk-assunto" value="${a}" ${assuntosSelecionados.has(a) ? 'checked' : ''}>
                     ${a}
                 </label>
         `;
@@ -427,6 +480,7 @@ class InterfaceGrafica {
         const dropdownTitle = document.getElementById('dropdown-title-assunto');
         const dropdownHeader = document.getElementById('dropdown-header-assunto');
         const caixaAssuntos = document.getElementById('caixa-assuntos');
+        chkTodos.checked = assuntosValidos.length > 0 && assuntosValidos.every(assunto => assuntosSelecionados.has(assunto));
 
         // 1. Função para atualizar o texto do falso select
         const atualizarTitulo = () => {
@@ -444,6 +498,7 @@ class InterfaceGrafica {
         chkTodos.addEventListener('change', (e) => {
             chksIndividuais.forEach(chk => chk.checked = e.target.checked);
             atualizarTitulo();
+            this.salvarFiltros();
         });
 
         chksIndividuais.forEach(chk => {
@@ -452,10 +507,12 @@ class InterfaceGrafica {
                 const todosMarcados = Array.from(chksIndividuais).every(c => c.checked);
                 if (todosMarcados) chkTodos.checked = true;
                 atualizarTitulo();
+                this.salvarFiltros();
             });
         });
 
         atualizarTitulo(); // Configura o texto inicial
+        this.salvarFiltros();
 
         // 3. Lógica de abrir e fechar a caixa suspensa (Dropdown)
         dropdownHeader.onclick = (e) => {
@@ -909,7 +966,8 @@ class AppGestor {
         } else if (dest === 'view-simulado') {
             ['simulado-setup', 'simulado-runner', 'simulado-fim'].forEach(f => document.getElementById(f).classList.add('hidden-view'));
             document.getElementById('simulado-setup').classList.remove('hidden-view');
-            this.ui.preencherFiltros(this.bd.questoes); this.ui.atualizarAssuntos(this.bd.questoes, 'todas');
+            this.ui.preencherFiltros(this.bd.questoes);
+            this.ui.atualizarAssuntos(this.bd.questoes, this.ui.obterMateriasMaradas());
         }
 
     

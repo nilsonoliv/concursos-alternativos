@@ -492,7 +492,7 @@ export const state = {
                     { id:'esp13', category:'Legislação Específica', text:'🟡 - Merendeira. Lei n.º 304/2021 (Concede revisão geral anual da remuneração dos servidores efetivos da Prefeitura Municipal de Araçás-BA )' },
                     { id:'esp14', category:'Legislação Específica', text:'🟡 - Merendeira. Lei n.º 353/ 2025 (Altera a Lei n.º 304/2021).' },*/
 
-                      /*// Saúde Pública                                    Noções de educação em saúde e comunicação com a comunidade.   
+                      // Saúde Pública                                    Noções de educação em saúde e comunicação com a comunidade.   
                     { id:'cef1', category:'Saúde Pública', text:'🟡  - Noções de vigilância sanitária municipal: conceito, competências do Município (Lei nº 9.782/1999 - ANVISA, noções gerais).' },
                     { id:'cef2', category:'Saúde Pública', text:'🔥  - Diretrizes Nacionais para prevenção e controle de epidemias da Dengue.' },
                     { id:'cef3', category:'Saúde Pública', text:'🔥  - Noções de saneamento básico: abastecimento de água, esgotamento sanitário, resíduos sólidos e controle de vetores.' },
@@ -543,7 +543,7 @@ export const state = {
                     { id:'cef48', category:'Saúde Pública', text:'🔥 - Noções Básicas de Epidemiologia:  Controle de agravos.' },
                     { id:'cef49', category:'Saúde Pública', text:'🔥 - Vigilância em Saúde da Raiva Humana, Leishmaniose e Febre Amarela.' },
                     { id:'cef50', category:'Saúde Pública', text:'🔥 - Vigilância em Saúde da Chikungunya, Dengue e Zika.' },
-                  */
+                  
                       /*// 3. MATEMÁTICA BÁSICA
                     { id:'mB1', category:'Matemática Básica', text:'🔥 - Razão, proporção, porcentagem e regra de três (simples e composta).' },
                     { id:'mB2', category:'Matemática Básica', text:'🔥 - Análise de Dados: Estatística básica (média, moda, mediana) e Interpretação de gráficos e tabelas.' },
