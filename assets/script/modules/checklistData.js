@@ -288,7 +288,7 @@ export const state = {
     { id:'M4ti26', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Gerenciamento de projetos de TI: gestão de portfólio e programas.' },
     { id:'M4ti27', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Gerenciamento de projetos de TI: indicadores de desempenho.' },
     { id:'M4ti28', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: contratação de soluções de tecnologia da informação na administração pública; Lei nº 14.133/2021.' },
-    { id:'M4ti29', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: Instrução Normativa SGD/ME nº 94/2022 e alterações.' },
+    { id:'M4ti29', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: Instrução Normativa SGD/ME nº 94/2022 e alterações, à luz da Lei nº 14.133, de 1º de abril de 2021.' },
     { id:'M4ti30', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: plano diretor de tecnologia da informação e comunicação (PDTIC).' },
     { id:'M4ti31', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: planejamento da contratação; estudo técnico preliminar; termo de referência; gestão e fiscalização contratual.' },
     { id:'M4ti32', category:'Materia T.I n4', text:'🟡 - Nível 2 - UFBA - Contratação de soluções de TI e legislação aplicada: gestão de riscos nas contratações; acordos de nível de serviço.' },
