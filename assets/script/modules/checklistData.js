@@ -10,17 +10,13 @@ export const state = {
                 checklistData: [
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
-                    { id:'di1', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
                     { id:'di3', category:'Ciclo de Estudos', text:'Matemática'},// 2
                     { id:'di4', category:'Ciclo de Estudos', text:'Simulado Google'},// 3
                     { id:'di6', category:'Ciclo de Estudos', text:'Simulado da Apk'},// 6
-                    { id:'di7', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
                     { id:'di9', category:'Ciclo de Estudos', text:'Simulado Apk'},// 2
                     { id:'di11', category:'Ciclo de Estudos', text:'Simulado R Pombal'},// 6
-                    { id:'di12', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
                     { id:'di15', category:'Ciclo de Estudos', text:'Simulado R Pombal'},// 6
                     { id:'di18', category:'Ciclo de Estudos', text:'Simulado da Apk'},// 6
-                    { id:'di19', category:'Ciclo de Estudos', text:'C. Saúde Pub'},//  <--------//  <--------
                     { id:'di23', category:'Ciclo de Estudos', text:'Simulado Apk'},// 4
                     { id:'di24', category:'Ciclo de Estudos', text:'Simulado R Pombal'},// 5
 
@@ -37,6 +33,7 @@ export const state = {
                     { id:'cicuf10', category:'Ciclo de Estudos UFBA', text:'Redação: 30 minutos'},
                     { id:'cicuf11', category:'Ciclo de Estudos UFBA', text:'Informática: 30 minutos'},
                     { id:'cicuf12', category:'Ciclo de Estudos UFBA', text:'C. Esp Assistente: 30 minutos'},
+                    { id:'cicuf13', category:'Ciclo de Estudos UFBA', text:'C. Saúde Pub: 20 minutos'},//  <--------//  <--------
 
 
     
