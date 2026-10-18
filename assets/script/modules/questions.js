@@ -9,6 +9,8 @@ import { pack7 } from './modules-questions/pack7.js';
 import { pack8 } from './modules-questions/pack8.js';
 import { pack9 } from './modules-questions/pack9.js';
 import { pack10 } from './modules-questions/pack10.js';
+import { pack11 } from './modules-questions/pack11.js';
+import { pack12 } from './modules-questions/pack12.js';
 
 /* ==========================================================================
    BLOCO 1: DADOS DE ORIGEM (MOCK DATA)
@@ -24,7 +26,9 @@ import { pack10 } from './modules-questions/pack10.js';
 ...pack7,
 ...pack8,
 ...pack9,
-...pack10
+...pack10,
+...pack11,
+...pack12
 ];
 
 
