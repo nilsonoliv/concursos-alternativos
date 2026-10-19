@@ -20,9 +20,9 @@
         
     };
   export const initCountdownFormosa = () => {
-        //Bonito
+        //Firmino Alves
         // Substitua esta data pela data real da prova
-        const targetDate = new Date('2027-01-17T00:00:00'); 
+        const targetDate = new Date('2027-01-24T00:00:00'); 
         const today = new Date();
         today.setHours(0,0,0,0);
         const ticketPrice = 195; // Valor da passagem de ida e volta
