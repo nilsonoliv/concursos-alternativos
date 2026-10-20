@@ -684,8 +684,7 @@ class MotorSimulado {
         let inf = cand.filter(q => q.materia === "Informática").slice(0, 5);
         let mt = cand.filter(q => q.materia === "Matemática").slice(0, 2);
         let rlm = cand.filter(q => q.materia === "Raciocínio Lógico").slice(0, 3);
-        let cg = cand.filter(q => q.categoria === "Conhecimentos Gerais").slice(0, 10);
-        this.fila = [...pt, ...inf, ...mt, ...rlm, ...cg];
+                this.fila = [...pt, ...inf, ...mt, ...rlm];
         if (this.fila.length === 0) { await this.ui.mostrarAviso("Erro na geração da prova."); return; }
         this.fila.sort(() => Math.random() - 0.5); this.indiceAtual = 0;
     }
