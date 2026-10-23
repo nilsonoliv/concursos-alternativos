@@ -318,7 +318,7 @@ if(DOM.countdownDaysAllValue) DOM.countdownDaysAllValue.innerText = initCountdow
             const initCountdown = () => {
                 // Substitua esta data pela data real da prova
                 //Rio Real
-                const targetDate = new Date('2026-11-29T00:00:00'); 
+                const targetDate = new Date('2026-12-06T00:00:00'); 
                 const today = new Date();
                 today.setHours(0,0,0,0);
                 
