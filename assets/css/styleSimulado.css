@@ -134,6 +134,10 @@ img {
     border-radius: var(--radius-md); 
 }
 
+.nav-select {
+    display: none;
+}
+
 .nav-btn { 
     padding: 6px 16px; 
     border-radius: 4px; 
@@ -151,6 +155,35 @@ img {
 .nav-btn.active { 
     background-color: var(--color-primary); 
     color: white; 
+}
+
+@media (max-width: 1024px) {
+    .header-content {
+        display: flex;
+        gap: 28px;
+    }
+    
+    .nav-btn {
+        display: none;
+    }
+
+    .nav-select {
+        display: block;
+        min-width: 160px;
+        padding: 8px 32px 8px 12px;
+        border: 0;
+        border-radius: 4px;
+        color: var(--text-light);
+        background-color: var(--bg-header-nav);
+        font: inherit;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    .nav-select option {
+        color: var(--text-main);
+        background-color: var(--bg-surface);
+    }
 }
 
 /* ==========================================================================
@@ -382,11 +415,11 @@ img {
 }
 .form-materia-container{
     position: relative;
-    z-index: 1;
+    /*z-index: 1;*/
 }
 .form-assunto-container{
     position: relative;
-    z-index: 2;
+    /*z-index: 2;*/
 }
 .form-img-assunto{
     width: 9px; 

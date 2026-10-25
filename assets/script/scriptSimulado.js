@@ -185,6 +185,8 @@ class InterfaceGrafica {
         document.getElementById(idEcra).classList.remove('hidden-view');
         const botaoMenu = document.querySelector(`[data-target="${idEcra}"]`);
         if (botaoMenu) botaoMenu.classList.add('active');
+        const menuSuspenso = document.getElementById('nav-select');
+        if (menuSuspenso) menuSuspenso.value = idEcra;
     }
     // Exibe um modal customizado para avisos e confirmações, retornando uma Promise que resolve com a resposta do usuário.
     async mostrarAviso(mensagem, titulo = "Aviso", tipo = "alert", explicacao = null) {
@@ -835,6 +837,7 @@ class AppGestor {
 
     configurarOuvintes() { // Configura os ouvintes de eventos para os botões e interações da interface
         document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', (e) => this.mudarEcra(e.target.dataset.target)));// Navegação entre telas
+        document.getElementById('nav-select').addEventListener('change', (e) => this.mudarEcra(e.target.value));
         document.querySelectorAll('.setup-card').forEach(c => c.addEventListener('click', (e) => {
             document.querySelectorAll('.setup-card').forEach(x => x.classList.remove('active'));
             e.currentTarget.classList.add('active');

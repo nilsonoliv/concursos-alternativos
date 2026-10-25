@@ -96,6 +96,17 @@ if(DOM.countdownDaysAllValue) DOM.countdownDaysAllValue.innerText = initCountdow
                 }
             };
 
+            const handleCategoryReset = (e) => {
+                const button = e.target.closest('.btn-clear-category');
+                if (!button) return;
+
+                const category = button.closest('.checklist-category');
+                category.querySelectorAll('input[type="checkbox"]').forEach(item => {
+                    localStorage.removeItem(item.id);
+                });
+                renderChecklist();
+            };
+
             /**
              * Desenha (renderiza) o checklist na tela, respeitando os itens concluídos e a ordem
              */
@@ -108,7 +119,7 @@ if(DOM.countdownDaysAllValue) DOM.countdownDaysAllValue.innerText = initCountdow
                 
                 // Para cada categoria, cria o HTML na tela
                 for (const category in groupedData) {
-                    let html = `<div class="checklist-category"><h3 class="checklist-category-title">${category}</h3><div class="space-y-1">`;
+                    let html = `<div class="checklist-category"><h3 class="checklist-category-title">${category}<button type="button" class="btn-clear-category" aria-label="Desmarcar todos os itens de ${category}">Desmarcar</button></h3><div class="space-y-1">`;
                     
                     // LÓGICA DE REORDENAÇÃO:
                     // Vamos ordenar os itens dessa categoria: os que não estão marcados ficam em cima.
@@ -414,6 +425,7 @@ if(DOM.countdownDaysAllValue) DOM.countdownDaysAllValue.innerText = initCountdow
                 // Botões do Checklist
                 DOM.btnResetChecklist.addEventListener('click', resetChecklist);
                 DOM.checklistContainer.addEventListener('change', handleCheckToggle);
+                DOM.checklistContainer.addEventListener('click', handleCategoryReset);
                 
                 // Fases
                 DOM.phaseCheckboxes.forEach(chk => chk.addEventListener('change', handlePhaseToggle));
