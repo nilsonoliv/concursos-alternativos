@@ -11,8 +11,10 @@ export const state = {
 
                     // Itens de checklist, para ajudar o ususario a organizar os dias que já foram ou não estudados
                     { id:'di3', category:'Ciclo de Estudos', text:'C.Saúde'},// 2
+                    { id:'di7', category:'Ciclo de Estudos', text:'Matemática'},// 6
                     { id:'di4', category:'Ciclo de Estudos', text:'Para quando estiver a 20 dias da prova - Conhecimentos Locais'},// 3
                     { id:'di5', category:'Ciclo de Estudos', text:'C.Saúde'},// 2
+                    { id:'di8', category:'Ciclo de Estudos', text:'Matemática'},// 6
                     { id:'di6', category:'Ciclo de Estudos', text:'Para quando estiver a 20 dias da prova - Conhecimentos Gerais'},// 6
                     
                     // Ciclo de estudos para a UFBA
