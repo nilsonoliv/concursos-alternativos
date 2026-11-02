@@ -413,7 +413,29 @@ export const state = {
     { id:'sp21', category:'Saúde Pública', text:'🔥 - .' },
     { id:'sp22', category:'Saúde Pública', text:'🔥 - .' },
 
-
+      
+      // 3. MATEMÁTICA BÁSICA 
+    { id:'mB1', category:'Matemática Básica', text:'🔥 - Razão, proporção, porcentagem e regra de três (simples e composta).' },
+    { id:'mB2', category:'Matemática Básica', text:'🔥 - Análise de Dados: Estatística básica (média, moda, mediana) e Interpretação de gráficos e tabelas.' },
+    { id:'mB3', category:'Matemática Básica', text:'🟡 - Conjuntos Numéricos: Números inteiros: operações fundamentais e propriedades.' },
+    { id:'mB4', category:'Matemática Básica', text:'🟡 - Números racionais: representação fracionária e decimal, operações e propriedades.' },
+    { id:'mB5', category:'Matemática Básica', text:'🟡 - Números reais: operações, propriedades e representação na reta numérica.' },
+    { id:'mB6', category:'Matemática Básica', text:'🟡 - Múltiplos e divisores de um número.' },
+    { id:'mB7', category:'Matemática Básica', text:'🟡 - Máximo Divisor Comum (MDC) e Mínimo Múltiplo Comum (MMC): conceitos, propriedades e aplicações em problemas.' },
+    { id:'mB8', category:'Matemática Básica', text:'🟡 - Álgebra: Expressões algébricas e frações algébricas.' },
+    { id:'mB9', category:'Matemática Básica', text:'🟡 - Monômios e polinômios: operações e propriedades. ' },
+    { id:'mB10', category:'Matemática Básica', text:'🟡 - Produtos notáveis e técnicas de fatoração.' },
+    { id:'mB11', category:'Matemática Básica', text:'🟡 - Inequações do 1º e do 2º graus.' },
+    { id:'mB12', category:'Matemática Básica', text:'🟡 - Sistemas de equações do 1º e do 2º graus.' },
+    { id:'mB13', category:'Matemática Básica', text:'🟡 - Resolução de problemas envolvendo equações, inequações e sistemas.' },
+    { id:'mB14', category:'Matemática Básica', text:'🟡 - Princípios de contagem (arranjos, combinações, permutações).' },
+    { id:'mB15', category:'Matemática Básica', text:'🟡 - Noções de probabilidade.' },
+    { id:'mB16', category:'Matemática Básica', text:'🟡 - Juros simples e compostos.' },
+    { id:'mB17', category:'Matemática Básica', text:'🟡 - Diagramas lógicos.' },
+    { id:'mB18', category:'Matemática Básica', text:'❄️ - Operações com conjuntos numéricos.' },
+    { id:'mB19', category:'Matemática Básica', text:'❄️ - Descontos e taxas (Mat. Financeira).' },
+    { id:'mB20', category:'Matemática Básica', text:'❄️ - Funções e equações (1º e 2º graus).' },
+    { id:'mB21', category:'Matemática Básica', text:'❄️ - Conjuntos Numéricos: Números Naturais .' },
 
 
                 
@@ -512,29 +534,7 @@ export const state = {
                     { id:'esp13', category:'Legislação Específica', text:'🟡 - Merendeira. Lei n.º 304/2021 (Concede revisão geral anual da remuneração dos servidores efetivos da Prefeitura Municipal de Araçás-BA )' },
                     { id:'esp14', category:'Legislação Específica', text:'🟡 - Merendeira. Lei n.º 353/ 2025 (Altera a Lei n.º 304/2021).' },*/
 
-                    
-                      /*// 3. MATEMÁTICA BÁSICA
-                    { id:'mB1', category:'Matemática Básica', text:'🔥 - Razão, proporção, porcentagem e regra de três (simples e composta).' },
-                    { id:'mB2', category:'Matemática Básica', text:'🔥 - Análise de Dados: Estatística básica (média, moda, mediana) e Interpretação de gráficos e tabelas.' },
-                    { id:'mB3', category:'Matemática Básica', text:'🟡 - Conjuntos Numéricos: Números inteiros: operações fundamentais e propriedades.' },
-                    { id:'mB4', category:'Matemática Básica', text:'🟡 - Números racionais: representação fracionária e decimal, operações e propriedades.' },
-                    { id:'mB5', category:'Matemática Básica', text:'🟡 - Números reais: operações, propriedades e representação na reta numérica.' },
-                    { id:'mB6', category:'Matemática Básica', text:'🟡 - Múltiplos e divisores de um número.' },
-                    { id:'mB7', category:'Matemática Básica', text:'🟡 - Máximo Divisor Comum (MDC) e Mínimo Múltiplo Comum (MMC): conceitos, propriedades e aplicações em problemas.' },
-                    { id:'mB8', category:'Matemática Básica', text:'🟡 - Álgebra: Expressões algébricas e frações algébricas.' },
-                    { id:'mB9', category:'Matemática Básica', text:'🟡 - Monômios e polinômios: operações e propriedades. ' },
-                    { id:'mB10', category:'Matemática Básica', text:'🟡 - Produtos notáveis e técnicas de fatoração.' },
-                    { id:'mB11', category:'Matemática Básica', text:'🟡 - Inequações do 1º e do 2º graus.' },
-                    { id:'mB12', category:'Matemática Básica', text:'🟡 - Sistemas de equações do 1º e do 2º graus.' },
-                    { id:'mB13', category:'Matemática Básica', text:'🟡 - Resolução de problemas envolvendo equações, inequações e sistemas.' },
-                    { id:'mB14', category:'Matemática Básica', text:'🟡 - Princípios de contagem (arranjos, combinações, permutações).' },
-                    { id:'mB15', category:'Matemática Básica', text:'🟡 - Noções de probabilidade.' },
-                    { id:'mB16', category:'Matemática Básica', text:'🟡 - Juros simples e compostos.' },
-                    { id:'mB17', category:'Matemática Básica', text:'🟡 - Diagramas lógicos.' },
-                    { id:'mB18', category:'Matemática Básica', text:'❄️ - Operações com conjuntos numéricos.' },
-                    { id:'mB19', category:'Matemática Básica', text:'❄️ - Descontos e taxas (Mat. Financeira).' },
-                    { id:'mB20', category:'Matemática Básica', text:'❄️ - Funções e equações (1º e 2º graus).' },
-                    { id:'mB21', category:'Matemática Básica', text:'❄️ - Conjuntos Numéricos: Números Naturais .' },*/
+                  
              /*  // 8. TECNOLOGIA DA INFORMAÇÃO
                     { id:'ti182', category:'Tecnologia da Informação', text:'❄️ - Governança e valor público: Transparência administrativa.' },
                     { id:'ti183', category:'Tecnologia da Informação', text:'❄️ - Governança e valor público: Inovação no setor público.' },
