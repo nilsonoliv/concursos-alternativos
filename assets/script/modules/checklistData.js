@@ -21,6 +21,7 @@ export const state = {
                     { id:'cicuf1', category:'Ciclo de Estudos UFBA', text:'T.I 1: 60 minutos'},
                     { id:'cicuf2', category:'Ciclo de Estudos UFBA', text:'Português: 30 minutos'},
                     { id:'cicuf3', category:'Ciclo de Estudos UFBA', text:'T.I 2: 60 minutos'},
+                    { id:'cicuf13', category:'Ciclo de Estudos UFBA', text:'C. Esp Assistente: 90 minutos'},
                     { id:'cicuf4', category:'Ciclo de Estudos UFBA', text:'Redação: 30 minutos'},
                     { id:'cicuf5', category:'Ciclo de Estudos UFBA', text:'T.I 3: 60 minutos'},
                     { id:'cicuf6', category:'Ciclo de Estudos UFBA', text:'Adm Pública: 60 minutos'},
