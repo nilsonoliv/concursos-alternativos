@@ -19,18 +19,22 @@ export const state = {
                     
                     // Ciclo de estudos para a UFBA
                     { id:'cicuf1', category:'Ciclo de Estudos UFBA', text:'T.I 1: 40 minutos'},
-                    { id:'cicuf2', category:'Ciclo de Estudos UFBA', text:'Português: 30 minutos'},
+                    { id:'cicuf2', category:'Ciclo de Estudos UFBA', text:'Português: 40 minutos'},
                     { id:'cicuf3', category:'Ciclo de Estudos UFBA', text:'T.I 2: 40 minutos'},
+                    { id:'cicuf14', category:'Ciclo de Estudos UFBA', text:'Meta: 3 matérias por dia'},
                     { id:'cicuf13', category:'Ciclo de Estudos UFBA', text:'C. Esp Assistente: 90 minutos'},
-                    { id:'cicuf4', category:'Ciclo de Estudos UFBA', text:'Redação: 30 minutos'},
+                    { id:'cicuf4', category:'Ciclo de Estudos UFBA', text:'Redação: 40 minutos'},
                     { id:'cicuf5', category:'Ciclo de Estudos UFBA', text:'T.I 3: 40 minutos'},
+                    { id:'cicuf15', category:'Ciclo de Estudos UFBA', text:'Meta: 3 matérias por dia'},
                     { id:'cicuf6', category:'Ciclo de Estudos UFBA', text:'Adm Pública: 60 minutos'},
-                    { id:'cicuf7', category:'Ciclo de Estudos UFBA', text:'RLM: 30 minutos'},
+                    { id:'cicuf7', category:'Ciclo de Estudos UFBA', text:'RLM: 40 minutos'},
                     { id:'cicuf8', category:'Ciclo de Estudos UFBA', text:'C. Esp Assistente: 90 minutos'},
+                    { id:'cicuf16', category:'Ciclo de Estudos UFBA', text:'Meta: 3 matérias por dia'},
                     { id:'cicuf9', category:'Ciclo de Estudos UFBA', text:'T.I 4: 40 minutos'},
-                    { id:'cicuf10', category:'Ciclo de Estudos UFBA', text:'Redação: 30 minutos'},
-                    { id:'cicuf11', category:'Ciclo de Estudos UFBA', text:'Informática: 30 minutos'},
-                    { id:'cicuf12', category:'Ciclo de Estudos UFBA', text:'C. Esp Assistente: 90 minutos'},
+                    { id:'cicuf10', category:'Ciclo de Estudos UFBA', text:'Redação: 40 minutos'},
+                    { id:'cicuf11', category:'Ciclo de Estudos UFBA', text:'Informática: 40 minutos'},
+                    { id:'cicuf17', category:'Ciclo de Estudos UFBA', text:'Meta: 3 matérias por dia'},
+                    { id:'cicuf12', category:'Ciclo de Estudos UFBA', text:'C. Esp Assistente: 120 minutos + questões: 30 minutos'},
 
 
     
