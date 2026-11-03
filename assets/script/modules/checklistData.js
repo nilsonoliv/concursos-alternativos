@@ -26,7 +26,7 @@ export const state = {
                     { id:'cicuf4', category:'Ciclo de Estudos UFBA', text:'Redação: 40 minutos'},
                     { id:'cicuf5', category:'Ciclo de Estudos UFBA', text:'T.I 3: 30 minutos'},
                     { id:'cicuf15', category:'Ciclo de Estudos UFBA', text:'Meta: 3 matérias por dia'},////////////
-                    { id:'cicuf6', category:'Ciclo de Estudos UFBA', text:'Adm Pública: 60 minutos'},
+                    { id:'cicuf6', category:'Ciclo de Estudos UFBA', text:'Adm Pública: 90 minutos'},
                     { id:'cicuf7', category:'Ciclo de Estudos UFBA', text:'RLM: 40 minutos'},
                     { id:'cicuf8', category:'Ciclo de Estudos UFBA', text:'C. Esp Assistente: 90 minutos'},//ok
                     { id:'cicuf16', category:'Ciclo de Estudos UFBA', text:'Meta: 3 matérias por dia'},////////////
