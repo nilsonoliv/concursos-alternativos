@@ -305,7 +305,3 @@ export const pack9 = [
 
 ]
 
-/*
-
-
-*/
